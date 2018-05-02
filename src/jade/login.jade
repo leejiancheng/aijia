@@ -4,36 +4,37 @@ block head
 	link(rel="stylesheet", href="./static/css/index.css")
 
 block content
-	.logRegPage
-		.outregBox
+	.signPage
+		img.imgBg(src="./static/img/bg1.png")
+		.signTopBar
 			.backToIndex
-				a(href="javascript:void(0);") 返回首页
+				a(href="./index.html") 返回首页
 			.goReg
 				| 没有账户？
-				a(href="javascript:void(0);") 去注册
-		.wrap
-			.loginLogo
+				a(href="./register.html") 去注册
+		.signWrap
+			.signLogo
 				a.logoHref(href="javascript:void(0);")
-			.loginBox
-				ul.loginUl
+			.signBox
+				ul.signUl
 					// 手机号/账户名/邮箱
-					li.loginLi
-						input.loginInput(type="text", placeholder="手机号/账户名/邮箱")
-					li.loginTip
-						span.loginTipText 您还没有输入账户名
+					li.signLi
+						input.signInput(type="text", placeholder="手机号/账户名/邮箱")
+					li.signTip
+						span.signTipText 您还没有输入账户名
 
 					// 密码
-					li.loginLi
-						input.loginInput(type="text", placeholder="密码")
-					li.loginTip
-						span.loginTipText 您还没有输入密码
+					li.signLi
+						input.signInput(type="text", placeholder="密码")
+					li.signTip
+						span.signTipText 您还没有输入密码
 
 					// 自动登录
-					li.loginLi
-						input.loginChecbox(type="checkbox")
-						label.loginLable 下载自动登录 
+					li.signLi.signAutoLoginLi
+						input.signChecbox(type="checkbox", id="autoLogin")
+						label.signLable(for="autoLogin") 下载自动登录 
 
 					// 登录按钮
-					li.loginLi
-						.loginButtonBox
-							button.loginButton(type="button") 登录
+					li.signLi.signLoginButtonLi
+						.signButtonBox
+							button.signButton(type="button") 登录

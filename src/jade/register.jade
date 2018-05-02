@@ -4,55 +4,55 @@ block head
 	link(rel="stylesheet", href="./static/css/index.css")
 
 block content
-	.logRegPage
+	.signPage
 		img.imgBg(src="./static/img/bg1.png")
-		.outregBox
+		.signTopBar
 			.backToIndex
-				a(href="javascript:void(0);") 返回首页
+				a(href="./index.html") 返回首页
 			.goLogin
 				| 已有账户？
-				a(href="javascript:void(0);") 去登陆
-		.wrap
-			.regLogo
+				a(href="./login.html") 去登录
+		.signWrap
+			.signLogo
 				a.logoHref(href="javascript:void(0);")
-			.regBox
-				ul.regUl
+			.signBox
+				ul.signUl
 					// 手机号
-					li.regLi.regLiFocus
-						input.regInput(type="text", placeholder="手机号")
-						button.regGetcodeBtn(type="button") 获取动态码
-					li.regTip
-						span.regTipText 请点击获取验证码按钮
+					li.signLi.signLiFocus
+						input.signInput(type="text", placeholder="手机号")
+						button.signGetcodeBtn(type="button") 获取动态码
+					li.signTip
+						span.signTipText 请点击获取验证码按钮
 
 					// 短信验证码
-					li.regLi
-						input.regInput(type="text", placeholder="动态码")
-					li.regTip
-						span.regTipText 请填写正确的手机动态码 （该手机号已注册）
+					li.signLi
+						input.signInput(type="text", placeholder="动态码")
+					li.signTip
+						span.signTipText 请填写正确的手机动态码 （该手机号已注册）
 
 					// 用户名
-					li.regLi
-						input.regInput(type="text", placeholder="用户名")
-					li.regTip
-						span.regTipText
+					li.signLi
+						input.signInput(type="text", placeholder="用户名")
+					li.signTip
+						span.signTipText
 					
 					// 设置密码
-					li.regLi
-						input.regInput(type="text", placeholder="设置密码")
-					li.regTip
-						span.regTipText
+					li.signLi
+						input.signInput(type="text", placeholder="设置密码")
+					li.signTip
+						span.signTipText
 					
 					// 确认密码
-					li.regLi
-						input.regInput(type="text", placeholder="确认密码")
-					li.regTip
-						span.regTipText
+					li.signLi
+						input.signInput(type="text", placeholder="确认密码")
+					li.signTip
+						span.signTipText
 					
 					// 注册按钮
-					li.regLi.regButtonLi
-						.regAgreeBox
-							input(type="checkbox", checked="checked")
-							span 我已阅读并同意《58同城使用协议》&《隐私权条款》
-						.regButtonBox
-							button.regButton(type="button") 注册
+					li.signLi.signRegButtonLi
+						.signAgreeBox
+							input.signCheckbox(type="checkbox", checked="checked", id="agreeCheckbox")
+							label.signLable(for="agreeCheckbox") 我已阅读并同意《58同城使用协议》&《隐私权条款》
+						.signButtonBox
+							button.signButton(type="button") 注册
 							

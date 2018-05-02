@@ -15,13 +15,13 @@ const reload = browserSync.reload;
 
 
 const pathConfig = {
-	"dist": "./dist",
-	"sass": "./src/sass",
-	"css": "./src/css",
-	"jade": "./src/jade",
-	"html": "./src/html",
-	"img": "./src/img",
-	"fonts": "./src/fonts"
+	"dist": 		"./dist",
+	"sass": 		"./src/sass",
+	"css": 			"./src/css",
+	"jade": 		"./src/jade",
+	"html": 		"./src/html",
+	"img": 			"./src/img",
+	"fonts": 		"./src/fonts"
 };
 
 // SASS任务
@@ -124,7 +124,7 @@ gulp.task("server", function () {
 		files: ["**"],
 		server: {
 			baseDir: "dist",						// 设置服务器的根目录
-			index: "register.html"						// 指定默认打开的文件
+			index: "login.html"						// 指定默认打开的文件
 		},
 		port: 3000,									// 指定访问服务器的端口号
 		injectChanges: true							// 注入CSS改变

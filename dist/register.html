@@ -5,66 +5,66 @@
     <link rel="stylesheet" href="./static/css/index.css">
 </head>
 <body>
-    <div class="logRegPage">
+    <div class="signPage">
         <img src="./static/img/bg1.png" class="imgBg">
-        <div class="outregBox">
+        <div class="signTopBar">
             <div class="backToIndex">
-                <a href="javascript:void(0);">返回首页</a>
+                <a href="./index.html">返回首页</a>
             </div>
             <div class="goLogin">已有账户？
-                <a href="javascript:void(0);">去登陆</a>
+                <a href="./login.html">去登录</a>
             </div>
         </div>
-        <div class="wrap">
-            <div class="regLogo">
+        <div class="signWrap">
+            <div class="signLogo">
                 <a href="javascript:void(0);" class="logoHref"></a>
             </div>
-            <div class="regBox">
-                <ul class="regUl">
+            <div class="signBox">
+                <ul class="signUl">
                     <!-- 手机号-->
-                    <li class="regLi regLiFocus">
-                        <input type="text" placeholder="手机号" class="regInput">
-                        <button type="button" class="regGetcodeBtn">获取动态码</button>
+                    <li class="signLi signLiFocus">
+                        <input type="text" placeholder="手机号" class="signInput">
+                        <button type="button" class="signGetcodeBtn">获取动态码</button>
                     </li>
-                    <li class="regTip">
-                        <span class="regTipText">请点击获取验证码按钮</span>
+                    <li class="signTip">
+                        <span class="signTipText">请点击获取验证码按钮</span>
                     </li>
                     <!-- 短信验证码-->
-                    <li class="regLi">
-                        <input type="text" placeholder="动态码" class="regInput">
+                    <li class="signLi">
+                        <input type="text" placeholder="动态码" class="signInput">
                     </li>
-                    <li class="regTip">
-                        <span class="regTipText">请填写正确的手机动态码 （该手机号已注册）</span>
+                    <li class="signTip">
+                        <span class="signTipText">请填写正确的手机动态码 （该手机号已注册）</span>
                     </li>
                     <!-- 用户名-->
-                    <li class="regLi">
-                        <input type="text" placeholder="用户名" class="regInput">
+                    <li class="signLi">
+                        <input type="text" placeholder="用户名" class="signInput">
                     </li>
-                    <li class="regTip">
-                        <span class="regTipText"></span>
+                    <li class="signTip">
+                        <span class="signTipText"></span>
                     </li>
                     <!-- 设置密码-->
-                    <li class="regLi">
-                        <input type="text" placeholder="设置密码" class="regInput">
+                    <li class="signLi">
+                        <input type="text" placeholder="设置密码" class="signInput">
                     </li>
-                    <li class="regTip">
-                        <span class="regTipText"></span>
+                    <li class="signTip">
+                        <span class="signTipText"></span>
                     </li>
                     <!-- 确认密码-->
-                    <li class="regLi">
-                        <input type="text" placeholder="确认密码" class="regInput">
+                    <li class="signLi">
+                        <input type="text" placeholder="确认密码" class="signInput">
                     </li>
-                    <li class="regTip">
-                        <span class="regTipText"></span>
+                    <li class="signTip">
+                        <span class="signTipText"></span>
                     </li>
                     <!-- 注册按钮-->
-                    <li class="regLi regButtonLi">
-                        <div class="regAgreeBox">
-                            <input type="checkbox" checked="checked">
-                            <span>我已阅读并同意《58同城使用协议》&《隐私权条款》</span>
+                    <li class="signLi signRegButtonLi">
+                        <div class="signAgreeBox">
+                            <input type="checkbox" checked="checked" id="agreeCheckbox" class="signCheckbox">
+                            <label for="agreeCheckbox" class="signLable">我已阅读并同意《58同城使用协议》&《隐私权条款》</label>
                         </div>
-                        <div class="regButtonBox">
-                            <button type="button" class="regButton">注册</button>
+                        <div class="signButtonBox">
+                            <button type="button" class="signButton">注册</button>
                         </div>
                     </li>
                 </ul>

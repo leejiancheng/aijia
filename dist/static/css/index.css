@@ -117,16 +117,16 @@ table {
 	border-spacing: 0;
 }
 
-.logRegPage .imgBg {
+.signPage .imgBg {
 	position: fixed;
 	left: 0;
 	top: 0;
-	z-index: -9999;
 	width: 100%;
 	height: 100%;
+	z-index: -9999;
 }
 
-.logRegPage .outregBox {
+.signPage .signTopBar {
 	position: relative;
 	width: 520px;
 	height: 20px;
@@ -136,37 +136,51 @@ table {
 	font-size: 14px;
 }
 
-.logRegPage .outregBox .backToIndex,
-.logRegPage .outregBox .goLogin,
-.logRegPage .outregBox .goReg {
+.signPage .signTopBar .backToIndex,
+.signPage .signTopBar .goLogin,
+.signPage .signTopBar .goReg {
 	position: absolute;
 }
 
-.logRegPage .outregBox .backToIndex a,
-.logRegPage .outregBox .goLogin a,
-.logRegPage .outregBox .goReg a {
+.signPage .signTopBar .backToIndex a,
+.signPage .signTopBar .goLogin a,
+.signPage .signTopBar .goReg a {
 	color: #fff;
 }
 
-.logRegPage .outregBox .backToIndex {
+.signPage .signTopBar .backToIndex {
 	left: 0;
 }
 
-.logRegPage .outregBox .goLogin,
-.logRegPage .outregBox .goReg {
+.signPage .signTopBar .goLogin,
+.signPage .signTopBar .goReg {
 	right: 0;
 }
 
-.logRegPage .wrap {
+.signPage .signWrap {
 	position: relative;
 	width: 520px;
-	padding: 39px 0 38px;
+	padding-top: 48px;
 	margin: 0 auto;
 	background-color: #fff;
 	border-radius: 3px;
 }
 
-.logRegPage .regUl .regLi {
+.signPage .signLogo {
+	width: 136px;
+	height: 46px;
+	margin: 0 auto 48px;
+}
+
+.signPage .signLogo .logoHref {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url("../img/logo.png") no-repeat;
+	background-size: cover;
+}
+
+.signPage .signUl .signLi {
 	position: relative;
 	width: 422px;
 	height: 50px;
@@ -178,41 +192,63 @@ table {
 	border-radius: 2px;
 }
 
-.logRegPage .regUl .regLi.regLiFocus {
+.signPage .signUl .signLi.signLiFocus {
 	border-color: #bfbfbf;
 }
 
-.logRegPage .regUl .regLi.regButtonLi {
+.signPage .signUl .signLi.signAutoLoginLi {
+	width: 440px;
+	height: 44px;
+	border: none;
+	padding-left: 0;
+}
+
+.signPage .signUl .signLi.signAutoLoginLi .signChecbox {
+	margin: 15px 10px 0 0;
+}
+
+.signPage .signUl .signLi.signAutoLoginLi .signLable {
+	font-size: 14px;
+	color: #999;
+	line-height: 44px;
+}
+
+.signPage .signUl .signLi.signLoginButtonLi,
+.signPage .signUl .signLi.signRegButtonLi {
 	width: 440px;
 	height: 142px;
 	padding-left: 0;
 	border: none;
 }
 
-.logRegPage .regUl .regLi .regInput {
+.signPage .signUl .signLi.signLoginButtonLi {
+	height: 100px;
+}
+
+.signPage .signUl .signLi .signInput {
 	width: 400px;
 	height: 20px;
 	padding: 15px 0;
 	font-size: 16px;
 }
 
-.logRegPage .regUl .regLi .regInput::-webkit-input-placeholder {
+.signPage .signUl .signLi .signInput::-webkit-input-placeholder {
 	color: #ccc;
 }
 
-.logRegPage .regUl .regLi .regInput:-moz-placeholder {
+.signPage .signUl .signLi .signInput:-moz-placeholder {
 	color: #ccc;
 }
 
-.logRegPage .regUl .regLi .regInput::-moz-placeholder {
+.signPage .signUl .signLi .signInput::-moz-placeholder {
 	color: #ccc;
 }
 
-.logRegPage .regUl .regLi .regInput:-ms-input-placeholder {
+.signPage .signUl .signLi .signInput:-ms-input-placeholder {
 	color: #ccc;
 }
 
-.logRegPage .regUl .regLi .regGetcodeBtn {
+.signPage .signUl .signLi .signGetcodeBtn {
 	position: absolute;
 	top: 8px;
 	right: 8px;
@@ -226,7 +262,7 @@ table {
 	cursor: pointer;
 }
 
-.logRegPage .regUl .regLi .regAgreeBox {
+.signPage .signUl .signLi .signAgreeBox {
 	height: 17px;
 	margin: 30px 0;
 	text-align: center;
@@ -235,7 +271,7 @@ table {
 	line-height: 17px;
 }
 
-.logRegPage .regUl .regLi .regButton {
+.signPage .signUl .signLi .signButton {
 	width: 440px;
 	height: 54px;
 	color: #fff;
@@ -245,12 +281,12 @@ table {
 	cursor: pointer;
 }
 
-.logRegPage .regUl .regTip {
+.signPage .signUl .signTip {
 	display: none;
 	margin: 0 40px 10px;
 }
 
-.logRegPage .regUl .regTip .regTipText {
+.signPage .signUl .signTip .signTipText {
 	display: block;
 	height: 22px;
 	line-height: 22px;
