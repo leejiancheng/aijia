@@ -1,0 +1,39 @@
+extends ./layout/layout1
+
+block head
+	link(rel="stylesheet", href="./static/css/index.css")
+
+block content
+	.logRegPage
+		.outregBox
+			.backToIndex
+				a(href="javascript:void(0);") 返回首页
+			.goReg
+				| 没有账户？
+				a(href="javascript:void(0);") 去注册
+		.wrap
+			.loginLogo
+				a.logoHref(href="javascript:void(0);")
+			.loginBox
+				ul.loginUl
+					// 手机号/账户名/邮箱
+					li.loginLi
+						input.loginInput(type="text", placeholder="手机号/账户名/邮箱")
+					li.loginTip
+						span.loginTipText 您还没有输入账户名
+
+					// 密码
+					li.loginLi
+						input.loginInput(type="text", placeholder="密码")
+					li.loginTip
+						span.loginTipText 您还没有输入密码
+
+					// 自动登录
+					li.loginLi
+						input.loginChecbox(type="checkbox")
+						label.loginLable 下载自动登录 
+
+					// 登录按钮
+					li.loginLi
+						.loginButtonBox
+							button.loginButton(type="button") 登录

@@ -1,0 +1,36 @@
+{
+  "name": "aijia",
+  "version": "1.0.0",
+  "description": "work for aijia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "./node_modules/.bin/gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leejiancheng/aijia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leejiancheng/aijia/issues"
+  },
+  "homepage": "https://github.com/leejiancheng/aijia#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-cache": "^1.0.2",
+    "gulp-css-spriter": "^0.4.0",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-util": "^3.0.8",
+    "imagemin-pngquant": "^5.1.0"
+  }
+}

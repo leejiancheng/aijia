@@ -1,0 +1,47 @@
+extends ./layout/layout2
+
+block content
+	.headerGuide
+		.headerContainer
+			img.headerLogo(src="")
+			ul.headerUl
+				li
+					a(href="javascript:void(0);") 个人中心
+				li.selected
+					a(href="javascript:void(0);") 账户设置
+				li
+					a(href="javascript:void(0);") 我的资金
+				li
+					a(href="javascript:void(0);") 商家中心
+			.headerSearch
+				.headerSearchInput
+					input(type="text")
+					button(type="button") 搜索
+				a.headerBt(href="javascript:void(0);") 发布信息
+
+	.personContainer
+		.leftMenu
+			.leftMenuContent
+				.leftMenuContentHeader
+					a(href="javascript:void(0);") 账户设置
+				.leftMenuContentUl
+					li.liSelected
+						a(href="javascript:void(0);") 个人资料
+
+		.rightMenu
+			.rightMenuContent
+				.changeData
+					.changeDataTitle
+						h4.changeDataTitleText 修改个人资料
+					.changeDataUl
+						li.changeDataLi
+							span.changeLabel 用户名：
+							input(type="text")
+						li.changeDataLi
+							span.changeLabel 呢称：
+							input(type="text")
+							button.changeDataBtn(type="button") 修改
+						li.changeDataLi
+							span.changeLabel 手机：
+							input(type="text")
+							button.changeDataBtn(type="button") 修改
