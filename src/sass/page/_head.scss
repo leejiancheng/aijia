@@ -1,0 +1,38 @@
+$topBarLineHeight: 35px;
+.topBar {
+	position: relative;
+	@include size(100%, $topBarLineHeight);
+	line-height: $topBarLineHeight;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+	.topBarContainer {
+		width: 1190px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+	.barLeft {
+		overflow: hidden;
+		> h2 {
+			@include float(left);
+			color: $base;
+		}
+		.homeLink {
+			@include float(left);
+			font-weight: bold;
+			padding: 0 10px 0 28px;
+			color: #555;
+			&:hover {
+				color: $base;
+			}
+		}
+	}
+	.barRight {
+		.rightItem {
+			@include float(left);
+			padding: 0 24px 0 14px;
+			.myText {
+				color: #555;
+			}
+		}
+	}
+}

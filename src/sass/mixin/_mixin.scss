@@ -45,19 +45,19 @@
 }
 
 // 上，右，下，左圆角
-@mixin border-top-radius($radius) {
+@mixin border-top-radius ($radius) {
 	border-top-right-radius: $radius;
 	border-top-left-radius: $radius;
 }
-@mixin border-right-radius($radius) {
+@mixin border-right-radius ($radius) {
 	border-bottom-right-radius: $radius;
 	border-top-right-radius: $radius;
 }
-@mixin border-bottom-radius($radius) {
+@mixin border-bottom-radius ($radius) {
 	border-bottom-right-radius: $radius;
 	border-bottom-left-radius: $radius;
 }
-@mixin border-left-radius($radius) {
+@mixin border-left-radius ($radius) {
 	border-bottom-left-radius: $radius;
 	border-top-left-radius: $radius;
 }
@@ -67,6 +67,16 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+// 浮动
+@mixin float ($direction) {
+	@if $direction == left {
+		float: left;
+	}
+	@else if $direction == right {
+		float: right !important;
+	}
 }
 
 // 三角箭头

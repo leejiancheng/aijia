@@ -1,7 +1,13 @@
-@import "./reset/reset";
-@import "./mixin/mixin";
 @import "./variable/variable";
+@import "./mixin/mixin";
+@import "./reset/reset";
 
+@import "./page/_common";
+@import "./page/_head";
 
 // 登录注册页面
 @import "./page/_sign";
+
+
+// 个人中心页面
+@import "./page/_person";

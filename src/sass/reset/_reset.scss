@@ -35,7 +35,8 @@ ul, ol, li {
 a { 
     text-decoration: none; 
 } 
-a:hover { 
+a:hover {
+    color: $base;
     text-decoration: none; 
 } 
 sup { 
