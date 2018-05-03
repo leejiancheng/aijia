@@ -1,40 +1,56 @@
 extends ./layout/layout2
 
+block head
+	link(rel="stylesheet", href="./static/css/index.css")
+	style(type="text/css").
+		body {
+			background-color: #f8f8f8;
+		}
+
 block content
 	.indexHeaderWrap
 		.headerWrapContainer
-			.hederBar
+			.hederBar.clearfix
 				a.headerBarLogo(href="javascript:void(0);")
-					img
-				a.headerBarBanner
-					img
-				.headerBarSearch
+					img(src="./static/img/logo3.png")
+				a.headerBarBanner(href="javascript:void(0);")
+					img(src="./static/img/banner1.png")
+				.headerBarSearch.clearfix
 					.searchKey
+						i.icon
 						input(type="text", placeholder="招聘季月薪10000+")
-					.searchBtn
-						button(type="button") 搜索
+					button.searchBtn(type="button") 搜 索
 					ul.searchWords
 						li.searchWordsLi
-							a(href="javascript:void(0);") 东莞
+							a(href="javascript:void(0);") 充话费
 						li.searchWordsLi
-							a(href="javascript:void(0);") 东莞
+							a(href="javascript:void(0);") 淘宝美工
 						li.searchWordsLi
-							a(href="javascript:void(0);") 东莞
+							a(href="javascript:void(0);") 外贸业务员
 						li.searchWordsLi
-							a(href="javascript:void(0);") 东莞
+							a(href="javascript:void(0);") 实习生
+						li.searchWordsLi
+							a(href="javascript:void(0);") 同城租车
+						li.searchWordsLi
+							a(href="javascript:void(0);") 家教老师
 				a.headerBarPostMsg(href="javascript:void(0);") 免费发布信息
 				a.headerBarDelInfo(href="javascript:void(0);") 修改/删除信息
 			ul.navBar
 				li.navBarLi
 					a.navBarLiText(href="javascript:void(0)") 首页
-				li.navBarLi
-					a.navBarLiText(href="javascript:void(0)") 58APP
-				li.navBarLi
+				li.navBarLi.hasChild
+					img.iconMobile(src="./static/img/app.gif")
+					a.navBarLiText(href="javascript:void(0)", style="padding-left: 30px;") 58APP
+					i.arrow
+				li.navBarLi.hasChild
 					a.navBarLiText(href="javascript:void(0)") 商家APP
-				li.navBarLi
+					i.arrow
+				li.navBarLi.hasChild
 					a.navBarLiText(href="javascript:void(0)") 58公众号
-				li.navBarLi
+					i.arrow
+				li.navBarLi.hasChild
 					a.navBarLiText(href="javascript:void(0)") 小程序
+					i.arrow
 				li.navBarLi
 					a.navBarLiText(href="javascript:void(0)") 金融
 				li.navBarLi
@@ -45,26 +61,84 @@ block content
 					a.navBarLiText(href="javascript:void(0)") 58车
 				li.navBarLi
 					a.navBarLiText(href="javascript:void(0)") 58同镇
-	//- .indexArticle
+				li.navBarLi
+					a.navBarLiTG(href="javascript:void")
+						img(src="./static/img/icon1.png")
 	.indexMainWrap
-		.leftMain
-			ul.mainNavigate
-				li.navigateItem.fcNav
-					a.topIco(href="javascript:void(0);")
-						i
-						| 房产
-					.bottomIcon
-						a(href="javascript:void(0);") 租房
-						span &nbsp;/&nbsp;
-						a(href="javascript:void(0);") 二手房
-				li.navigateItem.bdfwNav
-					a.topIcon(href="javascript:void(0);")
-						i
-						| 本地服务
-					.bottomIcon
-						a(href="javascript:void(0);") 搬家
-						span &nbsp;/&nbsp;
-						a(href="javascript:void(0);") 教育
-						span &nbsp;/&nbsp;
-						a(href="javascript:void(0);") 车服务
-		//- .rightMain
+		.indexMainContainer
+			.leftMain
+				ul.mainNavigate
+					li.navigateItem.zpItem
+						a.topIcon(href="javascript:void(0);")
+							b.hot HOT
+							i.icon.zpIcon
+							| 招聘
+						.bottomText
+							a(href="javascript:void(0);") 全职
+							span /
+							a(href="javascript:void(0);") 兼职
+							span /
+							a(href="javascript:void(0);") 简历
+					li.navigateItem.fcItem
+						a.topIcon(href="javascript:void(0);")
+							i.icon.fcIcon
+							| 房产
+						.bottomText
+							a(href="javascript:void(0);") 租房
+							span /
+							a(href="javascript:void(0);") 二手房
+							span /
+							a(href="javascript:void(0);") 公寓
+					li.navigateItem.escItem
+						a.topIcon(href="javascript:void(0);")
+							i.icon.escIcon
+							| 二手车
+						.bottomText
+							a(href="javascript:void(0);") 3万内
+							span /
+							a(href="javascript:void(0);") SUV
+							span /
+							a(href="javascript:void(0);") 货车
+					li.navigateItem.esscItem
+						a.topIcon(href="javascript:void(0);")
+							i.icon.esscIcon
+							| 二手市场
+						.bottomText
+							a(href="javascript:void(0);") 手机
+							span /
+							a(href="javascript:void(0);") 设备
+							span /
+							a(href="javascript:void(0);") 回收
+					li.navigateItem.cwItem
+						a.topIcon(href="javascript:void(0);")
+							i.icon.cwIcon
+							| 宠物
+						.bottomText
+							a(href="javascript:void(0);") 狗
+							span /
+							a(href="javascript:void(0);") 猫
+							span /
+							a(href="javascript:void(0);") 鱼
+							span /
+							a(href="javascript:void(0);") 加盟
+					li.navigateItem.bdswItem
+						a.topIcon(href="javascript:void(0);")
+							i.icon.bdswIcon
+							| 本地商务
+						.bottomText
+							a(href="javascript:void(0);") 工商
+							span /
+							a(href="javascript:void(0);") 租赁
+							span /
+							a(href="javascript:void(0);") 加盟
+					li.navigateItem.bdfwItem
+						a.topIcon(href="javascript:void(0);")
+							i.icon.bdfwIcon
+							| 本地服务
+						.bottomText
+							a(href="javascript:void(0);") 搬家
+							span /
+							a(href="javascript:void(0);") 教育
+							span /
+							a(href="javascript:void(0);") 车服务
+			//- .rightMain

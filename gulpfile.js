@@ -124,7 +124,7 @@ gulp.task("server", function () {
 		files: ["**"],
 		server: {
 			baseDir: "dist",						// 设置服务器的根目录
-			index: "person.html"						// 指定默认打开的文件
+			index: "list.html"						// 指定默认打开的文件
 		},
 		port: 3000,									// 指定访问服务器的端口号
 		injectChanges: true							// 注入CSS改变

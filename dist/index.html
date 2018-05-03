@@ -2,17 +2,22 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <style type="text/css">
+        body {
+            background-color: #f8f8f8;
+        }
+    </style>
 </head>
 <body>
     <div class="topBar">
-        <div class="topBarContainer">
-            <div class="barLeft">
-                <h2>广州</h2>
-                <div class="homeLink">
-                    <a href="javascript:void(0);">58首页</a>
-                </div>
+        <div class="topBarContainer clearfix">
+            <div class="barLeft fl">
+                <h2>深圳</h2>
+                <a href="javascript:void(0);" class="homeLink">
+                    <i class="icon"></i>58首页</a>
             </div>
-            <div class="barRight">
+            <div class="barRight fr">
                 <div class="topBarLogin rightItem">
                     <span class="userName">哈哈哈哈</span>
                     <a href="javascript:void(0);" class="myText">退出</a>
@@ -20,6 +25,12 @@
                 <div class="topBarMymenu rightItem">
                     <a href="javascript:void(0);" class="myText">个人中心</a>
                     <span class="arrow"></span>
+                    <div class="dropMenu">
+                        <a class="dropMenuItem">账户设置</a>
+                        <a class="dropMenuItem">账户设置</a>
+                        <a class="dropMenuItem">账户设置</a>
+                        <a class="dropMenuItem">账户设置</a>
+                    </div>
                 </div>
                 <div class="topBarVip rightItem">
                     <a href="javascript:void(0);" class="myText">商家中心</a>
@@ -42,32 +53,37 @@
     </div>
     <div class="indexHeaderWrap">
         <div class="headerWrapContainer">
-            <div class="hederBar">
+            <div class="hederBar clearfix">
                 <a href="javascript:void(0);" class="headerBarLogo">
-                    <img>
+                    <img src="./static/img/logo3.png">
                 </a>
-                <a class="headerBarBanner">
-                    <img>
+                <a href="javascript:void(0);" class="headerBarBanner">
+                    <img src="./static/img/banner1.png">
                 </a>
-                <div class="headerBarSearch">
+                <div class="headerBarSearch clearfix">
                     <div class="searchKey">
+                        <i class="icon"></i>
                         <input type="text" placeholder="招聘季月薪10000+">
                     </div>
-                    <div class="searchBtn">
-                        <button type="button">搜索</button>
-                    </div>
+                    <button type="button" class="searchBtn">搜 索</button>
                     <ul class="searchWords">
                         <li class="searchWordsLi">
-                            <a href="javascript:void(0);">东莞</a>
+                            <a href="javascript:void(0);">充话费</a>
                         </li>
                         <li class="searchWordsLi">
-                            <a href="javascript:void(0);">东莞</a>
+                            <a href="javascript:void(0);">淘宝美工</a>
                         </li>
                         <li class="searchWordsLi">
-                            <a href="javascript:void(0);">东莞</a>
+                            <a href="javascript:void(0);">外贸业务员</a>
                         </li>
                         <li class="searchWordsLi">
-                            <a href="javascript:void(0);">东莞</a>
+                            <a href="javascript:void(0);">实习生</a>
+                        </li>
+                        <li class="searchWordsLi">
+                            <a href="javascript:void(0);">同城租车</a>
+                        </li>
+                        <li class="searchWordsLi">
+                            <a href="javascript:void(0);">家教老师</a>
                         </li>
                     </ul>
                 </div>
@@ -78,17 +94,22 @@
                 <li class="navBarLi">
                     <a href="javascript:void(0)" class="navBarLiText">首页</a>
                 </li>
-                <li class="navBarLi">
-                    <a href="javascript:void(0)" class="navBarLiText">58APP</a>
+                <li class="navBarLi hasChild">
+                    <img src="./static/img/app.gif" class="iconMobile">
+                    <a href="javascript:void(0)" style="padding-left: 30px;" class="navBarLiText">58APP</a>
+                    <i class="arrow"></i>
                 </li>
-                <li class="navBarLi">
+                <li class="navBarLi hasChild">
                     <a href="javascript:void(0)" class="navBarLiText">商家APP</a>
+                    <i class="arrow"></i>
                 </li>
-                <li class="navBarLi">
+                <li class="navBarLi hasChild">
                     <a href="javascript:void(0)" class="navBarLiText">58公众号</a>
+                    <i class="arrow"></i>
                 </li>
-                <li class="navBarLi">
+                <li class="navBarLi hasChild">
                     <a href="javascript:void(0)" class="navBarLiText">小程序</a>
+                    <i class="arrow"></i>
                 </li>
                 <li class="navBarLi">
                     <a href="javascript:void(0)" class="navBarLiText">金融</a>
@@ -105,33 +126,100 @@
                 <li class="navBarLi">
                     <a href="javascript:void(0)" class="navBarLiText">58同镇</a>
                 </li>
+                <li class="navBarLi">
+                    <a href="javascript:void" class="navBarLiTG">
+                        <img src="./static/img/icon1.png">
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
     <div class="indexMainWrap">
-        <div class="leftMain">
-            <ul class="mainNavigate">
-                <li class="navigateItem fcNav">
-                    <a href="javascript:void(0);" class="topIco">
-                        <i></i>房产</a>
-                    <div class="bottomIcon">
-                        <a href="javascript:void(0);">租房</a>
-                        <span>&nbsp;/&nbsp;</span>
-                        <a href="javascript:void(0);">二手房</a>
-                    </div>
-                </li>
-                <li class="navigateItem bdfwNav">
-                    <a href="javascript:void(0);" class="topIcon">
-                        <i></i>本地服务</a>
-                    <div class="bottomIcon">
-                        <a href="javascript:void(0);">搬家</a>
-                        <span>&nbsp;/&nbsp;</span>
-                        <a href="javascript:void(0);">教育</a>
-                        <span>&nbsp;/&nbsp;</span>
-                        <a href="javascript:void(0);">车服务</a>
-                    </div>
-                </li>
-            </ul>
+        <div class="indexMainContainer">
+            <div class="leftMain">
+                <ul class="mainNavigate">
+                    <li class="navigateItem zpItem">
+                        <a href="javascript:void(0);" class="topIcon">
+                            <b class="hot">HOT</b>
+                            <i class="icon zpIcon"></i>招聘</a>
+                        <div class="bottomText">
+                            <a href="javascript:void(0);">全职</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">兼职</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">简历</a>
+                        </div>
+                    </li>
+                    <li class="navigateItem fcItem">
+                        <a href="javascript:void(0);" class="topIcon">
+                            <i class="icon fcIcon"></i>房产</a>
+                        <div class="bottomText">
+                            <a href="javascript:void(0);">租房</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">二手房</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">公寓</a>
+                        </div>
+                    </li>
+                    <li class="navigateItem escItem">
+                        <a href="javascript:void(0);" class="topIcon">
+                            <i class="icon escIcon"></i>二手车</a>
+                        <div class="bottomText">
+                            <a href="javascript:void(0);">3万内</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">SUV</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">货车</a>
+                        </div>
+                    </li>
+                    <li class="navigateItem esscItem">
+                        <a href="javascript:void(0);" class="topIcon">
+                            <i class="icon esscIcon"></i>二手市场</a>
+                        <div class="bottomText">
+                            <a href="javascript:void(0);">手机</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">设备</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">回收</a>
+                        </div>
+                    </li>
+                    <li class="navigateItem cwItem">
+                        <a href="javascript:void(0);" class="topIcon">
+                            <i class="icon cwIcon"></i>宠物</a>
+                        <div class="bottomText">
+                            <a href="javascript:void(0);">狗</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">猫</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">鱼</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">加盟</a>
+                        </div>
+                    </li>
+                    <li class="navigateItem bdswItem">
+                        <a href="javascript:void(0);" class="topIcon">
+                            <i class="icon bdswIcon"></i>本地商务</a>
+                        <div class="bottomText">
+                            <a href="javascript:void(0);">工商</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">租赁</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">加盟</a>
+                        </div>
+                    </li>
+                    <li class="navigateItem bdfwItem">
+                        <a href="javascript:void(0);" class="topIcon">
+                            <i class="icon bdfwIcon"></i>本地服务</a>
+                        <div class="bottomText">
+                            <a href="javascript:void(0);">搬家</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">教育</a>
+                            <span>/</span>
+                            <a href="javascript:void(0);">车服务</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>

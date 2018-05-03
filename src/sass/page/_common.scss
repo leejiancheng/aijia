@@ -5,3 +5,6 @@
 .fr {
 	@include float(right);
 }
+.clearfix {
+	@include clearfix();
+}

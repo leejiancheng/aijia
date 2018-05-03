@@ -2,17 +2,17 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="./static/css/index.css">
 </head>
 <body>
     <div class="topBar">
-        <div class="topBarContainer">
-            <div class="barLeft">
-                <h2>广州</h2>
-                <div class="homeLink">
-                    <a href="javascript:void(0);">58首页</a>
-                </div>
+        <div class="topBarContainer clearfix">
+            <div class="barLeft fl">
+                <h2>深圳</h2>
+                <a href="javascript:void(0);" class="homeLink">
+                    <i class="icon"></i>58首页</a>
             </div>
-            <div class="barRight">
+            <div class="barRight fr">
                 <div class="topBarLogin rightItem">
                     <span class="userName">哈哈哈哈</span>
                     <a href="javascript:void(0);" class="myText">退出</a>
@@ -20,6 +20,12 @@
                 <div class="topBarMymenu rightItem">
                     <a href="javascript:void(0);" class="myText">个人中心</a>
                     <span class="arrow"></span>
+                    <div class="dropMenu">
+                        <a class="dropMenuItem">账户设置</a>
+                        <a class="dropMenuItem">账户设置</a>
+                        <a class="dropMenuItem">账户设置</a>
+                        <a class="dropMenuItem">账户设置</a>
+                    </div>
                 </div>
                 <div class="topBarVip rightItem">
                     <a href="javascript:void(0);" class="myText">商家中心</a>
@@ -42,7 +48,7 @@
     </div>
     <div class="headerGuide">
         <div class="headerContainer">
-            <img src="" class="headerLogo">
+            <img src="./static/img/logo2.png" class="headerLogo">
             <ul class="headerUl">
                 <li>
                     <a href="javascript:void(0);">个人中心</a>
@@ -59,27 +65,32 @@
             </ul>
             <div class="headerSearch">
                 <div class="headerSearchInput">
-                    <input type="text">
-                    <button type="button">搜索</button>
+                    <input type="text" placeholder="搜索">
+                    <button type="button">
+                        <i class="icon"></i>
+                    </button>
                 </div>
-                <a href="javascript:void(0);" class="headerBt">发布信息</a>
+                <a href="javascript:void(0);" class="headerSearchBtn">发布信息</a>
             </div>
         </div>
     </div>
-    <div class="personContainer">
-        <div class="leftMenu">
+    <div class="personContainer clearfix">
+        <div class="leftMenu fl">
             <div class="leftMenuContent">
                 <div class="leftMenuContentHeader">
                     <a href="javascript:void(0);">账户设置</a>
                 </div>
-                <div class="leftMenuContentUl">
+                <ul class="leftMenuContentUl">
                     <li class="liSelected">
                         <a href="javascript:void(0);">个人资料</a>
                     </li>
-                </div>
+                    <li>
+                        <a href="javascript:void(0);">个人资料</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="rightMenu">
+        <div class="rightMenu fr">
             <div class="rightMenuContent">
                 <div class="changeData">
                     <div class="changeDataTitle">
@@ -88,17 +99,19 @@
                     <div class="changeDataUl">
                         <li class="changeDataLi">
                             <span class="changeLabel">用户名：</span>
-                            <input type="text">
+                            <input type="text" disabled value="哈哈哈哈" class="changeInput">
                         </li>
                         <li class="changeDataLi">
                             <span class="changeLabel">呢称：</span>
-                            <input type="text">
-                            <button type="button" class="changeDataBtn">修改</button>
+                            <input type="text" disabled value="哈哈哈哈" class="changeInput">
+                            <button type="button" class="changeBtn">
+                                <i class="icon"></i>修改</button>
                         </li>
                         <li class="changeDataLi">
                             <span class="changeLabel">手机：</span>
-                            <input type="text">
-                            <button type="button" class="changeDataBtn">修改</button>
+                            <input type="text" disabled value="136****5822" class="changeInput">
+                            <button type="button" class="changeBtn">
+                                <i class="icon"></i>修改</button>
                         </li>
                     </div>
                 </div>

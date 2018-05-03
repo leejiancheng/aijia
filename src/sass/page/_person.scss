@@ -1,0 +1,175 @@
+$headerGuideHeight: 80px;				// 个人中心头部栏目高度
+
+.headerGuide {
+	@include size(100%, $headerGuideHeight);
+	background-color: $base;
+	.headerContainer {
+		position: relative;
+		@include size(1036px, $headerGuideHeight);
+		margin: 0 auto;
+		.headerLogo {
+			@include float(left);
+			display: block;
+			@include size(107px, 36px);
+			margin-top: 20px;
+		}
+		.headerUl {
+			@include float(left);
+			height: 100%;
+			margin-left: 59px;
+			font-size: 16px;
+			overflow: hidden;
+			li {
+				float: left;
+				line-height: 43px;
+				margin-top: 19px;
+				margin-right: 12px;
+				> a {
+					display: block;
+					@include size(85px, 40px);
+					padding-left: 13px;
+					color: #fff;
+				}
+				&.selected {
+					font-size: 18px;
+					margin-right: 19px;
+					font-weight: 700;
+				}
+			}
+		}
+		.headerSearch {
+			position: absolute;
+			top: 26px;
+			left: 670px;
+			@include size(353px, 30px);
+			.headerSearchInput {
+				float: left;
+				overflow: hidden;
+				font-size: 14px;
+				> input {
+					float: left;
+					@include size(165px, 30px);
+					line-height: 30px;
+					padding-left: 10px;
+					border: none;
+					@include border-left-radius(3px);
+				}
+				> button {
+					float: left;
+					@include size(50px, 30px);
+					padding-left: 18px;
+					color: #fff;
+					background-color: $base;
+					border: 1px solid #fff;
+					@include border-right-radius(3px);
+					cursor: pointer;
+				}
+				.icon {
+					display: block;
+					@include size(11px, 11px);
+					background: url("../img/spriter/search1.png?__spriter") no-repeat;
+				}
+			}
+			.headerSearchBtn {
+				float: right;
+				@include size(90px, 22px);
+				padding: 3px 5px;
+				border-radius: 2px;
+				border: 1px solid #fff;
+				text-align: center;
+				font-size: 14px;
+				line-height: 22px;
+				color: #fff;
+			}
+		}
+	}
+}
+
+.personContainer {
+	position: relative;
+	width: 1030px;
+	margin: 0 auto;
+	.leftMenu {
+		width: 184px;
+		min-height: 500px;
+		padding-top: 8px;
+		margin: 22px 0 0 -5px;
+	}
+	.leftMenuContent {
+		color: #595757;
+		background: #fafafa;
+		padding: 25px 0 50px;
+		.leftMenuContentHeader {
+			@include size(110px, 33px);
+			line-height: 33px;
+			margin: 0 auto;
+			padding-bottom: 12px;
+			font-size: 18px;
+			font-weight: 700;
+			border-bottom: 1px solid #eaeaea;
+		}
+	}
+	.leftMenuContentUl {
+		margin-top: 4px;
+		> li {
+			line-height: 42px;
+			padding-left: 44px;
+			font-size: 16px;
+			cursor: pointer;
+			&.liSelected {
+				border-left: 3px solid $base;
+				padding-left: 41px;
+			}
+		}
+	}
+	.rightMenu {
+		width: 810px;
+		margin-top: 32px;
+	}
+	.changeData {
+		.changeDataTitle {
+			height: 30px;
+			border-bottom: 1px solid #eee;
+			.changeDataTitleText {
+				color: #666;
+				font-size: 16px
+			}
+		}
+		.changeDataUl {
+			margin-top: 22px;
+			overflow: hidden;
+			.changeDataLi {
+				display: block;
+				@include size(600px, 36px);
+				line-height: 36px;
+				margin-bottom: 13px;
+				font-size: 14px;
+				.changeLabel {
+					float: left;
+					@include size(80px, 36px);
+					color: #666;
+					text-align: justify;
+				}
+				.changeInput {
+					@include size(200px, 36px);
+					padding: 0 14px;
+					margin-right: 15px;
+					line-height: 36px;
+					background-color: #fff;
+				}
+				.changeBtn {
+					color: $base;
+					cursor: pointer;
+					background-color: #fff;
+					.icon {
+						float: left;
+						display: inline-block;
+						@include size(16px, 16px);
+						margin-right: 8px;
+						background: url("../img/spriter/edit.png?__spriter") no-repeat;
+					}
+				}
+			}
+		}
+	}
+}

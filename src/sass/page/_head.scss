@@ -1,16 +1,19 @@
-$topBarLineHeight: 35px;
+$topBarLineHeight: 35px;					// 导航栏的高度
+
 .topBar {
 	position: relative;
 	@include size(100%, $topBarLineHeight);
+	min-width: 1190px;
 	line-height: $topBarLineHeight;
 	background-color: #fff;
 	border-bottom: 1px solid #ddd;
+	font-size: 12px;
 	.topBarContainer {
-		width: 1190px;
+		@include size(1190px, $topBarLineHeight);
 		margin: 0 auto;
-		overflow: hidden;
 	}
 	.barLeft {
+		padding-left: 10px;
 		overflow: hidden;
 		> h2 {
 			@include float(left);
@@ -18,20 +21,84 @@ $topBarLineHeight: 35px;
 		}
 		.homeLink {
 			@include float(left);
-			font-weight: bold;
-			padding: 0 10px 0 28px;
+			padding-right: 10px;
 			color: #555;
+			font-weight: bold;
+			.icon {
+				float: left;
+				@include size(16px, 15px);
+				margin: 10px 7px 0 7px;
+				background: url("../img/spriter/home.png?__spriter") no-repeat;
+			}
 			&:hover {
 				color: $base;
+				.icon {
+					background: url("../img/spriter/homehover.png?__spriter") no-repeat;
+				}
 			}
 		}
 	}
 	.barRight {
 		.rightItem {
 			@include float(left);
+			position: relative;
 			padding: 0 24px 0 14px;
+			border: 1px solid #fff;
+			border-top: none;
+			border-bottom: none;
+			.userName,
 			.myText {
 				color: #555;
+			}
+			.userName {
+				margin-right: 4px;
+			}
+			.arrow {
+				position: absolute;
+				top: 16px;
+				right: 10px;
+				display: block;
+				@include size(7px, 4px);
+				background: url("../img/spriter/arrow1.png?__spriter") no-repeat;
+			}
+			&.topBarLogin {
+				border: none;
+			}
+			.dropMenu {
+				display: none;
+				position: absolute;
+				top: $topBarLineHeight;
+				right: -1px;
+				width: 86px;
+				background-color: #fff;
+				border: 1px solid #eee;
+				z-index: 2;
+				.dropMenuItem {
+					display: block;
+					@include size(100%, 30px);
+					line-height: 30px;
+					color: #666;
+					text-align: center;
+				}
+			}
+			&:hover {
+				border-color: #eee;
+				cursor: pointer;
+				.myText {
+					color: $base;
+				}
+				.arrow {
+					background: url("../img/spriter/arrow1hover.png?__spriter") no-repeat;
+				}
+				.dropMenu {
+					display: block;
+					.dropMenuItem {
+						&:hover {
+							color: $base;
+							background-color: #f8f8f8;
+						}
+					}
+				}
 			}
 		}
 	}

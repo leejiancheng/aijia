@@ -6,7 +6,7 @@ block head
 block content
 	.headerGuide
 		.headerContainer
-			img.headerLogo(src="")
+			img.headerLogo(src="./static/img/logo2.png")
 			ul.headerUl
 				li
 					a(href="javascript:void(0);") 个人中心
@@ -18,20 +18,23 @@ block content
 					a(href="javascript:void(0);") 商家中心
 			.headerSearch
 				.headerSearchInput
-					input(type="text")
-					button(type="button") 搜索
-				a.headerBt(href="javascript:void(0);") 发布信息
+					input(type="text", placeholder="搜索")
+					button(type="button")
+						i.icon
+				a.headerSearchBtn(href="javascript:void(0);") 发布信息
 
-	.personContainer
-		.leftMenu
+	.personContainer.clearfix
+		.leftMenu.fl
 			.leftMenuContent
 				.leftMenuContentHeader
 					a(href="javascript:void(0);") 账户设置
-				.leftMenuContentUl
+				ul.leftMenuContentUl
 					li.liSelected
 						a(href="javascript:void(0);") 个人资料
+					li
+						a(href="javascript:void(0);") 个人资料
 
-		.rightMenu
+		.rightMenu.fr
 			.rightMenuContent
 				.changeData
 					.changeDataTitle
@@ -39,12 +42,16 @@ block content
 					.changeDataUl
 						li.changeDataLi
 							span.changeLabel 用户名：
-							input(type="text")
+							input.changeInput(type="text", disabled, value="哈哈哈哈")
 						li.changeDataLi
 							span.changeLabel 呢称：
-							input(type="text")
-							button.changeDataBtn(type="button") 修改
+							input.changeInput(type="text", disabled, value="哈哈哈哈")
+							button.changeBtn(type="button")
+								i.icon
+								| 修改
 						li.changeDataLi
 							span.changeLabel 手机：
-							input(type="text")
-							button.changeDataBtn(type="button") 修改
+							input.changeInput(type="text", disabled, value="136****5822")
+							button.changeBtn(type="button")
+								i.icon
+								| 修改

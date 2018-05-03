@@ -14,7 +14,7 @@ html {
 }
 body, 
 button, input, select, textarea { 
-    font-size: 12px;
+    font-size: 16px;
     font-family: sans-serif; 
 } 
 h1, h2, h3, h4, h5, h6 { 
@@ -32,7 +32,8 @@ small {
 ul, ol, li { 
     list-style: none; 
 } 
-a { 
+a {
+    color: #595757; 
     text-decoration: none; 
 } 
 a:hover {

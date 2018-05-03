@@ -1,0 +1,275 @@
+
+.indexHeaderWrap,
+.indexMainWrap {
+	width: 100%;
+	min-width: 1190px;
+	margin-bottom: 8px;
+}
+
+.headerWrapContainer {
+	width: 1190px;
+	margin: 0 auto;
+	background-color: #fff;
+	.hederBar {
+		position: relative;
+		@include size(100%, 84px);
+		.headerBarLogo {
+			float: left;
+			@include size(126px, 42px);
+			margin: 8px 0 0 38px;
+			img {
+				display: block;
+				@include size(100%, 100%);
+			}
+		}
+		.headerBarBanner {
+			float: left;
+			@include size(150px, 50px);
+			margin: 8px 0 0 20px;
+			img {
+				display: block;
+				@include size(100%, 100%);
+			}
+		}
+		.headerBarSearch {
+			position: absolute;
+			left: 366px;
+			top: 10px;
+			.searchKey {
+				position: relative;
+				float: left;
+				@include size(484px, 38px);
+				line-height: 38px;
+				padding-left: 34px;
+				border: 2px solid $base;
+				.icon {
+					position: absolute;
+					top: 11px;
+					left: 10px;
+					display: block;
+					@include size(14px, 16px);
+					background: url("../img/spriter/search2.png?__spriter") no-repeat;
+				}
+				input {
+					display: block;
+					@include size(100%, 100%);
+					line-height: 38px;
+					font-size: 14px;
+					color: #292929;
+					@include placeholder(#ccc);
+				}
+			}
+			.searchBtn {
+				float: left;
+				@include size(100px, 42px);
+				line-height: 42px;
+				color: #fff;
+				text-align: center;
+				cursor: pointer;
+				background-color: $base;
+
+			}
+			.searchWords {
+				position: absolute;
+				top: 40px;
+				left: 0;
+				@include size(620px, 32px);
+				line-height: 32px;
+				font-size: 12px;
+				overflow: hidden;
+				.searchWordsLi {
+					float: left;
+					margin-right: 10px;
+					a {
+						color: #aaa;
+						&:hover {
+							color: $base;
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+		.headerBarPostMsg {
+			position: absolute;
+			top: 10px;
+			right: 32px;
+			display: block;
+			@include size(140px, 42px);
+			line-height: 42px;
+			text-align: center;
+			color: #fff;
+			background-color: $base;
+		}
+		.headerBarDelInfo {
+			position: absolute;
+			top: 58px;
+			right: 60px;
+			height: 16px;
+			line-height: 16px;
+			font-size: 12px;
+			text-align: center;
+			color: #aaa;
+			&:hover {
+				color: $base;
+				text-decoration: underline;
+			}
+		}
+	}
+	.navBar {
+		@include size(1190px, 34px);
+		line-height: 34px;
+		margin-top: 5px;
+		border-bottom: 2px solid $base;
+		.navBarLi {
+			position: relative;
+			float: left;
+			margin: 0 10px;
+			&:first-child {
+				margin: 0;
+				.navBarLiText{
+					color: #fff;
+					@include border-top-radius(2px);
+					padding: 0 36px;
+					border-color: $base;
+					background-color: $base;
+				}
+			}
+			.navBarLiText{
+				display: block;
+				padding: 0 15px;
+				color: #888;
+				font-weight: 700;
+				&:hover {
+					color: #fff;
+					@include border-top-radius(2px);
+					background-color: $base;
+				}
+			}
+			.iconMobile {
+				position: absolute;
+				left: 0px;
+				top: 2px;
+				@include size(30px, 30px);
+			}
+			.arrow {
+				position: absolute;
+				top: 14px;
+				right: 5px;
+				display: block;
+				@include size(10px, 6px);
+				background: url("../img/spriter/arrow2.png?__spriter") no-repeat;
+			}
+			.navBarLiTG img {
+				margin-top: 7px;
+			}
+			&:hover {
+				.arrow {
+					background: url("../img/spriter/arrow2hover.png?__spriter") no-repeat;
+				}
+			}
+			&.hasChild {
+				margin-left: 15px;
+				margin-right: 0;
+				.navBarLiText{
+					padding: 0 25px 0 20px;
+					border: 1px solid transparent;
+					color: $base;
+					&:hover {
+						color: $base;
+						border-color: $base;
+						background-color: #fff;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+.indexMainContainer {
+	width: 1190px;
+	margin: 0 auto;
+	overflow: hidden;
+	.leftMain {
+		float: left;
+		width: 844px;
+		overflow: hidden;
+	}
+	.mainNavigate {
+		@include size(848px, 122px);
+		margin-bottom: 8px;
+		background-color: #fff;
+		overflow: hidden;
+		.navigateItem {
+			float: left;
+			width: 118px;
+			margin-top: 16px;
+			text-align: center;
+			border-right: 1px solid #f8f8f8;
+			.topIcon {
+				position: relative;
+				display: block;
+				@include size(100%, 64px);
+				font-size: 14px;
+				color: #555;
+				&:hover {
+					color: $base;
+				}
+			}
+			.hot {
+				position: absolute;
+				top: -6px;
+				right: 9px;
+				display: block;
+				@include size(28px, 16px);
+				line-height: 16px;
+				color: #fff;
+				font-size: 10px;
+				background-color: $base;
+			}
+			.icon {
+				position: relative;
+				display: block;
+				@include size(42px, 42px);
+				margin: 0 auto 8px;
+				&.zpIcon {
+					background: url("../img/spriter/icon1.png?__spriter") no-repeat;
+				}
+				&.fcIcon {
+					background: url("../img/spriter/icon2.png?__spriter") no-repeat;
+				}
+				&.escIcon {
+					background: url("../img/spriter/icon3.png?__spriter") no-repeat;
+				}
+				&.esscIcon {
+					background: url("../img/spriter/icon4.png?__spriter") no-repeat;
+				}
+				&.cwIcon {
+					background: url("../img/spriter/icon5.png?__spriter") no-repeat;
+				}
+				&.bdswIcon {
+					background: url("../img/spriter/icon6.png?__spriter") no-repeat;
+				}
+				&.bdfwIcon {
+					background: url("../img/spriter/icon7.png?__spriter") no-repeat;
+				}
+			}
+			.bottomText {
+				display: block;
+				height: 28px;
+				line-height: 38px;
+				font-size: 12px;
+				color: #eee;
+				a {
+					color: #0e8ed8;
+					&:hover {
+						color: $base;
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}
