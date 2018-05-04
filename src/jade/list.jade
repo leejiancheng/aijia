@@ -5,10 +5,11 @@ block head
 		
 block content
 	.listHeaderWrap
-		.listHeaderContent
-			a.logo
-			a.publish
+		.listHeaderContent.clearfix
+			a.logo(href="javascript:void(0);") 58同城·房产
+			a.publish(href="javascript:void(0);") 免费发布
 			.searchBar
+				i.icon
 				input.searchInput(type="text", placeholder="请输入房源相关信息")
 				button.searchBtn(type="button") 搜房源
 				ul.searchList
@@ -102,51 +103,51 @@ block content
 			a(href="javascript:void(0)") 商铺出售
 		.contentWrap
 			.checkList
-				a.checkbox(href="javascript:void(0);")
+				a.checkboxItem(href="javascript:void(0);")
 					em.checkboxIcon
 						i.icon
 					| 满五唯一
-				a.checkbox(href="javascript:void(0);")
+				a.checkboxItem(href="javascript:void(0);")
 					em.checkboxIcon
 						i.icon
 					| 满五唯一
-				a.checkbox(href="javascript:void(0);")
+				a.checkboxItem(href="javascript:void(0);")
 					em.checkboxIcon
 						i.icon
 					| 满五唯一
-				a.checkbox(href="javascript:void(0);")
+				a.checkboxItem(href="javascript:void(0);")
 					em.checkboxIcon
 						i.icon
 					| 满五唯一
 				.checkListSortWrap
-					a.sortItem.sortByGeneral
+					a.sortItem.sortByGeneral(href="javascript:void(0);")
 						span 默认排序
-					a.sortItem.sortByTotal
+					a.sortItem.sortByTotal(href="javascript:void(0);")
 						span 总价
 						i.sortIcon.up
-					a.sortItem.sortByUnit
+					a.sortItem.sortByUnit(href="javascript:void(0);")
 						span 单价
 						i.sortIcon
-					a.sortItem.sortByArea
+					a.sortItem.sortByArea(href="javascript:void(0);")
 						span 面积
 						i.sortIcon
 				.clearfix
 			ul.houseListUl
-				li.houseListLi
+				li
 					.pic
 						a(href="javascript:void(0);")
-							img
-						span.picNum 7图
+							img(src="./static/img/pic1.jpg")
+						span.picNum 11图
 					.listInfo
 						h3.title
 							a(href="javascript:void(0);") 世纪豪园 五一特价优惠 先到先得
 							span.icon-container
-								i.icon.icon-jinxuan
-								i.icon.icon-mainfei
-								i.icon.icon-anxuan
+								i.icon.icon-jinxuan 精
+								i.icon.icon-mainfei 免
+								i.icon.icon-anxuan 安选房源
 						p.baseInfo
 							span 3室2厅2卫
-							span 110m2
+							span 110㎡
 							span 南
 							span 中层(共30层)
 						p.locationInfo
@@ -157,5 +158,5 @@ block content
 						p.sum
 							b 225
 							| 万
-						p.unit 21703元/
+						p.unit 21703元/㎡
 					.time 今天

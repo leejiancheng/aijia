@@ -127,6 +127,18 @@ table {
 	float: right !important;
 }
 
+.show {
+	display: block !important;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
 .clearfix:before,
 .clearfix:after {
 	content: " ";
@@ -757,17 +769,17 @@ table {
 
 .indexMainContainer .mainNavigate .navigateItem .icon.zpIcon {
 	background: url("../img/sprite.png") no-repeat;
-	background-position: -0px -0px;
+	background-position: -84px -42px;
 }
 
 .indexMainContainer .mainNavigate .navigateItem .icon.fcIcon {
 	background: url("../img/sprite.png") no-repeat;
-	background-position: -0px -84px;
+	background-position: -0px -0px;
 }
 
 .indexMainContainer .mainNavigate .navigateItem .icon.escIcon {
 	background: url("../img/sprite.png") no-repeat;
-	background-position: -84px -42px;
+	background-position: -0px -84px;
 }
 
 .indexMainContainer .mainNavigate .navigateItem .icon.esscIcon {
@@ -900,7 +912,7 @@ table {
 	width: 11px;
 	height: 11px;
 	background: url("../img/sprite.png") no-repeat;
-	background-position: -112px -84px;
+	background-position: -56px -106px;
 }
 
 .headerGuide .headerContainer .headerSearch .headerSearchBtn {
@@ -1022,4 +1034,297 @@ table {
 	margin-right: 8px;
 	background: url("../img/sprite.png") no-repeat;
 	background-position: -64px -84px;
+}
+
+.listHeaderWrap,
+.listMainWrap {
+	width: 1190px;
+	margin: 0 auto;
+}
+
+.listHeaderWrap {
+	margin-top: 20px;
+}
+
+.listHeaderContent .logo {
+	float: left;
+	width: 214px;
+	height: 42px;
+	margin-bottom: 6px;
+	background: url("../img/logo4.png");
+	background-size: cover;
+	text-indent: -9999em;
+	overflow: hidden;
+}
+
+.listHeaderContent .publish {
+	float: right;
+	width: 100px;
+	height: 46px;
+	color: #ff552e;
+	text-align: center;
+	background-color: #ffefe7;
+	line-height: 46px;
+}
+
+.listHeaderContent .searchBar {
+	float: right;
+	position: relative;
+	width: 584px;
+	height: 42px;
+	margin-right: 100px;
+	border: 2px solid #ff552e;
+}
+
+.listHeaderContent .searchBar .icon {
+	position: absolute;
+	top: 13px;
+	left: 10px;
+	display: block;
+	width: 14px;
+	height: 15px;
+	background: url("../img/sprite.png") no-repeat;
+	background-position: -112px -84px;
+}
+
+.listHeaderContent .searchBar .searchInput {
+	float: left;
+	width: 470px;
+	height: 24px;
+	padding: 9px 0 9px 30px;
+	line-height: 24px;
+	font-size: 16px;
+	color: #555;
+}
+
+.listHeaderContent .searchBar .searchInput::-webkit-input-placeholder {
+	color: #ccc;
+}
+
+.listHeaderContent .searchBar .searchInput:-moz-placeholder {
+	color: #ccc;
+}
+
+.listHeaderContent .searchBar .searchInput::-moz-placeholder {
+	color: #ccc;
+}
+
+.listHeaderContent .searchBar .searchInput:-ms-input-placeholder {
+	color: #ccc;
+}
+
+.listHeaderContent .searchBar .searchBtn {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 80px;
+	height: 42px;
+	line-height: 42px;
+	text-align: center;
+	cursor: pointer;
+	background-color: #ff552e;
+	color: #fff;
+}
+
+.listMainWrap .breadcrumb {
+	width: 100%;
+	line-height: 42px;
+	font-size: 12px;
+}
+
+.listMainWrap .breadcrumb li {
+	display: inline-block;
+}
+
+.listMainWrap .breadcrumb li a {
+	color: #888;
+}
+
+.listMainWrap .breadcrumb li a:hover {
+	color: #ff552e;
+}
+
+.listMainWrap .breadcrumb li + li:before {
+	padding: 0 5px;
+	color: #888;
+	content: "/\00a0";
+}
+
+.listMainWrap .contentNavTab {
+	position: relative;
+	height: 40px;
+	border-bottom: 2px solid #ff552e;
+}
+
+.listMainWrap .contentNavTab > a {
+	float: left;
+	height: 40px;
+	padding: 0 25px;
+	line-height: 40px;
+	color: #333;
+}
+
+.listMainWrap .contentNavTab > a.active {
+	color: #fff;
+	background-color: #ff552e;
+	border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+}
+
+.listMainWrap .contentNavTab > a:hover:not(.active) {
+	background-color: #ffeeeb;
+	border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+}
+
+.listMainWrap .contentWrap {
+	overflow: hidden;
+}
+
+.listMainWrap .contentWrap .checkList {
+	padding: 18px 0 20px;
+	color: #555;
+	border-bottom: 1px solid #f3f3f3;
+	font-size: 12px;
+}
+
+.listMainWrap .contentWrap .checkList .checkboxItem {
+	float: left;
+	margin-right: 20px;
+}
+
+.listMainWrap .contentWrap .checkList .checkListSortWrap {
+	position: relative;
+	float: right;
+	line-height: 14px;
+}
+
+.listMainWrap .contentWrap .checkList .checkListSortWrap .sortItem {
+	float: left;
+	padding: 0 12px;
+	color: #555;
+}
+
+.listMainWrap .contentWrap .checkList .checkListSortWrap .sortItem:hover {
+	color: #ff552e;
+}
+
+.listMainWrap .contentWrap .houseListUl li {
+	position: relative;
+	padding: 30px 0;
+	border-bottom: 1px solid #f3f3f3;
+	overflow: hidden;
+	font-size: 12px;
+}
+
+.listMainWrap .contentWrap .houseListUl li:hover {
+	background-color: #f9f9f9;
+}
+
+.listMainWrap .contentWrap .houseListUl li .pic {
+	position: relative;
+	float: left;
+	width: 147px;
+	height: 110px;
+	background-color: #ccc;
+}
+
+.listMainWrap .contentWrap .houseListUl li .pic img {
+	display: block;
+	width: 147px;
+	height: 110px;
+}
+
+.listMainWrap .contentWrap .houseListUl li .pic .picNum {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	padding: 4px 8px;
+	color: #fff;
+	line-height: 12px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.listMainWrap .contentWrap .houseListUl li .listInfo {
+	float: left;
+	width: 662px;
+	margin-left: 20px;
+}
+
+.listMainWrap .contentWrap .houseListUl li .listInfo .title {
+	margin-bottom: 15px;
+}
+
+.listMainWrap .contentWrap .houseListUl li .listInfo .title a {
+	font-size: 20px;
+	color: #333;
+}
+
+.listMainWrap .contentWrap .houseListUl li .listInfo .title a:hover {
+	color: #ff552e;
+}
+
+.listMainWrap .contentWrap .houseListUl li .listInfo .title .icon {
+	display: inline-block;
+	color: #fff;
+	padding: 0 3px;
+	margin-right: 5px;
+	height: 18px;
+	line-height: 18px;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.listMainWrap .contentWrap .houseListUl li .listInfo .title .icon.icon-jinxuan {
+	background-color: #3aa731;
+}
+
+.listMainWrap .contentWrap .houseListUl li .listInfo .title .icon.icon-mainfei {
+	background-color: #078ad2;
+}
+
+.listMainWrap .contentWrap .houseListUl li .listInfo .title .icon.icon-anxuan {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	line-height: 16px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	color: #52b25a;
+	border: 1px solid #52b25a;
+}
+
+.listMainWrap .contentWrap .houseListUl li .listInfo .baseInfo,
+.listMainWrap .contentWrap .houseListUl li .listInfo .locationInfo,
+.listMainWrap .contentWrap .houseListUl li .listInfo .ownerInfo {
+	margin-bottom: 13px;
+	line-height: 14px;
+}
+
+.listMainWrap .contentWrap .houseListUl li .price {
+	position: absolute;
+	right: 100px;
+	margin-top: 30px;
+}
+
+.listMainWrap .contentWrap .houseListUl li .price .sum {
+	margin-bottom: 8px;
+	color: #ff552e;
+}
+
+.listMainWrap .contentWrap .houseListUl li .price .sum b {
+	font-size: 30px;
+	margin-right: 6px;
+}
+
+.listMainWrap .contentWrap .houseListUl li .price .unit {
+	color: #777;
+	text-align: right;
+}
+
+.listMainWrap .contentWrap .houseListUl li .time {
+	position: absolute;
+	top: 30px;
+	right: 20px;
+	color: #ccc;
 }

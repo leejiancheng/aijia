@@ -1,9 +1,17 @@
 .fl {
 	@include float(left);
 }
-
 .fr {
 	@include float(right);
+}
+.show {
+	display: block !important;
+}
+.hidden {
+	display: none !important;
+}
+.invisible {
+	visibility: hidden;
 }
 .clearfix {
 	@include clearfix();

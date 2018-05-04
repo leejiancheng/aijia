@@ -1,3 +1,235 @@
+.listHeaderWrap,
+.listMainWrap {
+	width: 1190px;
+	margin: 0 auto;
+}
+
+
 .listHeaderWrap {
-	
+	margin-top: 20px;
+}
+
+.listHeaderContent {
+	.logo {
+		float: left;
+		@include size(214px, 42px);
+		margin-bottom: 6px;
+		background: url("../img/logo4.png");
+		background-size: cover;
+		text-indent: -9999em;
+		overflow: hidden;
+	}
+	.publish {
+		float: right;
+		@include size(100px, 46px);
+		color: $base;
+		text-align: center;
+		background-color: #ffefe7;
+		line-height: 46px;
+	}
+	.searchBar {
+		float: right;
+		position: relative;
+		@include size(584px, 42px);
+		margin-right: 100px;
+		border: 2px solid $base;
+		.icon {
+			position: absolute;
+			top: 13px;
+			left: 10px;
+			display: block;
+			@include size(14px, 15px);
+			background: url("../img/spriter/search3.png?__spriter") no-repeat;
+		}
+		.searchInput {
+			float: left;
+			@include size(470px, 24px);
+			padding: 9px 0 9px 30px;
+			line-height: 24px;
+			font-size: 16px;
+			color: #555;
+			@include placeholder(#ccc);
+		}
+		.searchBtn {
+			position: absolute;
+			right: 0;
+			top: 0;
+			@include size(80px, 42px);
+			line-height: 42px;
+			text-align: center;
+			cursor: pointer;
+			background-color: $base;
+			color: #fff;
+		}
+	}
+}
+
+
+.listMainWrap {
+	.breadcrumb {
+		width: 100%;
+		line-height: 42px;
+		font-size: 12px;
+		li {
+			display: inline-block;
+			a {
+				color: #888;
+				&:hover {
+					color: $base;
+				}
+			}
+			& + li:before {
+				padding: 0 5px;
+				color: #888;
+				content: "/\00a0";
+			}
+		}
+	}
+	.contentNavTab {
+		position: relative;
+		height: 40px;
+		border-bottom: 2px solid $base;
+		> a {
+			float: left;
+			height: 40px;
+			padding: 0 25px;
+			line-height: 40px;
+			color: #333;
+			&.active {
+				color: #fff;
+				background-color: $base;
+				@include border-top-radius(2px);
+			}
+			&:hover:not(.active) {
+				background-color: #ffeeeb;
+				@include border-top-radius(2px);
+			}
+		}
+	}
+	.contentWrap {
+		overflow: hidden;
+		.checkList {
+			padding: 18px 0 20px;
+			color: #555;
+			border-bottom: 1px solid #f3f3f3;
+			font-size: 12px;
+			.checkboxItem {
+				float: left;
+				margin-right: 20px;
+			}
+			.checkListSortWrap {
+				position: relative;
+				float: right;
+				line-height: 14px;
+				.sortItem {
+					float: left;
+					padding: 0 12px;
+					color: #555;
+					&:hover {
+						color: $base;
+					}
+				}
+			}
+		}
+		.houseListUl {
+			li {
+				position: relative;
+				padding: 30px 0;
+				border-bottom: 1px solid #f3f3f3;
+				overflow: hidden;
+				font-size: 12px;
+				&:hover {
+					background-color: #f9f9f9;
+				}
+				.pic {
+					position: relative;
+					float: left;
+					@include size(147px, 110px);
+					background-color: #ccc;
+					img {
+						display: block;
+						@include size(147px, 110px);
+					}
+					.picNum {
+						position: absolute;
+						top: 0;
+						left: 0;
+						display: block;
+						padding: 4px 8px;
+						color: #fff;
+						line-height: 12px;
+						background-color: rgba(0, 0, 0, 0.5);
+					}
+				}
+				.listInfo {
+					float: left;
+					width: 662px;
+					margin-left: 20px;
+					.title {
+						margin-bottom: 15px;
+						a {
+							font-size: 20px;
+							color: #333;
+							&:hover {
+								color: $base;
+							}
+						}
+						.icon {
+							display: inline-block;
+							color: #fff;
+							padding: 0 3px;
+							margin-right: 5px;
+							height: 18px;
+							line-height: 18px;
+							font-weight: 400;
+							font-style: normal;
+							&.icon-jinxuan {
+								background-color: #3aa731;
+							}
+							&.icon-mainfei {
+								background-color: #078ad2;
+							}
+							&.icon-anxuan {
+								box-sizing: border-box;
+								line-height: 16px;
+								font-weight: 700;
+								letter-spacing: 1px;
+								color: #52b25a;
+								border: 1px solid #52b25a;
+							}
+						}
+					}
+					.baseInfo,
+					.locationInfo,
+					.ownerInfo {
+						margin-bottom: 13px;
+						line-height: 14px;
+					}
+				}
+				.price {
+					position: absolute;
+					right: 100px;
+					margin-top: 30px;
+					.sum {
+						margin-bottom: 8px;
+						color: $base;
+						b {
+							font-size: 30px;
+							margin-right: 6px;
+						}
+					}
+					.unit {
+						color: #777;
+						text-align: right;
+					}
+				}
+				.time {
+					position: absolute;
+					top: 30px;
+					right: 20px;
+					color: #ccc;
+				}
+			}
+		}
+	}
 }
