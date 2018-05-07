@@ -186,11 +186,6 @@
 			margin-top: 12px;
 			line-height: 18px;
 			font-size: 12px;
-			&.filterItemFirst {
-				padding: 16px 23px 14px 23px;
-				background: #fafafa;
-				margin-top: 0;
-			}
 			> dt {
 				float: left;
 				@include size(36px, 18px);
@@ -210,16 +205,39 @@
 					}
 				}
 			}
-			.filterSelect {
-				overflow: hidden;
-				margin-bottom: 12px;
-				> li {
-					float: left;
-					font-size: 12px;
-					line-height: 18px;
-					margin-right: 37px;
+			&.filterItemFirst {
+				padding: 16px 23px 14px 23px;
+				background: #fafafa;
+				margin-top: 0;
+				.filterSelect {
+					overflow: hidden;
+					margin-bottom: 12px;
+					> li {
+						float: left;
+						font-size: 12px;
+						line-height: 18px;
+						margin-right: 37px;
+						a {
+							position: relative;
+							&::after {
+								content: "";
+								position: absolute;
+								top: 6px;
+								right: -16px;
+								display: block;
+								@include size(10px, 6px);
+								background: url("../img/spriter/arrow3.png?__spriter") no-repeat;
+							}
+							&.on {
+								color: $base;
+								&::after {
+									background: url("../img/spriter/arrow4.png?__spriter") no-repeat;
+								}
+							}
+						}
+					}
 				}
-				.areaSelectList {
+				.filterAreaFirst {
 					a {
 						color: #333;
 						font-size: 12px;
@@ -230,9 +248,18 @@
 						}
 					}
 				}
-				.areaSelectListContent {
+				.filterAreaSecond {
 					line-height: 26px;
 					margin-top: 10px;
+					a {
+						color: #333;
+						font-size: 12px;
+						margin-right: 17px;
+						&.on,
+						&:hover {
+							color: $base;
+						}
+					}
 				}
 			}
 		}
@@ -289,9 +316,26 @@
 				float: right;
 				line-height: 14px;
 				.sortItem {
+					position: relative;
 					float: left;
-					padding: 0 12px;
+					padding: 0 18px;
 					color: #555;
+					&:not(.sortByGeneral)::before {
+						content: "";
+						position: absolute;
+						top: 2px;
+						right: 5px;
+						display: block;
+						@include size(6px, 10px);
+
+					}
+					&.up::before {
+						background: url("../img/spriter/arrow5.png?__spriter") no-repeat;
+					}
+					&.down::before {
+						background: url("../img/spriter/arrow6.png?__spriter") no-repeat;
+					}
+					&.on,
 					&:hover {
 						color: $base;
 					}
@@ -402,6 +446,34 @@
 					top: 30px;
 					right: 20px;
 					color: #ccc;
+				}
+			}
+		}
+		.pagination {
+			padding: 30px 0;
+			text-align: center;
+			font-size: 14px;
+			> a {
+				display: inline-block;
+				@include size(36px, 36px);
+				line-height: 36px;
+				text-align: center;
+				border: 1px solid #eee;
+				cursor: pointer;
+				margin-right: -1px;
+				background-color: #fff;
+				&.pre,
+				&.next {
+					width: 70px;
+					margin: 0 4px;
+				}
+				&.active {
+					background-color: #555;
+					color: #fff;
+				}
+				&.disabled {
+					border-color: #fff;
+					cursor: inherit;
 				}
 			}
 		}

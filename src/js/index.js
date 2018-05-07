@@ -1,7 +1,7 @@
 "use strict";
 
 import Vue from "vue";
-import {search} from "./data/index";
+import {search} from "data/index";
 
 // --------------------------
 // 首页视图

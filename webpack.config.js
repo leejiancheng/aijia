@@ -25,7 +25,8 @@ module.exports = {
 		extensions: [".js", ".json"],
 		alias: {
 			"vue$": "vue/dist/vue.esm.js",
-			"@": resolve("src")
+			"@": resolve("src"),
+			"data": resolve("data")
 		}
 	},
 	devServer: {
@@ -89,6 +90,13 @@ module.exports = {
 			template: "./src/html/person.html",
 			inject: true,
 			chunks: ["person"]
+		}),
+		new HtmlWebpackPlugin({
+			title: "列表",
+			filename: "list.html",
+			template: "./src/html/list.html",
+			inject: true,
+			chunks: ["list"]
 		}),
 	]
 }

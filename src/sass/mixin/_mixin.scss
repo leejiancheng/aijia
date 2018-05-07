@@ -11,8 +11,8 @@
 }
 
 // 圆形
-@mixin circle ($width, $height) {
-	@include size($width, $height);
+@mixin circle ($width) {
+	@include size($width, $width);
 	border-radius: 50%;
 }
 

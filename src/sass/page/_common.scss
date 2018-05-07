@@ -96,3 +96,41 @@
 		}
 	}
 }
+
+.loading {
+	.loading-mask {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		@include size(100%, 100%);
+		z-index: 9998;
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+	.loading-wrap {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		@include size(32px, 32px);
+		z-index: 9999;
+		.loading-dot {
+			position: relative;
+			display: block;
+			@include circle(20px);
+			background-color: #2d8cf0;
+			animation: ani-spin-bounce 1s 0s ease-in-out infinite;
+		}
+	}
+}
+
+@keyframes ani-spin-bounce {
+    0% {
+        transform: scale(0)
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0
+    }
+}

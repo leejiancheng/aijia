@@ -2,8 +2,8 @@
 
 import Vue from "vue";
 import Modal from "./components/modal";
-// import {get} from "./util/ajax.js";
 import {checkMobile} from "./util/tool";
+// import {get} from "./util/ajax.js";
 
 // --------------------------
 // 登录界面视图

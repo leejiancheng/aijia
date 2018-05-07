@@ -21,11 +21,11 @@ block content
 		.listMainWrap
 			ul.breadcrumb
 				li
-					a(href="javascript:void(0);") 广州58同城
+					a(href="javascript:void(0);") 深圳58同城
 				li
-					a(href="javascript:void(0);") 广州房产信息
+					a(href="javascript:void(0);") 深圳房产信息
 				li
-					a(href="javascript:void(0);") 广州二手房
+					a(href="javascript:void(0);") 深圳二手房
 			ul.houseNavTab
 				li.selected
 					a(href="javascript:void(0);") 二手房
@@ -42,70 +42,27 @@ block content
 					dd
 						ul.filterSelect
 							li.filterSelectLi
-								a(href="javascript:void(0)") 区域
+								a(href="javascript:void(0)", :class="nowFilterArea === 'location' ? 'on' : ''", @click="filterArea('location')") 区域
 							li.filterSelectLi
-								a(href="javascript:void(0)") 地铁
-						.areaSelectList.select
-							a.on(href="javascript:void(0)") 不限
-							a(href="javascript:void(0)") 天河
-							a(href="javascript:void(0)") 海珠
-							a(href="javascript:void(0)") 越秀
-							a(href="javascript:void(0)") 白云
-							a(href="javascript:void(0)") 番禺
-						.areaSelectListContent.select.hidden
-							a(href="javascript:void(0)") 秦村
-							a(href="javascript:void(0)") 商社
-							a(href="javascript:void(0)") 长训
-							a(href="javascript:void(0)") 车杯
-							a(href="javascript:void(0)") 黄村
-						.subwaySelectList.hidden
-							a(href="javascript:void(0)") 1号线
-							a(href="javascript:void(0)") 2号线
-							a(href="javascript:void(0)") 3号线
-							a(href="javascript:void(0)") 4号线
-							a(href="javascript:void(0)") 5号线
-							a(href="javascript:void(0)") 6号线
-						.subwaySelectListContent.hidden
-							a(href="javascript:void(0)") 广州东站
-							a(href="javascript:void(0)") 体育中心
-							a(href="javascript:void(0)") 体育西路
-							a(href="javascript:void(0)") 公元前
+								a(href="javascript:void(0)", :class="nowFilterArea === 'metro' ? 'on' : ''", @click="filterArea('metro')") 地铁
+						.filterAreaFirst
+							a(href="javascript:void(0);" v-for="(item, index) in filterAreaFirst", :class="item.selected ? 'on' : ''", @click="selectFirst(index)")
+								| {{item.name}}
+						.filterAreaSecond
+							a(href="javascript:void(0);" v-for="(item, index) in filterAreaSecond", :class="item.selected ? 'on' : ''", @click="selectSecond(index)")
+								| {{item.name}}
 				dl.filterItem
 					dt 总价：
-					dd
-						a.selected(href="javascript:void(0)") 不限
-						a(href="javascript:void(0)") 100万以下
-						a(href="javascript:void(0)") 100-150万
-						a(href="javascript:void(0)") 150万-200万
-						a(href="javascript:void(0)") 200万-300万
-						a(href="javascript:void(0)") 300万-400万
-						a(href="javascript:void(0)") 400万-550万
-						a(href="javascript:void(0)") 550万-700万
-						a(href="javascript:void(0)") 700万-900万
-						a(href="javascript:void(0)") 900万以上
+					dd.Price
+						a(href="javascript:void(0)", v-for="(item, index) in sumPrice", :class="{'selected': item.selected}", @click="selectEvent($event, index)") {{item.name}}
 				dl.filterItem
 					dt 面积：
-					dd
-						a.selected(href="javascript:void(0)") 不限
-						a(href="javascript:void(0)") 50㎡以下
-						a(href="javascript:void(0)") 50-70㎡
-						a(href="javascript:void(0)") 70-90㎡
-						a(href="javascript:void(0)") 90-110㎡
-						a(href="javascript:void(0)") 110-130㎡
-						a(href="javascript:void(0)") 130-150㎡
-						a(href="javascript:void(0)") 150-200㎡
-						a(href="javascript:void(0)") 200-300㎡
-						a(href="javascript:void(0)") 300-500㎡
-						a(href="javascript:void(0)") 500㎡以上
+					dd.Acreage
+						a(href="javascript:void(0)", v-for="(item, index) in sumAcreage", :class="{'selected': item.selected}", @click="selectEvent($event, index)") {{item.name}}
 				dl.filterItem
 					dt 室厅：
-					dd
-						a.selected(href="javascript:void(0)") 不限
-						a(href="javascript:void(0)") 一室
-						a(href="javascript:void(0)") 二室
-						a(href="javascript:void(0)") 三室
-						a(href="javascript:void(0)") 四室
-						a(href="javascript:void(0)") 四室以上
+					dd.Room
+						a(href="javascript:void(0)", v-for="(item, index) in sumRoom", :class="{'selected': item.selected}", @click="selectEvent($event, index)") {{item.name}}
 				
 			.contentNavTab
 				a.selected(href="javascript:void(0)") 广州二手房出售
@@ -121,70 +78,88 @@ block content
 					a.checkboxItem(href="javascript:void(0);") 南北通透
 					a.checkboxItem(href="javascript:void(0);") 随时看房
 					.checkListSortWrap
-						a.sortItem.sortByGeneral(href="javascript:void(0);")
-							span 默认排序
-						a.sortItem.sortByTotal(href="javascript:void(0);")
-							span 总价
-							i.sortIcon.up
-						a.sortItem.sortByUnit(href="javascript:void(0);")
-							span 单价
-							i.sortIcon
-						a.sortItem.sortByArea(href="javascript:void(0);")
-							span 面积
-							i.sortIcon
+						a.sortItem.sortByGeneral(href="javascript:void(0);", data-type="0", :class="{'on': checkListType === 0}", @click="onOrderBy($event)")
+							| 默认排序
+						// 总价从低到高
+						a.sortItem.sortByTotal(href="javascript:void(0);", data-type="1", :class="{'hidden': checkListType === 1, 'on down': checkListType === 2}", @click="onOrderBy($event)")
+							| 总价
+						// 总价从高到低
+						a.sortItem.sortByTotal(href="javascript:void(0);", data-type="2", :class="{'on up': checkListType === 1}", v-show="checkListType === 1", @click="onOrderBy($event)")
+							| 总价
+						// 单价从低到高
+						a.sortItem.sortByUnit(href="javascript:void(0);", data-type="3", :class="{'hidden': checkListType === 3, 'on down': checkListType === 4}", @click="onOrderBy($event)")
+							| 单价
+						// 单价从高到低
+						a.sortItem.sortByUnit(href="javascript:void(0);", data-type="4", :class="{'on up': checkListType === 3}", v-show="checkListType === 3", @click="onOrderBy($event)")
+							| 单价
+						// 面积从小到大
+						a.sortItem.sortByArea(href="javascript:void(0);", data-type="5", :class="{'hidden': checkListType === 5, 'on down': checkListType === 6}", @click="onOrderBy($event)")
+							| 面积
+						// 面积从大到小
+						a.sortItem.sortByArea(href="javascript:void(0);", data-type="6", :class="{'on up': checkListType === 5}", v-show="checkListType === 5", @click="onOrderBy($event)")
+							| 面积
 					.clearfix
 				ul.houseListUl
 					li.houseListLi(v-for="(item, index) in houseList")
 						.pic
 							a(href="javascript:void(0);")
-								img(src="./static/img/pic1.jpg")
+								img(:src="item.picUrl")
 							span.picNum 7图
 						.listInfo
 							h3.title
-								a(href="javascript:void(0);") 世纪豪园 五一特价优惠 先到先得
+								a(href="javascript:void(0);") {{item.title}}
 								span.icon-container
 									i.icon.jinxuan 精
-									i.icon.mainfei 免
-									i.icon.anxuan 安选房源
+									//- i.icon.mainfei 免
+									//- i.icon.anxuan 安选房源
 							p.baseInfo
-								span 3室2厅2卫
-								span 110㎡
-								span 南
-								span 中层(共30层)
+								span {{item.huxing}}
+								span {{item.area}}㎡
+								span {{item.toward}}
+								span {{item.floorMH}}层(共{{item.zongLouCeng}}层)
 							p.locationInfo
-								span 中泰景峰 - 东莞 - 聚福路
+								span {{item.xiaoquName}} - {{item.cityname}} - {{item.areaName}}
 							p.ownerInfo
-								span 光宏地产 - 小明
+								span 光宏地产 - {{item.userName}}
 						.price
 							p.sum
-								b 225
+								b {{item.price}}
 								| 万
 							p.unit 21703元/㎡
 						.time 今天
-					li.houseListLi
-						.pic
-							a(href="javascript:void(0);")
-								img(src="./static/img/pic1.jpg")
-							span.picNum 7图
-						.listInfo
-							h3.title
-								a(href="javascript:void(0);") 世纪豪园 五一特价优惠 先到先得
-								span.icon-container
-									i.icon.jinxuan 精
-									i.icon.mainfei 免
-									i.icon.anxuan 安选房源
-							p.baseInfo
-								span 3室2厅2卫
-								span 110㎡
-								span 南
-								span 中层(共30层)
-							p.locationInfo
-								span 中泰景峰 - 东莞 - 聚福路
-							p.ownerInfo
-								span 光宏地产 - 小明
-						.price
-							p.sum
-								b 225
-								| 万
-							p.unit 21703元/㎡
-						.time 今天
+				.pagination
+					a.pre(href="javascript:void(0);") 上一页
+					a.paginationItem(href="javascript:void(0);") 1
+					a.paginationItem.active(href="javascript:void(0);") 2
+					a.paginationItem(href="javascript:void(0);") 3
+					a.paginationItem.disabled() ...
+					a.paginationItem(href="javascript:void(0);") 10
+					a.next(href="javascript:void(0);") 上一页
+					
+					//- li.houseListLi
+					//- 	.pic
+					//- 		a(href="javascript:void(0);")
+					//- 			img(src="./static/img/pic1.jpg")
+					//- 		span.picNum 7图
+					//- 	.listInfo
+					//- 		h3.title
+					//- 			a(href="javascript:void(0);") 世纪豪园 五一特价优惠 先到先得
+					//- 			span.icon-container
+					//- 				i.icon.jinxuan 精
+					//- 				i.icon.mainfei 免
+					//- 				i.icon.anxuan 安选房源
+					//- 		p.baseInfo
+					//- 			span 3室2厅2卫
+					//- 			span 110㎡
+					//- 			span 南
+					//- 			span 中层(共30层)
+					//- 		p.locationInfo
+					//- 			span 中泰景峰 - 东莞 - 聚福路
+					//- 		p.ownerInfo
+					//- 			span 光宏地产 - 小明
+					//- 	.price
+					//- 		p.sum
+					//- 			b 225
+					//- 			| 万
+					//- 		p.unit 21703元/㎡
+					//- 	.time 今天

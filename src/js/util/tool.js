@@ -111,6 +111,23 @@ const toast = (str) => {
 	}, 2000);
 };
 
+const showLoading = () => {
+	let oDiv = document.createElement("div");
+	oDiv.setAttribute("class", "loading");
+	oDiv.setAttribute("id", "loading");
+	oDiv.innerHTML = `
+		<div class="loading-mask"></div>
+		<div class="loading-wrap">
+			<div class="loading-dot"></div>
+		</div>`;
+	document.body.appendChild(oDiv);
+};
+
+const hideLoading = () => {
+	let oDiv = document.getElementById("loading");
+	document.body.removeChild(oDiv);
+};
+
 module.exports = {
 	getAllParam,
 	getParam,
@@ -123,5 +140,7 @@ module.exports = {
 	getSession,
 	checkEmail,
 	checkMobile,
-	toast
+	toast,
+	showLoading,
+	hideLoading
 };

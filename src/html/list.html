@@ -66,13 +66,13 @@
         <div class="listMainWrap">
             <ul class="breadcrumb">
                 <li>
-                    <a href="javascript:void(0);">广州58同城</a>
+                    <a href="javascript:void(0);">深圳58同城</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);">广州房产信息</a>
+                    <a href="javascript:void(0);">深圳房产信息</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);">广州二手房</a>
+                    <a href="javascript:void(0);">深圳二手房</a>
                 </li>
             </ul>
             <ul class="houseNavTab">
@@ -97,83 +97,36 @@
                     <dd>
                         <ul class="filterSelect">
                             <li class="filterSelectLi">
-                                <a href="javascript:void(0)">区域</a>
+                                <a href="javascript:void(0)" :class="nowFilterArea === 'location' ? 'on' : ''" @click="filterArea('location')">区域</a>
                             </li>
                             <li class="filterSelectLi">
-                                <a href="javascript:void(0)">地铁</a>
+                                <a href="javascript:void(0)" :class="nowFilterArea === 'metro' ? 'on' : ''" @click="filterArea('metro')">地铁</a>
                             </li>
                         </ul>
-                        <div class="areaSelectList select">
-                            <a href="javascript:void(0)" class="on">不限</a>
-                            <a href="javascript:void(0)">天河</a>
-                            <a href="javascript:void(0)">海珠</a>
-                            <a href="javascript:void(0)">越秀</a>
-                            <a href="javascript:void(0)">白云</a>
-                            <a href="javascript:void(0)">番禺</a>
+                        <div class="filterAreaFirst">
+                            <a href="javascript:void(0);" v-for="(item, index) in filterAreaFirst" :class="item.selected ? 'on' : ''" @click="selectFirst(index)">{{item.name}}</a>
                         </div>
-                        <div class="areaSelectListContent select hidden">
-                            <a href="javascript:void(0)">秦村</a>
-                            <a href="javascript:void(0)">商社</a>
-                            <a href="javascript:void(0)">长训</a>
-                            <a href="javascript:void(0)">车杯</a>
-                            <a href="javascript:void(0)">黄村</a>
-                        </div>
-                        <div class="subwaySelectList hidden">
-                            <a href="javascript:void(0)">1号线</a>
-                            <a href="javascript:void(0)">2号线</a>
-                            <a href="javascript:void(0)">3号线</a>
-                            <a href="javascript:void(0)">4号线</a>
-                            <a href="javascript:void(0)">5号线</a>
-                            <a href="javascript:void(0)">6号线</a>
-                        </div>
-                        <div class="subwaySelectListContent hidden">
-                            <a href="javascript:void(0)">广州东站</a>
-                            <a href="javascript:void(0)">体育中心</a>
-                            <a href="javascript:void(0)">体育西路</a>
-                            <a href="javascript:void(0)">公元前</a>
+                        <div class="filterAreaSecond">
+                            <a href="javascript:void(0);" v-for="(item, index) in filterAreaSecond" :class="item.selected ? 'on' : ''" @click="selectSecond(index)">{{item.name}}</a>
                         </div>
                     </dd>
                 </dl>
                 <dl class="filterItem">
                     <dt>总价：</dt>
-                    <dd>
-                        <a href="javascript:void(0)" class="selected">不限</a>
-                        <a href="javascript:void(0)">100万以下</a>
-                        <a href="javascript:void(0)">100-150万</a>
-                        <a href="javascript:void(0)">150万-200万</a>
-                        <a href="javascript:void(0)">200万-300万</a>
-                        <a href="javascript:void(0)">300万-400万</a>
-                        <a href="javascript:void(0)">400万-550万</a>
-                        <a href="javascript:void(0)">550万-700万</a>
-                        <a href="javascript:void(0)">700万-900万</a>
-                        <a href="javascript:void(0)">900万以上</a>
+                    <dd class="Price">
+                        <a href="javascript:void(0)" v-for="(item, index) in sumPrice" :class="{'selected': item.selected}" @click="selectEvent($event, index)">{{item.name}}</a>
                     </dd>
                 </dl>
                 <dl class="filterItem">
                     <dt>面积：</dt>
-                    <dd>
-                        <a href="javascript:void(0)" class="selected">不限</a>
-                        <a href="javascript:void(0)">50㎡以下</a>
-                        <a href="javascript:void(0)">50-70㎡</a>
-                        <a href="javascript:void(0)">70-90㎡</a>
-                        <a href="javascript:void(0)">90-110㎡</a>
-                        <a href="javascript:void(0)">110-130㎡</a>
-                        <a href="javascript:void(0)">130-150㎡</a>
-                        <a href="javascript:void(0)">150-200㎡</a>
-                        <a href="javascript:void(0)">200-300㎡</a>
-                        <a href="javascript:void(0)">300-500㎡</a>
-                        <a href="javascript:void(0)">500㎡以上</a>
+                    <dd class="Acreage">
+                        <a href="javascript:void(0)" v-for="(item, index) in sumAcreage" :class="{'selected': item.selected}" @click="selectEvent($event, index)">{{item.name}}</a>
                     </dd>
                 </dl>
                 <dl class="filterItem">
                     <dt>室厅：</dt>
-                    <dd>
-                        <a href="javascript:void(0)" class="selected">不限</a>
-                        <a href="javascript:void(0)">一室</a>
-                        <a href="javascript:void(0)">二室</a>
-                        <a href="javascript:void(0)">三室</a>
-                        <a href="javascript:void(0)">四室</a>
-                        <a href="javascript:void(0)">四室以上</a>
+                    <dd class="Room">
+                        <a href="javascript:void(0)" v-for="(item, index) in sumRoom" :class="{'selected': item.selected}" @click="selectEvent($event, index)">{{item.name}}</a>
                     </dd>
                 </dl>
             </div>
@@ -192,21 +145,19 @@
                     <a href="javascript:void(0);" class="checkboxItem">南北通透</a>
                     <a href="javascript:void(0);" class="checkboxItem">随时看房</a>
                     <div class="checkListSortWrap">
-                        <a href="javascript:void(0);" class="sortItem sortByGeneral">
-                            <span>默认排序</span>
-                        </a>
-                        <a href="javascript:void(0);" class="sortItem sortByTotal">
-                            <span>总价</span>
-                            <i class="sortIcon up"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="sortItem sortByUnit">
-                            <span>单价</span>
-                            <i class="sortIcon"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="sortItem sortByArea">
-                            <span>面积</span>
-                            <i class="sortIcon"></i>
-                        </a>
+                        <a href="javascript:void(0);" data-type="0" :class="{'on': checkListType === 0}" @click="onOrderBy($event)" class="sortItem sortByGeneral">默认排序</a>
+                        <!-- 总价从低到高-->
+                        <a href="javascript:void(0);" data-type="1" :class="{'hidden': checkListType === 1, 'on down': checkListType === 2}" @click="onOrderBy($event)" class="sortItem sortByTotal">总价</a>
+                        <!-- 总价从高到低-->
+                        <a href="javascript:void(0);" data-type="2" :class="{'on up': checkListType === 1}" v-show="checkListType === 1" @click="onOrderBy($event)" class="sortItem sortByTotal">总价</a>
+                        <!-- 单价从低到高-->
+                        <a href="javascript:void(0);" data-type="3" :class="{'hidden': checkListType === 3, 'on down': checkListType === 4}" @click="onOrderBy($event)" class="sortItem sortByUnit">单价</a>
+                        <!-- 单价从高到低-->
+                        <a href="javascript:void(0);" data-type="4" :class="{'on up': checkListType === 3}" v-show="checkListType === 3" @click="onOrderBy($event)" class="sortItem sortByUnit">单价</a>
+                        <!-- 面积从小到大-->
+                        <a href="javascript:void(0);" data-type="5" :class="{'hidden': checkListType === 5, 'on down': checkListType === 6}" @click="onOrderBy($event)" class="sortItem sortByArea">面积</a>
+                        <!-- 面积从大到小-->
+                        <a href="javascript:void(0);" data-type="6" :class="{'on up': checkListType === 5}" v-show="checkListType === 5" @click="onOrderBy($event)" class="sortItem sortByArea">面积</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -214,76 +165,47 @@
                     <li v-for="(item, index) in houseList" class="houseListLi">
                         <div class="pic">
                             <a href="javascript:void(0);">
-                                <img src="./static/img/pic1.jpg">
+                                <img :src="item.picUrl">
                             </a>
                             <span class="picNum">7图</span>
                         </div>
                         <div class="listInfo">
                             <h3 class="title">
-                                <a href="javascript:void(0);">世纪豪园 五一特价优惠 先到先得</a>
+                                <a href="javascript:void(0);">{{item.title}}</a>
                                 <span class="icon-container">
                                     <i class="icon jinxuan">精</i>
-                                    <i class="icon mainfei">免</i>
-                                    <i class="icon anxuan">安选房源</i>
                                 </span>
                             </h3>
                             <p class="baseInfo">
-                                <span>3室2厅2卫</span>
-                                <span>110㎡</span>
-                                <span>南</span>
-                                <span>中层(共30层)</span>
+                                <span>{{item.huxing}}</span>
+                                <span>{{item.area}}㎡</span>
+                                <span>{{item.toward}}</span>
+                                <span>{{item.floorMH}}层(共{{item.zongLouCeng}}层)</span>
                             </p>
                             <p class="locationInfo">
-                                <span>中泰景峰 - 东莞 - 聚福路</span>
+                                <span>{{item.xiaoquName}} - {{item.cityname}} - {{item.areaName}}</span>
                             </p>
                             <p class="ownerInfo">
-                                <span>光宏地产 - 小明</span>
+                                <span>光宏地产 - {{item.userName}}</span>
                             </p>
                         </div>
                         <div class="price">
                             <p class="sum">
-                                <b>225</b>万</p>
-                            <p class="unit">21703元/㎡</p>
-                        </div>
-                        <div class="time">今天</div>
-                    </li>
-                    <li class="houseListLi">
-                        <div class="pic">
-                            <a href="javascript:void(0);">
-                                <img src="./static/img/pic1.jpg">
-                            </a>
-                            <span class="picNum">7图</span>
-                        </div>
-                        <div class="listInfo">
-                            <h3 class="title">
-                                <a href="javascript:void(0);">世纪豪园 五一特价优惠 先到先得</a>
-                                <span class="icon-container">
-                                    <i class="icon jinxuan">精</i>
-                                    <i class="icon mainfei">免</i>
-                                    <i class="icon anxuan">安选房源</i>
-                                </span>
-                            </h3>
-                            <p class="baseInfo">
-                                <span>3室2厅2卫</span>
-                                <span>110㎡</span>
-                                <span>南</span>
-                                <span>中层(共30层)</span>
-                            </p>
-                            <p class="locationInfo">
-                                <span>中泰景峰 - 东莞 - 聚福路</span>
-                            </p>
-                            <p class="ownerInfo">
-                                <span>光宏地产 - 小明</span>
-                            </p>
-                        </div>
-                        <div class="price">
-                            <p class="sum">
-                                <b>225</b>万</p>
+                                <b>{{item.price}}</b>万</p>
                             <p class="unit">21703元/㎡</p>
                         </div>
                         <div class="time">今天</div>
                     </li>
                 </ul>
+                <div class="pagination">
+                    <a href="javascript:void(0);" class="pre">上一页</a>
+                    <a href="javascript:void(0);" class="paginationItem">1</a>
+                    <a href="javascript:void(0);" class="paginationItem active">2</a>
+                    <a href="javascript:void(0);" class="paginationItem">3</a>
+                    <a class="paginationItem disabled">...</a>
+                    <a href="javascript:void(0);" class="paginationItem">10</a>
+                    <a href="javascript:void(0);" class="next">上一页</a>
+                </div>
             </div>
         </div>
     </div>
