@@ -7,62 +7,134 @@
 
 .listHeaderWrap {
 	margin-top: 20px;
+	.listHeaderContent {
+		position: relative;
+		.logo {
+			float: left;
+			@include size(214px, 42px);
+			margin-bottom: 6px;
+			background: url("../img/logo4.png") no-repeat;
+			background-size: cover;
+			overflow: hidden;
+			text-indent: -999em;
+		}
+		.publishBtn {
+			float: right;
+			@include size(100px, 46px);
+			color: $base;
+			text-align: center;
+			background-color: #ffefe7;
+			line-height: 46px;
+			&:hover {
+				background-color: #ffe9de;
+			}
+		}
+		.searchBar {
+			position: relative;
+			float: right;
+			@include size(584px, 42px);
+			margin-right: 100px;
+			border: 2px solid $base;
+			.icon {
+				display: block;
+				position: absolute;
+				top: 13px;
+				left: 10px;
+				@include size(14px, 15px);
+				background: url("../img/spriter/search3.png?__spriter") no-repeat;
+			}
+			.searchInput {
+				float: left;
+				@include size(470px, 24px);
+				line-height: 24px;
+				padding: 9px 0 9px 30px;
+				font-size: 16px;
+				color: #555;
+				@include placeholder(#ccc);
+			}
+			.searchBtn {
+				float: right;
+				@include size(80px, 42px);
+				text-align: center;
+				color: #fff;
+				line-height: 42px;
+				background-color: $base;
+				cursor: pointer;
+			}
+		}
+		.searchList {
+			position: absolute;
+			top: 46px;
+			right: 282px;
+			@include size(504px, auto);
+			border: 1px solid #dcdadc;
+			z-index: 10;
+			li {
+				a {
+					box-sizing: border-box;
+					display: block;
+					@include size(100%, 30px);
+					padding: 0 12px;
+					line-height: 30px;
+					overflow: hidden;
+					font-size: 14px;
+					background-color: #fff;
+				}
+			}
+			// background-color: #ccc;
+		}
+	}
+	&.fixedHeader {
+		position: fixed;
+		top: 0;
+		left: 0;
+		@include size(100%, 50px);
+		background-color: $base;
+		margin-top: 0;
+		z-index: 10;
+		.listHeaderContent {
+			width: 1190px;
+			margin: 0 auto;
+			font-size: 14px;
+			.logo {
+				@include size(137px, 27px);
+				margin: 9px 0 6px;
+				background: url("../img/logo5.png") no-repeat;
+			}
+			.publishBtn {
+				@include size(140px, 32px);
+				line-height: 32px;
+				background-color: #fff;
+				color: $base;
+				margin-top: 9px;
+			}
+			.searchBar {
+				@include size(618px, 32px);
+				margin-top: 9px;
+				background-color: #fff;
+				border: none;
+				.icon {
+					top: 8px;
+				}
+				.searchInput {
+					height: 18px;
+					padding: 7px 0 7px 30px;
+					font-size: 12px;
+					line-height: 18px;
+				}
+				.searchBtn {
+					top: 1px;
+					right: 1px;
+					@include size(100px, 32px);
+					border: 1px solid #fff;
+					line-height: 32px;
+				}
+			}
+		}
+	}
 }
 
-.listHeaderContent {
-	.logo {
-		float: left;
-		@include size(214px, 42px);
-		margin-bottom: 6px;
-		background: url("../img/logo4.png");
-		background-size: cover;
-		text-indent: -9999em;
-		overflow: hidden;
-	}
-	.publish {
-		float: right;
-		@include size(100px, 46px);
-		color: $base;
-		text-align: center;
-		background-color: #ffefe7;
-		line-height: 46px;
-	}
-	.searchBar {
-		float: right;
-		position: relative;
-		@include size(584px, 42px);
-		margin-right: 100px;
-		border: 2px solid $base;
-		.icon {
-			position: absolute;
-			top: 13px;
-			left: 10px;
-			display: block;
-			@include size(14px, 15px);
-			background: url("../img/spriter/search3.png?__spriter") no-repeat;
-		}
-		.searchInput {
-			float: left;
-			@include size(470px, 24px);
-			padding: 9px 0 9px 30px;
-			line-height: 24px;
-			font-size: 16px;
-			color: #555;
-			@include placeholder(#ccc);
-		}
-		.searchBtn {
-			position: absolute;
-			right: 0;
-			top: 0;
-			@include size(80px, 42px);
-			line-height: 42px;
-			text-align: center;
-			cursor: pointer;
-			background-color: $base;
-			color: #fff;
-		}
-	}
-}
+
 
 
 .listMainWrap {
@@ -70,7 +142,7 @@
 		width: 100%;
 		line-height: 42px;
 		font-size: 12px;
-		li {
+		> li {
 			display: inline-block;
 			a {
 				color: #888;
@@ -78,10 +150,90 @@
 					color: $base;
 				}
 			}
-			& + li:before {
-				padding: 0 5px;
+		}
+		li + li:before {
+			padding: 0 5px;
+			color: #ccc;
+			content: "/\00a0";
+		}
+	}
+	.houseNavTab {
+		overflow: hidden;
+		margin-bottom: 17px;
+		li {
+			float: left;
+			height: 18px;
+			line-height: 18px;
+			font-size: 14px;
+			margin-right: 40px;
+			&.selected {
+				a {
+					color: $base;
+				}
+			}
+			a {
+				color: #333;
+				&:hover {
+					color: $base;
+				}
+			}
+		}
+	}
+	.filterWrap {
+		position: relative;
+		margin-bottom: 20px;
+		.filterItem {
+			margin-top: 12px;
+			line-height: 18px;
+			font-size: 12px;
+			&.filterItemFirst {
+				padding: 16px 23px 14px 23px;
+				background: #fafafa;
+				margin-top: 0;
+			}
+			> dt {
+				float: left;
+				@include size(36px, 18px);
+				line-height: 18px;
 				color: #888;
-				content: "/\00a0";
+				margin-right: 12px;
+			}
+			> dd {
+				a {
+					color: #333;
+					margin-right: 17px;
+					&:hover {
+						color: $base;
+					}
+					&.selected {
+						color: $base;
+					}
+				}
+			}
+			.filterSelect {
+				overflow: hidden;
+				margin-bottom: 12px;
+				> li {
+					float: left;
+					font-size: 12px;
+					line-height: 18px;
+					margin-right: 37px;
+				}
+				.areaSelectList {
+					a {
+						color: #333;
+						font-size: 12px;
+						margin-right: 17px;
+						&.on,
+						&:hover {
+							color: $base;
+						}
+					}
+				}
+				.areaSelectListContent {
+					line-height: 26px;
+					margin-top: 10px;
+				}
 			}
 		}
 	}
@@ -92,16 +244,16 @@
 		> a {
 			float: left;
 			height: 40px;
-			padding: 0 25px;
 			line-height: 40px;
+			padding: 0 25px;
 			color: #333;
-			&.active {
-				color: #fff;
-				background-color: $base;
+			&:hover:not(.selected) {
+				background-color: #ffeeeb;
 				@include border-top-radius(2px);
 			}
-			&:hover:not(.active) {
-				background-color: #ffeeeb;
+			&:first-child {
+				color: #fff;
+				background-color: $base;
 				@include border-top-radius(2px);
 			}
 		}
@@ -109,13 +261,28 @@
 	.contentWrap {
 		overflow: hidden;
 		.checkList {
-			padding: 18px 0 20px;
 			color: #555;
+			padding: 18px 0 20px;
 			border-bottom: 1px solid #f3f3f3;
 			font-size: 12px;
 			.checkboxItem {
+				position: relative;
 				float: left;
+				padding-left: 25px;
 				margin-right: 20px;
+				&::before {
+					position: absolute;
+					top: 0;
+					left: 0;
+					content: "";
+					display: block;
+					@include size(14px, 14px);
+					border: 1px solid #dedede;
+					background: #fff;
+				}
+				&.selected::before {
+					background: url("../img/spriter/check.png?__spriter") no-repeat;
+				}
 			}
 			.checkListSortWrap {
 				position: relative;
@@ -132,7 +299,8 @@
 			}
 		}
 		.houseListUl {
-			li {
+			overflow: hidden;
+			> li {
 				position: relative;
 				padding: 30px 0;
 				border-bottom: 1px solid #f3f3f3;
@@ -140,12 +308,14 @@
 				font-size: 12px;
 				&:hover {
 					background-color: #f9f9f9;
+					.listInfo .title a {
+						color: $base;
+					}
 				}
 				.pic {
-					position: relative;
 					float: left;
+					position: relative;
 					@include size(147px, 110px);
-					background-color: #ccc;
 					img {
 						display: block;
 						@include size(147px, 110px);
@@ -154,9 +324,8 @@
 						position: absolute;
 						top: 0;
 						left: 0;
-						display: block;
-						padding: 4px 8px;
 						color: #fff;
+						padding: 4px 8px;
 						line-height: 12px;
 						background-color: rgba(0, 0, 0, 0.5);
 					}
@@ -165,38 +334,41 @@
 					float: left;
 					width: 662px;
 					margin-left: 20px;
+					color: #777;
 					.title {
 						margin-bottom: 15px;
 						a {
-							font-size: 20px;
 							color: #333;
+							font-size: 20px;
+							vertical-align: middle;
 							&:hover {
 								color: $base;
 							}
 						}
-						.icon {
-							display: inline-block;
-							color: #fff;
-							padding: 0 3px;
-							margin-right: 5px;
-							height: 18px;
-							line-height: 18px;
-							font-weight: 400;
-							font-style: normal;
-							&.icon-jinxuan {
-								background-color: #3aa731;
-							}
-							&.icon-mainfei {
-								background-color: #078ad2;
-							}
-							&.icon-anxuan {
-								box-sizing: border-box;
-								line-height: 16px;
-								font-weight: 700;
-								letter-spacing: 1px;
-								color: #52b25a;
-								border: 1px solid #52b25a;
-							}
+					}
+					.icon {
+						display: inline-block;
+						height: 18px;
+						line-height: 18px;
+						padding: 0 3px;
+						color: #fff;
+						margin-right: 5px;
+						font-weight: 400;
+						font-style: normal;
+						vertical-align: middle;
+						&.jinxuan {
+							background-color: #3aa731;
+						}
+						&.mainfei {
+							background-color: #078ad2;
+						}
+						&.anxuan {
+							color: #52b25a;
+							box-sizing: border-box;
+							line-height: 16px;
+							border: 1px solid #52b25a;
+							font-weight: 700;
+							letter-spacing: 1px;
 						}
 					}
 					.baseInfo,
@@ -204,22 +376,24 @@
 					.ownerInfo {
 						margin-bottom: 13px;
 						line-height: 14px;
+						span {
+							margin-right: 14px;
+						}
 					}
 				}
 				.price {
 					position: absolute;
 					right: 100px;
 					margin-top: 30px;
+					b {
+						font-size: 30px;
+						margin-right: 6px;
+					}
 					.sum {
-						margin-bottom: 8px;
 						color: $base;
-						b {
-							font-size: 30px;
-							margin-right: 6px;
-						}
+						margin-bottom: 8px;
 					}
 					.unit {
-						color: #777;
 						text-align: right;
 					}
 				}

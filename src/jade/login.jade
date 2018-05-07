@@ -4,7 +4,7 @@ block head
 	link(rel="stylesheet", href="./static/css/index.css")
 
 block content
-	.signPage
+	.signPage#loginPage
 		img.imgBg(src="./static/img/bg1.png")
 		.signTopBar
 			.backToIndex
@@ -18,16 +18,16 @@ block content
 			.signBox
 				ul.signUl
 					// 手机号/账户名/邮箱
-					li.signLi
-						input.signInput(type="text", placeholder="手机号/账户名/邮箱")
-					li.signTip
-						span.signTipText 您还没有输入账户名
+					li(:class="['signLi', {'signLiFocus': inputFocus.nameInput}]")
+						input.signInput.username(type="text", placeholder="手机号/账户名/邮箱", v-model="form.username", @blur="validateInput($event)", @focus="inputFocus.nameInput = true")
+					li.signTip(v-show="showTip.showNameTip")
+						span.signTipText {{validateText.nameTipText}}
 
 					// 密码
-					li.signLi
-						input.signInput(type="text", placeholder="密码")
-					li.signTip
-						span.signTipText 您还没有输入密码
+					li(:class="['signLi', {'signLiFocus': inputFocus.pwdInput}]")
+						input.signInput.password(type="text", placeholder="密码", v-model="form.password", @blur="validateInput($event)", @focus="inputFocus.pwdInput = true")
+					li.signTip(v-show="showTip.showPwdTip")
+						span.signTipText {{validateText.pwdTipText}}
 
 					// 自动登录
 					li.signLi.signAutoLoginLi
@@ -37,4 +37,4 @@ block content
 					// 登录按钮
 					li.signLi.signLoginButtonLi
 						.signButtonBox
-							button.signButton(type="button") 登录
+							button.signButton(type="button", @click="login") 登录

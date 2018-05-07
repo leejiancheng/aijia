@@ -108,7 +108,7 @@ gulp.task("clean", function (cb) {
 
 // 监控文件任务
 gulp.task("watch", function () {
-	gulp.watch(`${pathConfig.sass}/**.*.scss`, ["sass"]);
+	gulp.watch(`${pathConfig.sass}/**/*.scss`, ["sass"]);
 	gulp.watch(`${pathConfig.css}/**/*.css`, ["css"]);
 	gulp.watch(`${pathConfig.img}/**/*.{png,jpg,gif,ico}`, ["img"]);
 	gulp.watch(`${pathConfig.fonts}/**/*`, ["fonts"]);
@@ -124,7 +124,7 @@ gulp.task("server", function () {
 		files: ["**"],
 		server: {
 			baseDir: "dist",						// 设置服务器的根目录
-			index: "list.html"						// 指定默认打开的文件
+			index: "index.html"						// 指定默认打开的文件
 		},
 		port: 3000,									// 指定访问服务器的端口号
 		injectChanges: true							// 注入CSS改变
@@ -141,7 +141,21 @@ gulp.task("server", function () {
 
 });
 
-gulp.task("default", ["clean"], function () {
+
+
+gulp.task("gulp-server", ["clean"], function () {
 	gulp.start("css", "html", "img", "fonts", "server");
 });
+
+
+
+
+gulp.task("gulp-dev", ["clean"], function () {
+	gulp.start("css", "jade", "img", "fonts", "watch");
+});
+
+
+// gulp.task("default", function () {
+// 	gulp.start("css", "html", "img", "fonts");
+// });
 

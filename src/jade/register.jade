@@ -4,7 +4,7 @@ block head
 	link(rel="stylesheet", href="./static/css/index.css")
 
 block content
-	.signPage
+	.signPage#registerPage
 		img.imgBg(src="./static/img/bg1.png")
 		.signTopBar
 			.backToIndex
@@ -18,35 +18,35 @@ block content
 			.signBox
 				ul.signUl
 					// 手机号
-					li.signLi.signLiFocus
-						input.signInput(type="text", placeholder="手机号")
-						button.signGetcodeBtn(type="button") 获取动态码
-					li.signTip
-						span.signTipText 请点击获取验证码按钮
+					li(:class="['signLi', {'signLiFocus': inputFocus.mobileInput}]")
+						input.signInput.mobile(type="text", placeholder="手机号", maxlength="11", autocomplete="off", v-model="form.mobile", @blur="validateInput($event)", @input="getMobileValue" @focus="inputFocus.mobileInput = true; showTip.showMobileTip = false;")
+						button.signGetcodeBtn(type="button", @click="getCode", :disabled="!canGetCode") 获取动态码
+					li.signTip(v-show="showTip.showMobileTip")
+						span.signTipText {{validateText.mobileTipText}}
 
 					// 短信验证码
-					li.signLi
-						input.signInput(type="text", placeholder="动态码")
-					li.signTip
-						span.signTipText 请填写正确的手机动态码 （该手机号已注册）
+					li(:class="['signLi', {'signLiFocus': inputFocus.codeInput}]")
+						input.signInput.code(type="text", placeholder="动态码", v-model="form.code", @blur="validateInput($event)", @focus="inputFocus.codeInput = true")
+					li.signTip(v-show="showTip.showCodeTip")
+						span.signTipText {{validateText.codeTipText}}
 
 					// 用户名
-					li.signLi
-						input.signInput(type="text", placeholder="用户名")
-					li.signTip
-						span.signTipText
+					li(:class="['signLi', {'signLiFocus': inputFocus.nameInput}]")
+						input.signInput.username(type="text", placeholder="用户名", v-model="form.username", @blur="validateInput($event)", @focus="inputFocus.nameInput = true")
+					li.signTip(v-show="showTip.showNameTip")
+						span.signTipText {{validateText.nameTipText}}
 					
 					// 设置密码
-					li.signLi
-						input.signInput(type="text", placeholder="设置密码")
-					li.signTip
-						span.signTipText
+					li(:class="['signLi', {'signLiFocus': inputFocus.pwdInput}]")
+						input.signInput.password(type="text", placeholder="设置密码", v-model="form.password",@blur="validateInput($event)", @focus="inputFocus.pwdInput = true")
+					li.signTip(v-show="showTip.showPwdTip")
+						span.signTipText {{validateText.pwdTipText}}
 					
 					// 确认密码
-					li.signLi
-						input.signInput(type="text", placeholder="确认密码")
-					li.signTip
-						span.signTipText
+					li(:class="['signLi', {'signLiFocus': inputFocus.confirmInput}]")
+						input.signInput.confirm(type="text", placeholder="确认密码", v-model="form.confirm", @blur="validateInput($event)", @focus="inputFocus.confirmInput = true")
+					li.signTip(v-show="showTip.showConfirmTip")
+						span.signTipText {{validateText.confirmTipText}}
 					
 					// 注册按钮
 					li.signLi.signRegButtonLi
@@ -54,5 +54,24 @@ block content
 							input.signCheckbox(type="checkbox", checked="checked", id="agreeCheckbox")
 							label.signLable(for="agreeCheckbox") 我已阅读并同意《58同城使用协议》&《隐私权条款》
 						.signButtonBox
-							button.signButton(type="button") 注册
-							
+							button.signButton(type="button", @click="register") 注册
+		modal(title="提示", :value="visible", footer-hide=true, @on-cancel="visible = false")
+			.validateCodeBox
+				h4 请填写图片验证码
+				.codeBoxInput
+					input(type="text", placeholder="图片验证码")
+					img(src="https://passport.58.com/validcode/get?vcodekey=ES-bh7hBy-XQvga0c7m8K5ql9_Tzh5iR&time=1525586886589")
+				.codeBoxBtn
+					button(type="button") 确定
+		//- .modal.modal-code
+		//- 	.modal-mask
+		//- 	.modal-wrap
+		//- 		.modal-dialog
+		//- 			.modal-content
+		//- 				a.modal-close &times;
+		//- 				.modal-header
+		//- 					.modal-header-inner 提示
+		//- 				.modal-body
+						//- .modal-footer
+						//- 	button.btn.btn-cancel(type="button") 取消
+						//- 	button.btn.btn-submit(type="button") 确定

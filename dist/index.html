@@ -23,13 +23,10 @@
                     <a href="javascript:void(0);" class="myText">退出</a>
                 </div>
                 <div class="topBarMymenu rightItem">
-                    <a href="javascript:void(0);" class="myText">个人中心</a>
+                    <a href="./person.html" class="myText">个人中心</a>
                     <span class="arrow"></span>
                     <div class="dropMenu">
-                        <a class="dropMenuItem">账户设置</a>
-                        <a class="dropMenuItem">账户设置</a>
-                        <a class="dropMenuItem">账户设置</a>
-                        <a class="dropMenuItem">账户设置</a>
+                        <a href="./person.html" class="dropMenuItem">账户设置</a>
                     </div>
                 </div>
                 <div class="topBarVip rightItem">
@@ -51,174 +48,184 @@
             </div>
         </div>
     </div>
-    <div class="indexHeaderWrap">
-        <div class="headerWrapContainer">
-            <div class="hederBar clearfix">
-                <a href="javascript:void(0);" class="headerBarLogo">
-                    <img src="./static/img/logo3.png">
-                </a>
-                <a href="javascript:void(0);" class="headerBarBanner">
-                    <img src="./static/img/banner1.png">
-                </a>
-                <div class="headerBarSearch clearfix">
-                    <div class="searchKey">
-                        <i class="icon"></i>
-                        <input type="text" placeholder="招聘季月薪10000+">
+    <div id="indexPage" class="indexPage">
+        <div class="indexHeaderWrap">
+            <div class="headerWrapContainer">
+                <div class="hederBar clearfix">
+                    <a href="javascript:void(0);" class="headerBarLogo">
+                        <img src="./static/img/logo3.png">
+                    </a>
+                    <a href="javascript:void(0);" class="headerBarBanner">
+                        <img src="./static/img/banner1.png">
+                    </a>
+                    <div class="headerBarSearch">
+                        <div class="searchKey">
+                            <i class="icon"></i>
+                            <input type="text" placeholder="招聘季月薪10000+" v-model.lazy="searchword" @input="inputSearch" @blur="hideSearch($event);">
+                        </div>
+                        <button type="button" @click="onSearch" class="searchBtn">搜 索</button>
+                        <ul class="searchWords">
+                            <li class="searchWordsLi">
+                                <a href="javascript:void(0);">充话费</a>
+                            </li>
+                            <li class="searchWordsLi">
+                                <a href="javascript:void(0);">淘宝美工</a>
+                            </li>
+                            <li class="searchWordsLi">
+                                <a href="javascript:void(0);">外贸业务员</a>
+                            </li>
+                            <li class="searchWordsLi">
+                                <a href="javascript:void(0);">实习生</a>
+                            </li>
+                            <li class="searchWordsLi">
+                                <a href="javascript:void(0);">同城租车</a>
+                            </li>
+                            <li class="searchWordsLi">
+                                <a href="javascript:void(0);">家教老师</a>
+                            </li>
+                        </ul>
                     </div>
-                    <button type="button" class="searchBtn">搜 索</button>
-                    <ul class="searchWords">
-                        <li class="searchWordsLi">
-                            <a href="javascript:void(0);">充话费</a>
+                    <ul v-show="showSearch &amp;&amp; searchList.length &gt; 0" class="searchList">
+                        <li v-for="(item, index) in searchList">
+                            <a href="javascript:void(0);" @click="goToList(item)">
+                                <p class="fl">{{item.k}}</p>
+                                <span class="fr">约{{item.n}}条</span>
+                            </a>
                         </li>
-                        <li class="searchWordsLi">
-                            <a href="javascript:void(0);">淘宝美工</a>
+                    </ul>
+                    <a href="javascript:void(0);" class="headerBarPostMsg">免费发布信息</a>
+                    <a href="javascript:void(0);" class="headerBarDelInfo">修改/删除信息</a>
+                </div>
+                <ul class="navBar">
+                    <li class="navBarLi">
+                        <a href="javascript:void(0)" class="navBarLiText">首页</a>
+                    </li>
+                    <li class="navBarLi hasChild">
+                        <img src="./static/img/app.gif" class="iconMobile">
+                        <a href="javascript:void(0)" style="padding-left: 30px;" class="navBarLiText">58APP</a>
+                        <i class="arrow"></i>
+                    </li>
+                    <li class="navBarLi hasChild">
+                        <a href="javascript:void(0)" class="navBarLiText">商家APP</a>
+                        <i class="arrow"></i>
+                    </li>
+                    <li class="navBarLi hasChild">
+                        <a href="javascript:void(0)" class="navBarLiText">58公众号</a>
+                        <i class="arrow"></i>
+                    </li>
+                    <li class="navBarLi hasChild">
+                        <a href="javascript:void(0)" class="navBarLiText">小程序</a>
+                        <i class="arrow"></i>
+                    </li>
+                    <li class="navBarLi">
+                        <a href="javascript:void(0)" class="navBarLiText">金融</a>
+                    </li>
+                    <li class="navBarLi">
+                        <a href="javascript:void(0)" class="navBarLiText">安居客</a>
+                    </li>
+                    <li class="navBarLi">
+                        <a href="javascript:void(0)" class="navBarLiText">中华英才</a>
+                    </li>
+                    <li class="navBarLi">
+                        <a href="javascript:void(0)" class="navBarLiText">58车</a>
+                    </li>
+                    <li class="navBarLi">
+                        <a href="javascript:void(0)" class="navBarLiText">58同镇</a>
+                    </li>
+                    <li class="navBarLi">
+                        <a href="javascript:void" class="navBarLiTG">
+                            <img src="./static/img/icon1.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="indexMainWrap">
+            <div class="indexMainContainer">
+                <div class="leftMain">
+                    <ul class="mainNavigate">
+                        <li class="navigateItem zpItem">
+                            <a href="javascript:void(0);" class="topIcon">
+                                <b class="hot">HOT</b>
+                                <i class="icon zpIcon"></i>招聘</a>
+                            <div class="bottomText">
+                                <a href="javascript:void(0);">全职</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">兼职</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">简历</a>
+                            </div>
                         </li>
-                        <li class="searchWordsLi">
-                            <a href="javascript:void(0);">外贸业务员</a>
+                        <li class="navigateItem fcItem">
+                            <a href="javascript:void(0);" class="topIcon">
+                                <i class="icon fcIcon"></i>房产</a>
+                            <div class="bottomText">
+                                <a href="javascript:void(0);">租房</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">二手房</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">公寓</a>
+                            </div>
                         </li>
-                        <li class="searchWordsLi">
-                            <a href="javascript:void(0);">实习生</a>
+                        <li class="navigateItem escItem">
+                            <a href="javascript:void(0);" class="topIcon">
+                                <i class="icon escIcon"></i>二手车</a>
+                            <div class="bottomText">
+                                <a href="javascript:void(0);">3万内</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">SUV</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">货车</a>
+                            </div>
                         </li>
-                        <li class="searchWordsLi">
-                            <a href="javascript:void(0);">同城租车</a>
+                        <li class="navigateItem esscItem">
+                            <a href="javascript:void(0);" class="topIcon">
+                                <i class="icon esscIcon"></i>二手市场</a>
+                            <div class="bottomText">
+                                <a href="javascript:void(0);">手机</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">设备</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">回收</a>
+                            </div>
                         </li>
-                        <li class="searchWordsLi">
-                            <a href="javascript:void(0);">家教老师</a>
+                        <li class="navigateItem cwItem">
+                            <a href="javascript:void(0);" class="topIcon">
+                                <i class="icon cwIcon"></i>宠物</a>
+                            <div class="bottomText">
+                                <a href="javascript:void(0);">狗</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">猫</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">鱼</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">加盟</a>
+                            </div>
+                        </li>
+                        <li class="navigateItem bdswItem">
+                            <a href="javascript:void(0);" class="topIcon">
+                                <i class="icon bdswIcon"></i>本地商务</a>
+                            <div class="bottomText">
+                                <a href="javascript:void(0);">工商</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">租赁</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">加盟</a>
+                            </div>
+                        </li>
+                        <li class="navigateItem bdfwItem">
+                            <a href="javascript:void(0);" class="topIcon">
+                                <i class="icon bdfwIcon"></i>本地服务</a>
+                            <div class="bottomText">
+                                <a href="javascript:void(0);">搬家</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">教育</a>
+                                <span>/</span>
+                                <a href="javascript:void(0);">车服务</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
-                <a href="javascript:void(0);" class="headerBarPostMsg">免费发布信息</a>
-                <a href="javascript:void(0);" class="headerBarDelInfo">修改/删除信息</a>
-            </div>
-            <ul class="navBar">
-                <li class="navBarLi">
-                    <a href="javascript:void(0)" class="navBarLiText">首页</a>
-                </li>
-                <li class="navBarLi hasChild">
-                    <img src="./static/img/app.gif" class="iconMobile">
-                    <a href="javascript:void(0)" style="padding-left: 30px;" class="navBarLiText">58APP</a>
-                    <i class="arrow"></i>
-                </li>
-                <li class="navBarLi hasChild">
-                    <a href="javascript:void(0)" class="navBarLiText">商家APP</a>
-                    <i class="arrow"></i>
-                </li>
-                <li class="navBarLi hasChild">
-                    <a href="javascript:void(0)" class="navBarLiText">58公众号</a>
-                    <i class="arrow"></i>
-                </li>
-                <li class="navBarLi hasChild">
-                    <a href="javascript:void(0)" class="navBarLiText">小程序</a>
-                    <i class="arrow"></i>
-                </li>
-                <li class="navBarLi">
-                    <a href="javascript:void(0)" class="navBarLiText">金融</a>
-                </li>
-                <li class="navBarLi">
-                    <a href="javascript:void(0)" class="navBarLiText">安居客</a>
-                </li>
-                <li class="navBarLi">
-                    <a href="javascript:void(0)" class="navBarLiText">中华英才</a>
-                </li>
-                <li class="navBarLi">
-                    <a href="javascript:void(0)" class="navBarLiText">58车</a>
-                </li>
-                <li class="navBarLi">
-                    <a href="javascript:void(0)" class="navBarLiText">58同镇</a>
-                </li>
-                <li class="navBarLi">
-                    <a href="javascript:void" class="navBarLiTG">
-                        <img src="./static/img/icon1.png">
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="indexMainWrap">
-        <div class="indexMainContainer">
-            <div class="leftMain">
-                <ul class="mainNavigate">
-                    <li class="navigateItem zpItem">
-                        <a href="javascript:void(0);" class="topIcon">
-                            <b class="hot">HOT</b>
-                            <i class="icon zpIcon"></i>招聘</a>
-                        <div class="bottomText">
-                            <a href="javascript:void(0);">全职</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">兼职</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">简历</a>
-                        </div>
-                    </li>
-                    <li class="navigateItem fcItem">
-                        <a href="javascript:void(0);" class="topIcon">
-                            <i class="icon fcIcon"></i>房产</a>
-                        <div class="bottomText">
-                            <a href="javascript:void(0);">租房</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">二手房</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">公寓</a>
-                        </div>
-                    </li>
-                    <li class="navigateItem escItem">
-                        <a href="javascript:void(0);" class="topIcon">
-                            <i class="icon escIcon"></i>二手车</a>
-                        <div class="bottomText">
-                            <a href="javascript:void(0);">3万内</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">SUV</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">货车</a>
-                        </div>
-                    </li>
-                    <li class="navigateItem esscItem">
-                        <a href="javascript:void(0);" class="topIcon">
-                            <i class="icon esscIcon"></i>二手市场</a>
-                        <div class="bottomText">
-                            <a href="javascript:void(0);">手机</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">设备</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">回收</a>
-                        </div>
-                    </li>
-                    <li class="navigateItem cwItem">
-                        <a href="javascript:void(0);" class="topIcon">
-                            <i class="icon cwIcon"></i>宠物</a>
-                        <div class="bottomText">
-                            <a href="javascript:void(0);">狗</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">猫</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">鱼</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">加盟</a>
-                        </div>
-                    </li>
-                    <li class="navigateItem bdswItem">
-                        <a href="javascript:void(0);" class="topIcon">
-                            <i class="icon bdswIcon"></i>本地商务</a>
-                        <div class="bottomText">
-                            <a href="javascript:void(0);">工商</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">租赁</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">加盟</a>
-                        </div>
-                    </li>
-                    <li class="navigateItem bdfwItem">
-                        <a href="javascript:void(0);" class="topIcon">
-                            <i class="icon bdfwIcon"></i>本地服务</a>
-                        <div class="bottomText">
-                            <a href="javascript:void(0);">搬家</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">教育</a>
-                            <span>/</span>
-                            <a href="javascript:void(0);">车服务</a>
-                        </div>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>

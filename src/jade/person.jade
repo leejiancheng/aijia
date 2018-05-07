@@ -4,54 +4,55 @@ block head
 	link(rel="stylesheet", href="./static/css/index.css")
 
 block content
-	.headerGuide
-		.headerContainer
-			img.headerLogo(src="./static/img/logo2.png")
-			ul.headerUl
-				li
-					a(href="javascript:void(0);") 个人中心
-				li.selected
-					a(href="javascript:void(0);") 账户设置
-				li
-					a(href="javascript:void(0);") 我的资金
-				li
-					a(href="javascript:void(0);") 商家中心
-			.headerSearch
-				.headerSearchInput
-					input(type="text", placeholder="搜索")
-					button(type="button")
-						i.icon
-				a.headerSearchBtn(href="javascript:void(0);") 发布信息
-
-	.personContainer.clearfix
-		.leftMenu.fl
-			.leftMenuContent
-				.leftMenuContentHeader
-					a(href="javascript:void(0);") 账户设置
-				ul.leftMenuContentUl
-					li.liSelected
-						a(href="javascript:void(0);") 个人资料
+	.personPage#personPage
+		.headerGuide
+			.headerContainer
+				img.headerLogo(src="./static/img/logo2.png")
+				ul.headerUl
 					li
-						a(href="javascript:void(0);") 个人资料
+						a(href="javascript:void(0);") 个人中心
+					li.selected
+						a(href="javascript:void(0);") 账户设置
+					li
+						a(href="javascript:void(0);") 我的资金
+					li
+						a(href="javascript:void(0);") 商家中心
+				.headerSearch
+					.headerSearchInput
+						input(type="text", placeholder="搜索")
+						button(type="button")
+							i.icon
+					a.headerSearchBtn(href="javascript:void(0);") 发布信息
 
-		.rightMenu.fr
-			.rightMenuContent
-				.changeData
-					.changeDataTitle
-						h4.changeDataTitleText 修改个人资料
-					.changeDataUl
-						li.changeDataLi
-							span.changeLabel 用户名：
-							input.changeInput(type="text", disabled, value="哈哈哈哈")
-						li.changeDataLi
-							span.changeLabel 呢称：
-							input.changeInput(type="text", disabled, value="哈哈哈哈")
-							button.changeBtn(type="button")
-								i.icon
-								| 修改
-						li.changeDataLi
-							span.changeLabel 手机：
-							input.changeInput(type="text", disabled, value="136****5822")
-							button.changeBtn(type="button")
-								i.icon
-								| 修改
+		.personContainer.clearfix
+			.leftMenu.fl
+				.leftMenuContent
+					.leftMenuContentHeader
+						a(href="javascript:void(0);") 账户设置
+					ul.leftMenuContentUl
+						li.liSelected
+							a(href="javascript:void(0);") 个人资料
+
+			.rightMenu.fr
+				.rightMenuContent
+					.changeData
+						.changeDataTitle
+							h4.changeDataTitleText 修改个人资料
+						.changeDataUl
+							li.changeDataLi
+								span.changeLabel 用户名：
+								input.changeInput(type="text", disabled, value="哈哈哈哈")
+							li.changeDataLi
+								span.changeLabel 呢称：
+								input.changeInput(type="text", :disabled="!canEditNickname", v-model="nickname", @blur="validateInput($event)")
+								button.changeBtn(type="button", @click="editNickname")
+									i.icon
+									| 修改
+							li.changeDataLi
+								span.changeLabel 手机：
+								input.changeInput(type="text", :disabled="!canEditMobile", :value="regMobile")
+								button.changeBtn(type="button", @click="editMobile")
+									i.icon
+									| 修改
+		modal(title="提示", :value="visible", @on-cancel="visible = false", @on-ok="visible = false")
+			p {{tipText}}

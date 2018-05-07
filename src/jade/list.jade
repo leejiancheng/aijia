@@ -4,159 +4,187 @@ block head
 	link(rel="stylesheet", href="./static/css/index.css")
 		
 block content
-	.listHeaderWrap
-		.listHeaderContent.clearfix
-			a.logo(href="javascript:void(0);") 58同城·房产
-			a.publish(href="javascript:void(0);") 免费发布
-			.searchBar
-				i.icon
-				input.searchInput(type="text", placeholder="请输入房源相关信息")
-				button.searchBtn(type="button") 搜房源
+	.listPage#listPage
+		.listHeaderWrap
+			.listHeaderContent.clearfix
+				a.logo(href="javascript:void(0);") 58同城·房产
+				a.publishBtn(href="javascript:void(0);") 免费发布
+				.searchBar.clearfix
+					i.icon
+					input.searchInput(type="text", placeholder="请输入房源相关信息")
+					button.searchBtn(type="button") 搜房源
 				ul.searchList
-	.listMainWrap
-		ul.breadcrumb
-			li
-				a(href="javascript:void(0);") 广州58同城
-			li 
-				a(href="javascript:void(0);") 广州房产信息
-			li
-				a(href="javascript:void(0);") 广州二手房
-		ul.houseNavTab
-			li
-				a.selected(href="javascript:void(0);") 二手房
-			li
-				a(href="javascript:void(0);") 小区
-			li
-				a(href="javascript:void(0);") 地图找房
-			li
-				a(href="javascript:void(0);") 新房
-			li
-				a(href="javascript:void(0);") 求购
-		.filterWrap
-			dl.filterItem.filterItemFirst
-				dd
-					ul.filterSelect
-						li.filterSelectLi
-							a(href="javascript:void(0)")
-								| 区域
-								i.icon
-						li.filterSelectLi
-							a(href="javascript:void(0)")
-								| 地铁
-								i.icon
-					.areaSelectList.select
-						a(href="javascript:void(0)") 不限
-						a(href="javascript:void(0)") 天河
-						a(href="javascript:void(0)") 海珠
-						a(href="javascript:void(0)") 越秀
-						a(href="javascript:void(0)") 白云
-						a(href="javascript:void(0)") 番禺
-					.areaSelectListContent.select
-						a(href="javascript:void(0)") 秦村
-						a(href="javascript:void(0)") 商社
-						a(href="javascript:void(0)") 长训
-						a(href="javascript:void(0)") 车杯
-						a(href="javascript:void(0)") 黄村
-					.subwaySelectList
-						a(href="javascript:void(0)") 1号线
-						a(href="javascript:void(0)") 2号线
-						a(href="javascript:void(0)") 3号线
-						a(href="javascript:void(0)") 4号线
-						a(href="javascript:void(0)") 5号线
-						a(href="javascript:void(0)") 6号线
-					.subwaySelectListContent
-						a(href="javascript:void(0)") 广州东站
-						a(href="javascript:void(0)") 体育中心
-						a(href="javascript:void(0)") 体育西路
-						a(href="javascript:void(0)") 公元前
-			dl.filterItem
-				dt 室厅：
-				dd
-					a.selected(href="javascript:void(0)") 不限
-					a(href="javascript:void(0)") 一室
-					a(href="javascript:void(0)") 二室
-					a(href="javascript:void(0)") 三室
-					a(href="javascript:void(0)") 四室
-			dl.filterItem
-				dt 室厅：
-				dd
-					a.selected(href="javascript:void(0)") 不限
-					a(href="javascript:void(0)") 一室
-					a(href="javascript:void(0)") 二室
-					a(href="javascript:void(0)") 三室
-					a(href="javascript:void(0)") 四室
-			dl.filterItem
-				dt 室厅：
-				dd
-					a.selected(href="javascript:void(0)") 不限
-					a(href="javascript:void(0)") 一室
-					a(href="javascript:void(0)") 二室
-					a(href="javascript:void(0)") 三室
-					a(href="javascript:void(0)") 四室
-			
-		.contentNavTab
-			a.active(href="javascript:void(0)") 广州二手房出售
-			a(href="javascript:void(0)") 免税房源
-			a(href="javascript:void(0)") 个人房源
-			a(href="javascript:void(0)") 安选房源
-			a(href="javascript:void(0)") 视频看房
-			a(href="javascript:void(0)") 商铺出售
-		.contentWrap
-			.checkList
-				a.checkboxItem(href="javascript:void(0);")
-					em.checkboxIcon
-						i.icon
-					| 满五唯一
-				a.checkboxItem(href="javascript:void(0);")
-					em.checkboxIcon
-						i.icon
-					| 满五唯一
-				a.checkboxItem(href="javascript:void(0);")
-					em.checkboxIcon
-						i.icon
-					| 满五唯一
-				a.checkboxItem(href="javascript:void(0);")
-					em.checkboxIcon
-						i.icon
-					| 满五唯一
-				.checkListSortWrap
-					a.sortItem.sortByGeneral(href="javascript:void(0);")
-						span 默认排序
-					a.sortItem.sortByTotal(href="javascript:void(0);")
-						span 总价
-						i.sortIcon.up
-					a.sortItem.sortByUnit(href="javascript:void(0);")
-						span 单价
-						i.sortIcon
-					a.sortItem.sortByArea(href="javascript:void(0);")
-						span 面积
-						i.sortIcon
-				.clearfix
-			ul.houseListUl
-				li
-					.pic
+					li
 						a(href="javascript:void(0);")
-							img(src="./static/img/pic1.jpg")
-						span.picNum 11图
-					.listInfo
-						h3.title
-							a(href="javascript:void(0);") 世纪豪园 五一特价优惠 先到先得
-							span.icon-container
-								i.icon.icon-jinxuan 精
-								i.icon.icon-mainfei 免
-								i.icon.icon-anxuan 安选房源
-						p.baseInfo
-							span 3室2厅2卫
-							span 110㎡
-							span 南
-							span 中层(共30层)
-						p.locationInfo
-							span 中泰景峰 - 东莞 - 聚福路
-						p.ownerInfo
-							span 光宏地产 - 小明
-					.price
-						p.sum
-							b 225
-							| 万
-						p.unit 21703元/㎡
-					.time 今天
+							p.fl 碧桂园
+							span.fr 约13条
+		.listMainWrap
+			ul.breadcrumb
+				li
+					a(href="javascript:void(0);") 广州58同城
+				li
+					a(href="javascript:void(0);") 广州房产信息
+				li
+					a(href="javascript:void(0);") 广州二手房
+			ul.houseNavTab
+				li.selected
+					a(href="javascript:void(0);") 二手房
+				li
+					a(href="javascript:void(0);") 小区
+				li
+					a(href="javascript:void(0);") 地图找房
+				li
+					a(href="javascript:void(0);") 新房
+				li
+					a(href="javascript:void(0);") 求购
+			.filterWrap
+				dl.filterItem.filterItemFirst
+					dd
+						ul.filterSelect
+							li.filterSelectLi
+								a(href="javascript:void(0)") 区域
+							li.filterSelectLi
+								a(href="javascript:void(0)") 地铁
+						.areaSelectList.select
+							a.on(href="javascript:void(0)") 不限
+							a(href="javascript:void(0)") 天河
+							a(href="javascript:void(0)") 海珠
+							a(href="javascript:void(0)") 越秀
+							a(href="javascript:void(0)") 白云
+							a(href="javascript:void(0)") 番禺
+						.areaSelectListContent.select.hidden
+							a(href="javascript:void(0)") 秦村
+							a(href="javascript:void(0)") 商社
+							a(href="javascript:void(0)") 长训
+							a(href="javascript:void(0)") 车杯
+							a(href="javascript:void(0)") 黄村
+						.subwaySelectList.hidden
+							a(href="javascript:void(0)") 1号线
+							a(href="javascript:void(0)") 2号线
+							a(href="javascript:void(0)") 3号线
+							a(href="javascript:void(0)") 4号线
+							a(href="javascript:void(0)") 5号线
+							a(href="javascript:void(0)") 6号线
+						.subwaySelectListContent.hidden
+							a(href="javascript:void(0)") 广州东站
+							a(href="javascript:void(0)") 体育中心
+							a(href="javascript:void(0)") 体育西路
+							a(href="javascript:void(0)") 公元前
+				dl.filterItem
+					dt 总价：
+					dd
+						a.selected(href="javascript:void(0)") 不限
+						a(href="javascript:void(0)") 100万以下
+						a(href="javascript:void(0)") 100-150万
+						a(href="javascript:void(0)") 150万-200万
+						a(href="javascript:void(0)") 200万-300万
+						a(href="javascript:void(0)") 300万-400万
+						a(href="javascript:void(0)") 400万-550万
+						a(href="javascript:void(0)") 550万-700万
+						a(href="javascript:void(0)") 700万-900万
+						a(href="javascript:void(0)") 900万以上
+				dl.filterItem
+					dt 面积：
+					dd
+						a.selected(href="javascript:void(0)") 不限
+						a(href="javascript:void(0)") 50㎡以下
+						a(href="javascript:void(0)") 50-70㎡
+						a(href="javascript:void(0)") 70-90㎡
+						a(href="javascript:void(0)") 90-110㎡
+						a(href="javascript:void(0)") 110-130㎡
+						a(href="javascript:void(0)") 130-150㎡
+						a(href="javascript:void(0)") 150-200㎡
+						a(href="javascript:void(0)") 200-300㎡
+						a(href="javascript:void(0)") 300-500㎡
+						a(href="javascript:void(0)") 500㎡以上
+				dl.filterItem
+					dt 室厅：
+					dd
+						a.selected(href="javascript:void(0)") 不限
+						a(href="javascript:void(0)") 一室
+						a(href="javascript:void(0)") 二室
+						a(href="javascript:void(0)") 三室
+						a(href="javascript:void(0)") 四室
+						a(href="javascript:void(0)") 四室以上
+				
+			.contentNavTab
+				a.selected(href="javascript:void(0)") 广州二手房出售
+				a(href="javascript:void(0)") 免税房源
+				a(href="javascript:void(0)") 个人房源
+				a(href="javascript:void(0)") 安选房源
+				a(href="javascript:void(0)") 视频看房
+				a(href="javascript:void(0)") 商铺出售
+				a(href="javascript:void(0)") 写字楼出售
+			.contentWrap
+				.checkList
+					a.checkboxItem.selected(href="javascript:void(0);") 满五唯一
+					a.checkboxItem(href="javascript:void(0);") 南北通透
+					a.checkboxItem(href="javascript:void(0);") 随时看房
+					.checkListSortWrap
+						a.sortItem.sortByGeneral(href="javascript:void(0);")
+							span 默认排序
+						a.sortItem.sortByTotal(href="javascript:void(0);")
+							span 总价
+							i.sortIcon.up
+						a.sortItem.sortByUnit(href="javascript:void(0);")
+							span 单价
+							i.sortIcon
+						a.sortItem.sortByArea(href="javascript:void(0);")
+							span 面积
+							i.sortIcon
+					.clearfix
+				ul.houseListUl
+					li.houseListLi(v-for="(item, index) in houseList")
+						.pic
+							a(href="javascript:void(0);")
+								img(src="./static/img/pic1.jpg")
+							span.picNum 7图
+						.listInfo
+							h3.title
+								a(href="javascript:void(0);") 世纪豪园 五一特价优惠 先到先得
+								span.icon-container
+									i.icon.jinxuan 精
+									i.icon.mainfei 免
+									i.icon.anxuan 安选房源
+							p.baseInfo
+								span 3室2厅2卫
+								span 110㎡
+								span 南
+								span 中层(共30层)
+							p.locationInfo
+								span 中泰景峰 - 东莞 - 聚福路
+							p.ownerInfo
+								span 光宏地产 - 小明
+						.price
+							p.sum
+								b 225
+								| 万
+							p.unit 21703元/㎡
+						.time 今天
+					li.houseListLi
+						.pic
+							a(href="javascript:void(0);")
+								img(src="./static/img/pic1.jpg")
+							span.picNum 7图
+						.listInfo
+							h3.title
+								a(href="javascript:void(0);") 世纪豪园 五一特价优惠 先到先得
+								span.icon-container
+									i.icon.jinxuan 精
+									i.icon.mainfei 免
+									i.icon.anxuan 安选房源
+							p.baseInfo
+								span 3室2厅2卫
+								span 110㎡
+								span 南
+								span 中层(共30层)
+							p.locationInfo
+								span 中泰景峰 - 东莞 - 聚福路
+							p.ownerInfo
+								span 光宏地产 - 小明
+						.price
+							p.sum
+								b 225
+								| 万
+							p.unit 21703元/㎡
+						.time 今天

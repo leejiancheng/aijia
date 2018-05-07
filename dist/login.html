@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./static/css/index.css">
 </head>
 <body>
-    <div class="signPage">
+    <div id="loginPage" class="signPage">
         <img src="./static/img/bg1.png" class="imgBg">
         <div class="signTopBar">
             <div class="backToIndex">
@@ -22,18 +22,18 @@
             <div class="signBox">
                 <ul class="signUl">
                     <!-- 手机号/账户名/邮箱-->
-                    <li class="signLi">
-                        <input type="text" placeholder="手机号/账户名/邮箱" class="signInput">
+                    <li :class="['signLi', {'signLiFocus': inputFocus.nameInput}]">
+                        <input type="text" placeholder="手机号/账户名/邮箱" v-model="form.username" @blur="validateInput($event)" @focus="inputFocus.nameInput = true" class="signInput username">
                     </li>
-                    <li class="signTip">
-                        <span class="signTipText">您还没有输入账户名</span>
+                    <li v-show="showTip.showNameTip" class="signTip">
+                        <span class="signTipText">{{validateText.nameTipText}}</span>
                     </li>
                     <!-- 密码-->
-                    <li class="signLi">
-                        <input type="text" placeholder="密码" class="signInput">
+                    <li :class="['signLi', {'signLiFocus': inputFocus.pwdInput}]">
+                        <input type="text" placeholder="密码" v-model="form.password" @blur="validateInput($event)" @focus="inputFocus.pwdInput = true" class="signInput password">
                     </li>
-                    <li class="signTip">
-                        <span class="signTipText">您还没有输入密码</span>
+                    <li v-show="showTip.showPwdTip" class="signTip">
+                        <span class="signTipText">{{validateText.pwdTipText}}</span>
                     </li>
                     <!-- 自动登录-->
                     <li class="signLi signAutoLoginLi">
@@ -43,7 +43,7 @@
                     <!-- 登录按钮-->
                     <li class="signLi signLoginButtonLi">
                         <div class="signButtonBox">
-                            <button type="button" class="signButton">登录</button>
+                            <button type="button" @click="login" class="signButton">登录</button>
                         </div>
                     </li>
                 </ul>

@@ -156,6 +156,10 @@ $headerGuideHeight: 80px;				// 个人中心头部栏目高度
 					margin-right: 15px;
 					line-height: 36px;
 					background-color: #fff;
+					border: 1px solid #ddd;
+					&:disabled {
+						border: none;
+					}
 				}
 				.changeBtn {
 					color: $base;
@@ -165,7 +169,7 @@ $headerGuideHeight: 80px;				// 个人中心头部栏目高度
 						float: left;
 						display: inline-block;
 						@include size(16px, 16px);
-						margin-right: 8px;
+						margin: 2px 8px 0 0;
 						background: url("../img/spriter/edit.png?__spriter") no-repeat;
 					}
 				}

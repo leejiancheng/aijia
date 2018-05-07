@@ -18,13 +18,10 @@
                     <a href="javascript:void(0);" class="myText">退出</a>
                 </div>
                 <div class="topBarMymenu rightItem">
-                    <a href="javascript:void(0);" class="myText">个人中心</a>
+                    <a href="./person.html" class="myText">个人中心</a>
                     <span class="arrow"></span>
                     <div class="dropMenu">
-                        <a class="dropMenuItem">账户设置</a>
-                        <a class="dropMenuItem">账户设置</a>
-                        <a class="dropMenuItem">账户设置</a>
-                        <a class="dropMenuItem">账户设置</a>
+                        <a href="./person.html" class="dropMenuItem">账户设置</a>
                     </div>
                 </div>
                 <div class="topBarVip rightItem">
@@ -46,77 +43,79 @@
             </div>
         </div>
     </div>
-    <div class="headerGuide">
-        <div class="headerContainer">
-            <img src="./static/img/logo2.png" class="headerLogo">
-            <ul class="headerUl">
-                <li>
-                    <a href="javascript:void(0);">个人中心</a>
-                </li>
-                <li class="selected">
-                    <a href="javascript:void(0);">账户设置</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);">我的资金</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);">商家中心</a>
-                </li>
-            </ul>
-            <div class="headerSearch">
-                <div class="headerSearchInput">
-                    <input type="text" placeholder="搜索">
-                    <button type="button">
-                        <i class="icon"></i>
-                    </button>
-                </div>
-                <a href="javascript:void(0);" class="headerSearchBtn">发布信息</a>
-            </div>
-        </div>
-    </div>
-    <div class="personContainer clearfix">
-        <div class="leftMenu fl">
-            <div class="leftMenuContent">
-                <div class="leftMenuContentHeader">
-                    <a href="javascript:void(0);">账户设置</a>
-                </div>
-                <ul class="leftMenuContentUl">
-                    <li class="liSelected">
-                        <a href="javascript:void(0);">个人资料</a>
+    <div id="personPage" class="personPage">
+        <div class="headerGuide">
+            <div class="headerContainer">
+                <img src="./static/img/logo2.png" class="headerLogo">
+                <ul class="headerUl">
+                    <li>
+                        <a href="javascript:void(0);">个人中心</a>
+                    </li>
+                    <li class="selected">
+                        <a href="javascript:void(0);">账户设置</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);">个人资料</a>
+                        <a href="javascript:void(0);">我的资金</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">商家中心</a>
                     </li>
                 </ul>
+                <div class="headerSearch">
+                    <div class="headerSearchInput">
+                        <input type="text" placeholder="搜索">
+                        <button type="button">
+                            <i class="icon"></i>
+                        </button>
+                    </div>
+                    <a href="javascript:void(0);" class="headerSearchBtn">发布信息</a>
+                </div>
             </div>
         </div>
-        <div class="rightMenu fr">
-            <div class="rightMenuContent">
-                <div class="changeData">
-                    <div class="changeDataTitle">
-                        <h4 class="changeDataTitleText">修改个人资料</h4>
+        <div class="personContainer clearfix">
+            <div class="leftMenu fl">
+                <div class="leftMenuContent">
+                    <div class="leftMenuContentHeader">
+                        <a href="javascript:void(0);">账户设置</a>
                     </div>
-                    <div class="changeDataUl">
-                        <li class="changeDataLi">
-                            <span class="changeLabel">用户名：</span>
-                            <input type="text" disabled value="哈哈哈哈" class="changeInput">
+                    <ul class="leftMenuContentUl">
+                        <li class="liSelected">
+                            <a href="javascript:void(0);">个人资料</a>
                         </li>
-                        <li class="changeDataLi">
-                            <span class="changeLabel">呢称：</span>
-                            <input type="text" disabled value="哈哈哈哈" class="changeInput">
-                            <button type="button" class="changeBtn">
-                                <i class="icon"></i>修改</button>
-                        </li>
-                        <li class="changeDataLi">
-                            <span class="changeLabel">手机：</span>
-                            <input type="text" disabled value="136****5822" class="changeInput">
-                            <button type="button" class="changeBtn">
-                                <i class="icon"></i>修改</button>
-                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rightMenu fr">
+                <div class="rightMenuContent">
+                    <div class="changeData">
+                        <div class="changeDataTitle">
+                            <h4 class="changeDataTitleText">修改个人资料</h4>
+                        </div>
+                        <div class="changeDataUl">
+                            <li class="changeDataLi">
+                                <span class="changeLabel">用户名：</span>
+                                <input type="text" disabled value="哈哈哈哈" class="changeInput">
+                            </li>
+                            <li class="changeDataLi">
+                                <span class="changeLabel">呢称：</span>
+                                <input type="text" :disabled="!canEditNickname" v-model="nickname" @blur="validateInput($event)" class="changeInput">
+                                <button type="button" @click="editNickname" class="changeBtn">
+                                    <i class="icon"></i>修改</button>
+                            </li>
+                            <li class="changeDataLi">
+                                <span class="changeLabel">手机：</span>
+                                <input type="text" :disabled="!canEditMobile" :value="regMobile" class="changeInput">
+                                <button type="button" @click="editMobile" class="changeBtn">
+                                    <i class="icon"></i>修改</button>
+                            </li>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <modal title="提示" :value="visible" @on-cancel="visible = false" @on-ok="visible = false">
+            <p>{{tipText}}</p>
+        </modal>
     </div>
 </body>
 </html>
