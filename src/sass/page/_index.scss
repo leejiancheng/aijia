@@ -35,7 +35,7 @@
 			position: absolute;
 			left: 366px;
 			top: 10px;
-			overflow: hidden;
+			// overflow: hidden;
 			.searchKey {
 				position: relative;
 				float: left;
@@ -221,20 +221,27 @@
 	overflow: hidden;
 	.leftMain {
 		float: left;
-		width: 844px;
+		// width: 844px;
+		width: 1190px;
 		overflow: hidden;
 	}
 	.mainNavigate {
-		@include size(848px, 122px);
+		// @include size(848px, 122px);
+		@include size(1190px, 122px);
 		margin-bottom: 8px;
 		background-color: #fff;
 		overflow: hidden;
+		display: flex;
+		justify-content: space-around;
 		.navigateItem {
-			float: left;
-			width: 118px;
+			// float: left;
+			// width: 118px;
+			flex-grow: 1;
 			margin-top: 16px;
 			text-align: center;
-			border-right: 1px solid #f8f8f8;
+			&:not(:last-child) {
+				border-right: 1px solid #f8f8f8;
+			}
 			.topIcon {
 				position: relative;
 				display: block;

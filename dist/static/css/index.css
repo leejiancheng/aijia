@@ -193,7 +193,19 @@ table {
 	right: 16px;
 	cursor: pointer;
 	overflow: hidden;
-	font-size: 20px;
+	font-size: 12px;
+}
+
+.modal .modal-content .modal-close .icon-close-empty {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	color: #cecece;
+	font-size: 22px;
+	font-style: normal;
+	-webkit-transition: color 0.2s ease;
+	-o-transition: color 0.2s ease;
+	transition: color 0.2s ease;
 }
 
 .modal .modal-content .modal-header {
@@ -261,20 +273,99 @@ table {
 	-webkit-transform: translate(-50%, -50%);
 	    -ms-transform: translate(-50%, -50%);
 	        transform: translate(-50%, -50%);
-	width: 32px;
-	height: 32px;
+	width: 50px;
+	height: 50px;
 	z-index: 9999;
 }
 
 .loading .loading-wrap .loading-dot {
 	position: relative;
+	margin: 9px auto 0;
 	display: block;
-	width: 20px;
-	height: 20px;
+	width: 32px;
+	height: 32px;
 	border-radius: 50%;
 	background-color: #2d8cf0;
 	-webkit-animation: ani-spin-bounce 1s 0s ease-in-out infinite;
 	        animation: ani-spin-bounce 1s 0s ease-in-out infinite;
+}
+
+.fade-appear,
+.fade-enter-active,
+.fade-leave-active {
+	-webkit-animation-duration: 0.3s;
+	        animation-duration: 0.3s;
+	-webkit-animation-fill-mode: both;
+	        animation-fill-mode: both;
+	-webkit-animation-play-state: paused;
+	        animation-play-state: paused;
+}
+
+.fade-appear,
+.fade-enter-active {
+	-webkit-animation-name: ivuFadeIn;
+	        animation-name: ivuFadeIn;
+	-webkit-animation-play-state: running;
+	        animation-play-state: running;
+}
+
+.fade-leave-active {
+	-webkit-animation-name: ivuFadeOut;
+	        animation-name: ivuFadeOut;
+	-webkit-animation-play-state: running;
+	        animation-play-state: running;
+}
+
+.fade-appear,
+.fade-enter-active {
+	opacity: 0;
+}
+
+.fade-appear,
+.fade-enter-active,
+.fade-leave-active {
+	-webkit-animation-timing-function: linear;
+	        animation-timing-function: linear;
+}
+
+.ease-appear,
+.ease-enter-active,
+.ease-leave-active {
+	-webkit-animation-duration: 0.3s;
+	        animation-duration: 0.3s;
+	-webkit-animation-fill-mode: both;
+	        animation-fill-mode: both;
+	-webkit-animation-play-state: paused;
+	        animation-play-state: paused;
+}
+
+.ease-appear,
+.ease-enter-active {
+	-webkit-animation-name: ivuEaseIn;
+	        animation-name: ivuEaseIn;
+	-webkit-animation-play-state: running;
+	        animation-play-state: running;
+}
+
+.ease-leave-active {
+	-webkit-animation-name: ivuEaseOut;
+	        animation-name: ivuEaseOut;
+	-webkit-animation-play-state: running;
+	        animation-play-state: running;
+}
+
+.ease-appear,
+.ease-enter-active {
+	opacity: 0;
+}
+
+.ease-appear,
+.ease-enter-active,
+.ease-leave-active {
+	-webkit-animation-timing-function: linear;
+	        animation-timing-function: linear;
+	-webkit-animation-duration: 0.2s;
+	        animation-duration: 0.2s;
 }
 
 @-webkit-keyframes ani-spin-bounce {
@@ -300,6 +391,102 @@ table {
 		-webkit-transform: scale(1);
 		        transform: scale(1);
 		opacity: 0;
+	}
+}
+
+@-webkit-keyframes ivuFadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes ivuFadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes ivuFadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes ivuFadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes ivuEaseIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(0.9);
+		        transform: scale(0.9);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+	}
+}
+
+@keyframes ivuEaseIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(0.9);
+		        transform: scale(0.9);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+	}
+}
+
+@-webkit-keyframes ivuEaseOut {
+	0% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(0.9);
+		        transform: scale(0.9);
+	}
+}
+
+@keyframes ivuEaseOut {
+	0% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(0.9);
+		        transform: scale(0.9);
 	}
 }
 
@@ -364,12 +551,16 @@ table {
 	border-bottom: none;
 }
 
-.topBar .barRight .rightItem .userName,
 .topBar .barRight .rightItem .myText {
 	color: #555;
 }
 
+.topBar .barRight .rightItem .myText:hover {
+	color: #ff552e;
+}
+
 .topBar .barRight .rightItem .userName {
+	color: #555;
 	margin-right: 4px;
 }
 
@@ -408,25 +599,21 @@ table {
 	text-align: center;
 }
 
-.topBar .barRight .rightItem:hover {
+.topBar .barRight .rightItem:not(.topBarLogin):hover {
 	border-color: #eee;
 	cursor: pointer;
 }
 
-.topBar .barRight .rightItem:hover .myText {
-	color: #ff552e;
-}
-
-.topBar .barRight .rightItem:hover .arrow {
+.topBar .barRight .rightItem:not(.topBarLogin):hover .arrow {
 	background: url("../img/sprite.png") no-repeat;
 	background-position: -111px -100px;
 }
 
-.topBar .barRight .rightItem:hover .dropMenu {
+.topBar .barRight .rightItem:not(.topBarLogin):hover .dropMenu {
 	display: block;
 }
 
-.topBar .barRight .rightItem:hover .dropMenu .dropMenuItem:hover {
+.topBar .barRight .rightItem:not(.topBarLogin):hover .dropMenu .dropMenuItem:hover {
 	color: #ff552e;
 	background-color: #f8f8f8;
 }
@@ -730,7 +917,6 @@ table {
 	position: absolute;
 	left: 366px;
 	top: 10px;
-	overflow: hidden;
 }
 
 .headerWrapContainer .hederBar .headerBarSearch .searchKey,
@@ -973,23 +1159,32 @@ table {
 
 .indexMainContainer .leftMain {
 	float: left;
-	width: 844px;
+	width: 1190px;
 	overflow: hidden;
 }
 
 .indexMainContainer .mainNavigate {
-	width: 848px;
+	width: 1190px;
 	height: 122px;
 	margin-bottom: 8px;
 	background-color: #fff;
 	overflow: hidden;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
 }
 
 .indexMainContainer .mainNavigate .navigateItem {
-	float: left;
-	width: 118px;
+	-webkit-box-flex: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 	margin-top: 16px;
 	text-align: center;
+}
+
+.indexMainContainer .mainNavigate .navigateItem:not(:last-child) {
 	border-right: 1px solid #f8f8f8;
 }
 
@@ -1418,6 +1613,11 @@ table {
 	overflow: hidden;
 	font-size: 14px;
 	background-color: #fff;
+}
+
+.listHeaderWrap .listHeaderContent .searchList li a span {
+	font-size: 12px;
+	color: #adadad;
 }
 
 .listHeaderWrap.fixedHeader {

@@ -10,45 +10,8 @@
     </style>
 </head>
 <body>
-    <div class="topBar">
-        <div class="topBarContainer clearfix">
-            <div class="barLeft fl">
-                <h2>深圳</h2>
-                <a href="javascript:void(0);" class="homeLink">
-                    <i class="icon"></i>58首页</a>
-            </div>
-            <div class="barRight fr">
-                <div class="topBarLogin rightItem">
-                    <span class="userName">哈哈哈哈</span>
-                    <a href="javascript:void(0);" class="myText">退出</a>
-                </div>
-                <div class="topBarMymenu rightItem">
-                    <a href="./person.html" class="myText">个人中心</a>
-                    <span class="arrow"></span>
-                    <div class="dropMenu">
-                        <a href="./person.html" class="dropMenuItem">账户设置</a>
-                    </div>
-                </div>
-                <div class="topBarVip rightItem">
-                    <a href="javascript:void(0);" class="myText">商家中心</a>
-                    <span class="arrow"></span>
-                </div>
-                <div class="topBarHelp rightItem">
-                    <a href="javascript:void(0);" class="myText">联系客服</a>
-                    <span class="arrow"></span>
-                </div>
-                <div class="topBarMyfeet rightItem">
-                    <a href="javascript:void(0);" class="myText">最近浏览</a>
-                    <span class="arrow"></span>
-                </div>
-                <div class="topBarSitemap rightItem">
-                    <a href="javascript:void(0);" class="myText">网站导航</a>
-                    <span class="arrow"></span>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="indexPage" class="indexPage">
+        <topbar></topbar>
         <div class="indexHeaderWrap">
             <div class="headerWrapContainer">
                 <div class="hederBar clearfix">
@@ -58,10 +21,10 @@
                     <a href="javascript:void(0);" class="headerBarBanner">
                         <img src="./static/img/banner1.png">
                     </a>
-                    <div class="headerBarSearch">
+                    <div class="headerBarSearch clearfix">
                         <div class="searchKey">
                             <i class="icon"></i>
-                            <input type="text" placeholder="招聘季月薪10000+" v-model.lazy="searchword" @input="inputSearch" @blur="hideSearch($event);">
+                            <input type="text" placeholder="招聘季月薪10000+" v-model="searchword" @input="inputSearch" @blur="hideSearch($event);">
                         </div>
                         <button type="button" @click="onSearch" class="searchBtn">搜 索</button>
                         <ul class="searchWords">
@@ -157,14 +120,14 @@
                             </div>
                         </li>
                         <li class="navigateItem fcItem">
-                            <a href="javascript:void(0);" class="topIcon">
+                            <a href="./list.html" class="topIcon">
                                 <i class="icon fcIcon"></i>房产</a>
                             <div class="bottomText">
-                                <a href="javascript:void(0);">租房</a>
+                                <a href="./list.html">租房</a>
                                 <span>/</span>
-                                <a href="javascript:void(0);">二手房</a>
+                                <a href="./list.html">二手房</a>
                                 <span>/</span>
-                                <a href="javascript:void(0);">公寓</a>
+                                <a href="./list.html">公寓</a>
                             </div>
                         </li>
                         <li class="navigateItem escItem">
@@ -229,5 +192,5 @@
             </div>
         </div>
     </div>
-</body>
+<script type="text/javascript" src="/static/js/manifest.js"></script><script type="text/javascript" src="/static/js/vendor.js"></script><script type="text/javascript" src="/static/js/index.js"></script></body>
 </html>

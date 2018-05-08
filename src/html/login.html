@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <mate charset="utf-8"></mate>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="./static/css/index.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
                     </li>
                     <!-- 密码-->
                     <li :class="['signLi', {'signLiFocus': inputFocus.pwdInput}]">
-                        <input type="text" placeholder="密码" v-model="form.password" @blur="validateInput($event)" @focus="inputFocus.pwdInput = true" class="signInput password">
+                        <input type="password" placeholder="密码" v-model="form.password" @blur="validateInput($event)" @focus="inputFocus.pwdInput = true" class="signInput password">
                     </li>
                     <li v-show="showTip.showPwdTip" class="signTip">
                         <span class="signTipText">{{validateText.pwdTipText}}</span>

@@ -20,7 +20,7 @@ block content
 					// 手机号
 					li(:class="['signLi', {'signLiFocus': inputFocus.mobileInput}]")
 						input.signInput.mobile(type="text", placeholder="手机号", maxlength="11", autocomplete="off", v-model="form.mobile", @blur="validateInput($event)", @input="getMobileValue" @focus="inputFocus.mobileInput = true; showTip.showMobileTip = false;")
-						button.signGetcodeBtn(type="button", @click="getCode", :disabled="!canGetCode") 获取动态码
+						button.signGetcodeBtn(type="button", @click="getCode", :disabled="!canGetCode") {{btnText}}
 					li.signTip(v-show="showTip.showMobileTip")
 						span.signTipText {{validateText.mobileTipText}}
 
@@ -63,15 +63,3 @@ block content
 					img(src="https://passport.58.com/validcode/get?vcodekey=ES-bh7hBy-XQvga0c7m8K5ql9_Tzh5iR&time=1525586886589")
 				.codeBoxBtn
 					button(type="button") 确定
-		//- .modal.modal-code
-		//- 	.modal-mask
-		//- 	.modal-wrap
-		//- 		.modal-dialog
-		//- 			.modal-content
-		//- 				a.modal-close &times;
-		//- 				.modal-header
-		//- 					.modal-header-inner 提示
-		//- 				.modal-body
-						//- .modal-footer
-						//- 	button.btn.btn-cancel(type="button") 取消
-						//- 	button.btn.btn-submit(type="button") 确定

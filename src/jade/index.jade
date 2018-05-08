@@ -1,4 +1,4 @@
-extends ./layout/layout2
+extends ./layout/layout1
 
 block head
 	link(rel="stylesheet", href="./static/css/index.css")
@@ -9,6 +9,7 @@ block head
 
 block content
 	.indexPage#indexPage
+		topbar
 		.indexHeaderWrap
 			.headerWrapContainer
 				.hederBar.clearfix
@@ -16,10 +17,10 @@ block content
 						img(src="./static/img/logo3.png")
 					a.headerBarBanner(href="javascript:void(0);")
 						img(src="./static/img/banner1.png")
-					.headerBarSearch
+					.headerBarSearch.clearfix
 						.searchKey
 							i.icon
-							input(type="text", placeholder="招聘季月薪10000+", v-model.lazy="searchword", @input="inputSearch", @blur="hideSearch($event);")
+							input(type="text", placeholder="招聘季月薪10000+", v-model="searchword", @input="inputSearch", @blur="hideSearch($event);")
 						button.searchBtn(type="button", @click="onSearch") 搜 索
 						ul.searchWords
 							li.searchWordsLi
@@ -86,15 +87,15 @@ block content
 								span /
 								a(href="javascript:void(0);") 简历
 						li.navigateItem.fcItem
-							a.topIcon(href="javascript:void(0);")
+							a.topIcon(href="./list.html")
 								i.icon.fcIcon
 								| 房产
 							.bottomText
-								a(href="javascript:void(0);") 租房
+								a(href="./list.html") 租房
 								span /
-								a(href="javascript:void(0);") 二手房
+								a(href="./list.html") 二手房
 								span /
-								a(href="javascript:void(0);") 公寓
+								a(href="./list.html") 公寓
 						li.navigateItem.escItem
 							a.topIcon(href="javascript:void(0);")
 								i.icon.escIcon

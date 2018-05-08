@@ -1,23 +1,24 @@
-extends ./layout/layout2
+extends ./layout/layout1
 
 block head
 	link(rel="stylesheet", href="./static/css/index.css")
 		
 block content
 	.listPage#listPage
+		topbar
 		.listHeaderWrap
 			.listHeaderContent.clearfix
 				a.logo(href="javascript:void(0);") 58同城·房产
 				a.publishBtn(href="javascript:void(0);") 免费发布
 				.searchBar.clearfix
 					i.icon
-					input.searchInput(type="text", placeholder="请输入房源相关信息")
-					button.searchBtn(type="button") 搜房源
-				ul.searchList
-					li
-						a(href="javascript:void(0);")
-							p.fl 碧桂园
-							span.fr 约13条
+					input.searchInput(type="text", placeholder="请输入房源相关信息", v-model.lazy="searchword", @input="inputSearch")
+					button.searchBtn(type="button", @click="onSearch") 搜房源
+				ul.searchList(v-show="showSearch && searchList.length > 0")
+					li(v-for="(item, index) in searchList")
+						a(href="javascript:void(0);", @click="goToList(item)")
+							p.fl {{item.k}}
+							span.fr 约{{item.n}}条
 		.listMainWrap
 			ul.breadcrumb
 				li
@@ -74,9 +75,9 @@ block content
 				a(href="javascript:void(0)") 写字楼出售
 			.contentWrap
 				.checkList
-					a.checkboxItem.selected(href="javascript:void(0);") 满五唯一
-					a.checkboxItem(href="javascript:void(0);") 南北通透
-					a.checkboxItem(href="javascript:void(0);") 随时看房
+					//- a.checkboxItem.selected(href="javascript:void(0);") 满五唯一
+					//- a.checkboxItem(href="javascript:void(0);") 南北通透
+					//- a.checkboxItem(href="javascript:void(0);") 随时看房
 					.checkListSortWrap
 						a.sortItem.sortByGeneral(href="javascript:void(0);", data-type="0", :class="{'on': checkListType === 0}", @click="onOrderBy($event)")
 							| 默认排序
@@ -109,9 +110,10 @@ block content
 							h3.title
 								a(href="javascript:void(0);") {{item.title}}
 								span.icon-container
-									i.icon.jinxuan 精
-									//- i.icon.mainfei 免
-									//- i.icon.anxuan 安选房源
+									i.icon.jinxuan(title="精选房源") 精
+									//- i.icon.mainfei(title="免税房源") 免
+									//- i.icon.anxuan(title="安选房源") 安选房源
+									//- i.icon.zhiding(title="置顶房源") 顶
 							p.baseInfo
 								span {{item.huxing}}
 								span {{item.area}}㎡
@@ -125,41 +127,13 @@ block content
 							p.sum
 								b {{item.price}}
 								| 万
-							p.unit 21703元/㎡
+							p.unit {{item.danjia}}元/㎡
 						.time 今天
 				.pagination
 					a.pre(href="javascript:void(0);") 上一页
-					a.paginationItem(href="javascript:void(0);") 1
-					a.paginationItem.active(href="javascript:void(0);") 2
+					a.paginationItem.active(href="javascript:void(0);") 1
+					a.paginationItem(href="javascript:void(0);") 2
 					a.paginationItem(href="javascript:void(0);") 3
 					a.paginationItem.disabled() ...
 					a.paginationItem(href="javascript:void(0);") 10
 					a.next(href="javascript:void(0);") 上一页
-					
-					//- li.houseListLi
-					//- 	.pic
-					//- 		a(href="javascript:void(0);")
-					//- 			img(src="./static/img/pic1.jpg")
-					//- 		span.picNum 7图
-					//- 	.listInfo
-					//- 		h3.title
-					//- 			a(href="javascript:void(0);") 世纪豪园 五一特价优惠 先到先得
-					//- 			span.icon-container
-					//- 				i.icon.jinxuan 精
-					//- 				i.icon.mainfei 免
-					//- 				i.icon.anxuan 安选房源
-					//- 		p.baseInfo
-					//- 			span 3室2厅2卫
-					//- 			span 110㎡
-					//- 			span 南
-					//- 			span 中层(共30层)
-					//- 		p.locationInfo
-					//- 			span 中泰景峰 - 东莞 - 聚福路
-					//- 		p.ownerInfo
-					//- 			span 光宏地产 - 小明
-					//- 	.price
-					//- 		p.sum
-					//- 			b 225
-					//- 			| 万
-					//- 		p.unit 21703元/㎡
-					//- 	.time 今天

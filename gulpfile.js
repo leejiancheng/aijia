@@ -131,7 +131,6 @@ gulp.task("server", function () {
 	});
 
 	// 监听文件变化，执行相应任务
-
 	gulp.watch(`${pathConfig.sass}/**/*.scss`, ["sass"]);
 	gulp.watch(`${pathConfig.css}/**/*.css`, ["css"]);
 	gulp.watch(`${pathConfig.img}/**/*.{png,jpg,gif,ico}`, ["img"]);
@@ -153,9 +152,3 @@ gulp.task("gulp-server", ["clean"], function () {
 gulp.task("gulp-dev", ["clean"], function () {
 	gulp.start("css", "jade", "img", "fonts", "watch");
 });
-
-
-// gulp.task("default", function () {
-// 	gulp.start("css", "html", "img", "fonts");
-// });
-

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <mate charset="utf-8"></mate>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="./static/css/index.css">
 </head>
 <body>
@@ -24,7 +24,7 @@
                     <!-- 手机号-->
                     <li :class="['signLi', {'signLiFocus': inputFocus.mobileInput}]">
                         <input type="text" placeholder="手机号" maxlength="11" autocomplete="off" v-model="form.mobile" @blur="validateInput($event)" @input="getMobileValue" @focus="inputFocus.mobileInput = true; showTip.showMobileTip = false;" class="signInput mobile">
-                        <button type="button" @click="getCode" :disabled="!canGetCode" class="signGetcodeBtn">获取动态码</button>
+                        <button type="button" @click="getCode" :disabled="!canGetCode" class="signGetcodeBtn">{{btnText}}</button>
                     </li>
                     <li v-show="showTip.showMobileTip" class="signTip">
                         <span class="signTipText">{{validateText.mobileTipText}}</span>
@@ -83,5 +83,5 @@
             </div>
         </modal>
     </div>
-</body>
+<script type="text/javascript" src="/static/js/manifest.js"></script><script type="text/javascript" src="/static/js/vendor.js"></script><script type="text/javascript" src="/static/js/register.js"></script></body>
 </html>

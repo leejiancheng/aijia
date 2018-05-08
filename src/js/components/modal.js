@@ -8,22 +8,28 @@ let template = `
 		<transition :name="transitionNames[1]">
 			<div :class="maskClasses" v-show="visible" @click="mask"></div>
 		</transition>
-		<div :class="wrapClasses">
-			<transition :name="transitionNames[0]">
-				<div :class="dialogClasses" v-show="visible">
-					<div class="modal-content">
-						<a class="modal-close" v-if="closable" @click="close">&times;</a>
-						<div :class="[prefixCls + '-header']">
+		<div :class="wrapClasses" @click="handleWrapClick">
+			<transition :name="transitionNames[0]" @after-leave="animationFinish">
+				<div :class="dialogClasses" :style="mainStyles" v-show="visible">
+					<div :class="[prefixCls + '-content']">
+						<a :class="[prefixCls + '-close']" v-if="closable" @click="close">
+							<slot name="close">
+								<i class="icon-close-empty">&times;</i>
+							</slot>
+						</a>
+						<div :class="[prefixCls + '-header']" v-if="showHead">
 							<slot name="header">
-								<div class="modal-header-inner">{{title}}</div>
+								<div :class="[prefixCls + '-header-inner']">{{title}}</div>
 							</slot>
 						</div>
 						<div :class="[prefixCls + '-body']">
 							<slot></slot>
 						</div>
 						<div :class="[prefixCls + '-footer']" v-if="!footerHide">
-							<button type="button" class="btn btn-cancel" @click="cancel">{{localeCancelText}}</button>
-							<button type="button" class="btn btn-submit" @click="ok">{{localeOkText}}</button>
+							<slot name="footer">
+								<button type="button" class="btn btn-cancel" @click="cancel">{{localeCancelText}}</button>
+								<button type="button" class="btn btn-submit" @click="ok">{{localeOkText}}</button>
+							</slot>
 						</div>
 					</div>
 				</div>
@@ -31,8 +37,9 @@ let template = `
 		</div>
 	</div>`;
 
-let modalComponent = Vue.extend({
+let modalComponent = Vue.component("modal", {
 	name: "modal",
+	template,
 	props: {
 		value: {
 			type: Boolean,
@@ -46,15 +53,12 @@ let modalComponent = Vue.extend({
 			type: Boolean,
 			default: true
 		},
-		className: {
-			type: String
-		},
 		title: {
 			type: String
 		},
-		footerHide: {
-			type: Boolean,
-			default: false
+		width: {
+			type: [Number, String],
+			default: 520
 		},
 		okText: {
 			type: String
@@ -62,14 +66,35 @@ let modalComponent = Vue.extend({
 		cancelText: {
 			type: String
 		},
+		loading: {
+			type: Boolean,
+			default: false
+		},
+		styles: {
+			type: Object
+		},
+		className: {
+			type: String
+		},
+		footerHide: {
+			type: Boolean,
+			default: false
+		},
+		scrollable: {
+			type: Boolean,
+			default: false
+		},
 		transitionNames: {
 			type: Array,
 			default () {
 				return ["ease", "fade"];
 			}
+		},
+		transfer: {
+			type: Boolean,
+			default: true
 		}
 	},
-	template: template,
 	data () {
 		return {
 			prefixCls: prefixCls,
@@ -93,6 +118,16 @@ let modalComponent = Vue.extend({
 		},
 		dialogClasses () {
 			return `${prefixCls}-dialog`;
+		},
+		mainStyles () {
+			let style = {};
+			const width = parseInt(this.width);
+			const styleWidth = {
+				width: width < 100 ? `${width}%` : `${width}px`
+			};
+			const customStyle = this.styles ? this.styles : {};
+			Object.assign(style, styleWidth, customStyle);
+			return style;
 		},
 		localeCancelText () {
 			if (["", undefined, null].includes(this.cancelText)) {
@@ -122,6 +157,11 @@ let modalComponent = Vue.extend({
 				if (this.timer) clearTimeout(this.timer);
 				this.wrapShow = true;
 			}
+		},
+		title (val) {
+			if (this.$slots.header === undefined) {
+				this.showHead = !!val;
+			}
 		}
 	},
 	methods: {
@@ -134,12 +174,26 @@ let modalComponent = Vue.extend({
 				this.close();
 			}
 		},
+		handleWrapClick (event) {
+			const className = event.target.getAttribute("class");
+			if (className && className.indexOf(`${prefixCls}-wrap`) > -1) this.mask();
+		},
 		ok () {
 			this.visible = false;
 			this.$emit("on-ok");
 		},
 		cancel () {
 			this.close();
+		},
+		EscClose (event) {
+			if (this.visible && this.closable) {
+				if (event.keyCode === 27) {
+					this.close();
+				}
+			}
+		},
+		animationFinish () {
+			this.$emit("on-hidden");
 		}
 	},
 	mounted () {
@@ -149,6 +203,4 @@ let modalComponent = Vue.extend({
 	}
 });
 
-;
-
-export default Vue.component("modal", modalComponent);
+export default modalComponent;

@@ -91,11 +91,11 @@ const getSession = (key) => {
 	}
 };
 
-const checkEmail = (str) => {
+const isEmail = (str) => {
 	return new RegExp("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$").test(str);
 };
 
-const checkMobile = (str) => {
+const isMobile = (str) => {
 	return /^[1][3,4,5,7,8][0-9]{9}$/.test(str);
 };
 
@@ -138,8 +138,8 @@ module.exports = {
 	getLocal,
 	setSession,
 	getSession,
-	checkEmail,
-	checkMobile,
+	isEmail,
+	isMobile,
 	toast,
 	showLoading,
 	hideLoading

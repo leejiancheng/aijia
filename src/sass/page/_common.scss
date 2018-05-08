@@ -56,7 +56,16 @@
 			right: 16px;
 			cursor: pointer;
 			overflow: hidden;
-			font-size: 20px;
+			font-size: 12px;
+			.icon-close-empty {
+				position: relative;
+				top: 1px;
+				display: inline-block;
+				color: #cecece;
+				font-size: 22px;
+				font-style: normal;
+				transition: color 0.2s ease;
+			}
 		}
 		.modal-header {
 			border-bottom: 1px solid #e9eaec;
@@ -113,24 +122,128 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
-		@include size(32px, 32px);
+		@include size(50px, 50px);
 		z-index: 9999;
 		.loading-dot {
 			position: relative;
+			margin: 9px auto 0;
 			display: block;
-			@include circle(20px);
+			@include circle(32px);
 			background-color: #2d8cf0;
 			animation: ani-spin-bounce 1s 0s ease-in-out infinite;
 		}
 	}
 }
 
+
+.fade-appear,
+.fade-enter-active,
+.fade-leave-active {
+	animation-duration: 0.3s;
+	animation-fill-mode: both;
+	animation-play-state: paused;
+}
+
+.fade-appear,
+.fade-enter-active {
+	animation-name: ivuFadeIn;
+	animation-play-state: running;
+}
+
+.fade-leave-active {
+	animation-name: ivuFadeOut;
+	animation-play-state: running;
+}
+
+.fade-appear,
+.fade-enter-active {
+	opacity: 0;
+}
+
+.fade-appear,
+.fade-enter-active,
+.fade-leave-active {
+	animation-timing-function: linear;
+}
+
+.ease-appear,
+.ease-enter-active,
+.ease-leave-active {
+	animation-duration: 0.3s;
+	animation-fill-mode: both;
+	animation-play-state: paused;
+}
+
+.ease-appear,
+.ease-enter-active {
+	animation-name: ivuEaseIn;
+	animation-play-state: running;
+}
+
+.ease-leave-active {
+	animation-name: ivuEaseOut;
+	animation-play-state: running;
+}
+
+.ease-appear,
+.ease-enter-active {
+	opacity: 0;
+}
+
+.ease-appear,
+.ease-enter-active,
+.ease-leave-active {
+	animation-timing-function: linear;
+	animation-duration: 0.2s;
+}
+
+
 @keyframes ani-spin-bounce {
-    0% {
-        transform: scale(0)
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0
-    }
+	0% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(1);
+		opacity: 0;
+	}
+}
+
+@keyframes ivuFadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes ivuFadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes ivuEaseIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes ivuEaseOut {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(0.9);
+	}
 }

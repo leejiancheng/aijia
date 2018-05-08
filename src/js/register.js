@@ -1,98 +1,17 @@
 "use strict";
 
 import Vue from "vue";
-import {Base64} from "./3rd/base64";
-import {isMobile, setCookie} from "./util/tool";
+import {isMobile} from "./util/tool";
+import Modal from "./components/modal";
 // import {get} from "./util/ajax.js";
-
-// --------------------------
-// 登录界面视图
-let loginVM = new Vue({
-	el: "#loginPage",
-	data: {
-		form: {
-			username: "",								// 账号
-			password: ""								// 密码
-		},
-		inputFocus: {
-			nameInput: false,							// 用于判断账号输入框是否添加"signLiFocus"类名(true: 有; false: 没有)
-			pwdInput: false								// 用于判断密码输入框是否添加"signLiFocus"类名(true: 有; false: 没有)
-		},
-		showTip: {
-			showNameTip: false,							// 用于判断账号提示文字是否显示(true: 显示; false: 不显示)
-			showPwdTip: false							// 用于判断密码提示文字是否显示(true: 显示; false: 不显示)
-		},
-		validateText: {
-			nameTipText: "",							// 账号提示文字
-			pwdTipText: ""								// 密码提示文字
-		}
-	},
-	methods: {
-		// 输入框失去焦点事件
-		validateInput (event) {
-			let className = event.target.className;
-			let {username, password} = this.form;
-			className = className.split(" ")[1];
-
-			switch (className) {
-			case "username":
-				this.validateName(username);
-				break;
-			case "password":
-				this.validatePwd(password);
-				break;
-			}
-		},
-		// 账号输入框
-		validateName (username) {
-			if (["", undefined, null].includes(username)) {
-				this.inputFocus["nameInput"] = false;
-				this.showTip["showNameTip"] = true;
-				this.validateText["nameTipText"] = "您还没有输入账户名";
-				return false;
-			}
-			this.inputFocus["nameInput"] = false;
-			this.showTip["showNameTip"] = false;
-		},
-		// 密码输入框
-		validatePwd (password) {
-			if (["", undefined, null].includes(password)) {
-				this.inputFocus["pwdInput"] = false;
-				this.showTip["showPwdTip"] = true;
-				this.validateText["pwdTipText"] = "您还没有输入密码";
-				return false;
-			}
-			this.inputFocus["pwdInput"] = false;
-			this.showTip["showPwdTip"] = false;
-		},
-		// 登录按钮点击事件
-		async login () {
-			let {username, password} = this.form;
-
-			if (["", undefined, null].includes(username)) {
-				this.validateName();
-				return false;
-			}
-
-			if (["", undefined, null].includes(password)) {
-				this.validatePwd();
-				return false;
-			}
-
-			// let url = "http://193.112.8.151:8000/house/detail";
-			// let res = await get(url, {id: 123}, null);
-			// console.log(res);
-			let encode = Base64.encode(username);
-			setCookie("username", encode);
-			location.href = "./index.html";
-		}
-	}
-});
 
 // --------------------------
 // 注册界面视图
 let registerVM = new Vue({
 	el: "#registerPage",
+	components: {
+		modal: Modal
+	},
 	data: {
 		form: {
 			username: "",								// 用户名
@@ -122,7 +41,7 @@ let registerVM = new Vue({
 			pwdTipText: "",								// 密码提示文字
 			confirmTipText: ""							// 确认密码提示文字
 		},
-		btnText: "获取动态码",
+		btnText: "获取动态码",							// 获取动态码按钮文字
 		visible: false,									// 用于判断图片验证码模态框是否显示(true: 显示; false: 隐藏)
 		canGetCode: false								// 用于判断获取动态码按钮是否可以点击(true: 可以点击; false: 禁用)
 	},
@@ -183,10 +102,8 @@ let registerVM = new Vue({
 				this.inputFocus["mobileInput"] = false;
 				this.showTip["showMobileTip"] = true;
 				this.validateText["mobileTipText"] = "请填写正确的手机号";
-				this.canGetCode = false;
 				return false;
 			}
-			this.canGetCode = true;
 			this.inputFocus["mobileInput"] = false;
 			this.showTip["showMobileTip"] = false;
 		},
@@ -216,12 +133,12 @@ let registerVM = new Vue({
 		getMobileValue (event) {
 			let value = event.target.value;
 			this.canGetCode = isMobile(value) ? !!true : !!false;
+			console.log(this.canGetCode);
 		},
 		// 注册按钮点击事件
 		register () {}
 	}
 });
 
-console.log(loginVM);
 console.log(registerVM);
 // console.log(tool);

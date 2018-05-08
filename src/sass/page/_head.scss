@@ -46,11 +46,14 @@ $topBarLineHeight: 35px;					// 导航栏的高度
 			border: 1px solid #fff;
 			border-top: none;
 			border-bottom: none;
-			.userName,
 			.myText {
 				color: #555;
+				&:hover {
+					color: $base;
+				}
 			}
 			.userName {
+				color: #555;
 				margin-right: 4px;
 			}
 			.arrow {
@@ -81,12 +84,9 @@ $topBarLineHeight: 35px;					// 导航栏的高度
 					text-align: center;
 				}
 			}
-			&:hover {
+			&:not(.topBarLogin):hover {
 				border-color: #eee;
 				cursor: pointer;
-				.myText {
-					color: $base;
-				}
 				.arrow {
 					background: url("../img/spriter/arrow1hover.png?__spriter") no-repeat;
 				}

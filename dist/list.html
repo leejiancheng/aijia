@@ -5,59 +5,22 @@
     <link rel="stylesheet" href="./static/css/index.css">
 </head>
 <body>
-    <div class="topBar">
-        <div class="topBarContainer clearfix">
-            <div class="barLeft fl">
-                <h2>深圳</h2>
-                <a href="javascript:void(0);" class="homeLink">
-                    <i class="icon"></i>58首页</a>
-            </div>
-            <div class="barRight fr">
-                <div class="topBarLogin rightItem">
-                    <span class="userName">哈哈哈哈</span>
-                    <a href="javascript:void(0);" class="myText">退出</a>
-                </div>
-                <div class="topBarMymenu rightItem">
-                    <a href="./person.html" class="myText">个人中心</a>
-                    <span class="arrow"></span>
-                    <div class="dropMenu">
-                        <a href="./person.html" class="dropMenuItem">账户设置</a>
-                    </div>
-                </div>
-                <div class="topBarVip rightItem">
-                    <a href="javascript:void(0);" class="myText">商家中心</a>
-                    <span class="arrow"></span>
-                </div>
-                <div class="topBarHelp rightItem">
-                    <a href="javascript:void(0);" class="myText">联系客服</a>
-                    <span class="arrow"></span>
-                </div>
-                <div class="topBarMyfeet rightItem">
-                    <a href="javascript:void(0);" class="myText">最近浏览</a>
-                    <span class="arrow"></span>
-                </div>
-                <div class="topBarSitemap rightItem">
-                    <a href="javascript:void(0);" class="myText">网站导航</a>
-                    <span class="arrow"></span>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="listPage" class="listPage">
+        <topbar></topbar>
         <div class="listHeaderWrap">
             <div class="listHeaderContent clearfix">
                 <a href="javascript:void(0);" class="logo">58同城·房产</a>
                 <a href="javascript:void(0);" class="publishBtn">免费发布</a>
                 <div class="searchBar clearfix">
                     <i class="icon"></i>
-                    <input type="text" placeholder="请输入房源相关信息" class="searchInput">
-                    <button type="button" class="searchBtn">搜房源</button>
+                    <input type="text" placeholder="请输入房源相关信息" v-model.lazy="searchword" @input="inputSearch" class="searchInput">
+                    <button type="button" @click="onSearch" class="searchBtn">搜房源</button>
                 </div>
-                <ul class="searchList">
-                    <li>
-                        <a href="javascript:void(0);">
-                            <p class="fl">碧桂园</p>
-                            <span class="fr">约13条</span>
+                <ul v-show="showSearch &amp;&amp; searchList.length &gt; 0" class="searchList">
+                    <li v-for="(item, index) in searchList">
+                        <a href="javascript:void(0);" @click="goToList(item)">
+                            <p class="fl">{{item.k}}</p>
+                            <span class="fr">约{{item.n}}条</span>
                         </a>
                     </li>
                 </ul>
@@ -141,9 +104,6 @@
             </div>
             <div class="contentWrap">
                 <div class="checkList">
-                    <a href="javascript:void(0);" class="checkboxItem selected">满五唯一</a>
-                    <a href="javascript:void(0);" class="checkboxItem">南北通透</a>
-                    <a href="javascript:void(0);" class="checkboxItem">随时看房</a>
                     <div class="checkListSortWrap">
                         <a href="javascript:void(0);" data-type="0" :class="{'on': checkListType === 0}" @click="onOrderBy($event)" class="sortItem sortByGeneral">默认排序</a>
                         <!-- 总价从低到高-->
@@ -173,7 +133,7 @@
                             <h3 class="title">
                                 <a href="javascript:void(0);">{{item.title}}</a>
                                 <span class="icon-container">
-                                    <i class="icon jinxuan">精</i>
+                                    <i title="精选房源" class="icon jinxuan">精</i>
                                 </span>
                             </h3>
                             <p class="baseInfo">
@@ -192,15 +152,15 @@
                         <div class="price">
                             <p class="sum">
                                 <b>{{item.price}}</b>万</p>
-                            <p class="unit">21703元/㎡</p>
+                            <p class="unit">{{item.danjia}}元/㎡</p>
                         </div>
                         <div class="time">今天</div>
                     </li>
                 </ul>
                 <div class="pagination">
                     <a href="javascript:void(0);" class="pre">上一页</a>
-                    <a href="javascript:void(0);" class="paginationItem">1</a>
-                    <a href="javascript:void(0);" class="paginationItem active">2</a>
+                    <a href="javascript:void(0);" class="paginationItem active">1</a>
+                    <a href="javascript:void(0);" class="paginationItem">2</a>
                     <a href="javascript:void(0);" class="paginationItem">3</a>
                     <a class="paginationItem disabled">...</a>
                     <a href="javascript:void(0);" class="paginationItem">10</a>
@@ -209,5 +169,5 @@
             </div>
         </div>
     </div>
-</body>
+<script type="text/javascript" src="/static/js/manifest.js"></script><script type="text/javascript" src="/static/js/vendor.js"></script><script type="text/javascript" src="/static/js/list.js"></script></body>
 </html>
