@@ -6,7 +6,16 @@ module.exports = {
 	dev: {
 		assetsSubDirectory: "static",
 		assetsPublicPath: "/",
-		proxyTable: {},
+		proxyTable: {
+			// "/api": {
+			// 	target: "http://testwx.fapiao.com",
+			// 	changeOrigin: true,
+			// 	secure: true,
+			// 	pathRewrite: {
+			// 		"^/api": ""
+			// 	}
+			// }
+		},
 
 		host: "localhost",
 		port: 8080,

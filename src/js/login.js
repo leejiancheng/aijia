@@ -3,7 +3,7 @@
 import Vue from "vue";
 import {Base64} from "./3rd/base64";
 import {setCookie} from "./util/tool";
-// import {get} from "./util/ajax.js";
+// import {post} from "./util/ajax.js";
 
 // --------------------------
 // 登录界面视图
@@ -87,13 +87,12 @@ let loginVM = new Vue({
 				return false;
 			}
 
-			// let url = "http://193.112.8.151:8000/house/detail";
-			// let res = await get(url, {id: 123}, null);
+			// let url = "/api/fpt-wechat/smallBusinMKInvoice.do?method=getKPXM";
+			// let res = await post(url);
 			// console.log(res);
 			let encode = Base64.encode(username);
 			setCookie("username", encode);
-			console.log(123);
-			// location.href = "./index.html";
+			location.href = "./index.html";
 		}
 	}
 });
