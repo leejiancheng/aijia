@@ -1,14 +1,20 @@
+[v-cloak] {
+	display: none;
+}
 .fl {
-	@include float(left);
+	float: left;
 }
 .fr {
-	@include float(right);
+	float: right;
 }
 .show {
 	display: block;
 }
 .hidden {
 	display: none;
+}
+.cut {
+	@include text-ellipsis();
 }
 .clearfix {
 	@include clearfix();
@@ -35,7 +41,7 @@
 		overflow: auto;
 		outline: 0;
 		&.modal-hidden {
-			display: none;
+			@extend .hidden;
 		}
 	}
 	.modal-dialog {
@@ -46,9 +52,9 @@
 	}
 	.modal-content {
 		position: relative;
-		background-color: #fff;
 		border: 0;
-		border-radius: 6px;
+		border-radius: $border-radius-big;
+		background-color: $background;
 		background-clip: padding-box;
 		.modal-close {
 			position: absolute;
@@ -61,14 +67,15 @@
 				position: relative;
 				top: 1px;
 				display: inline-block;
-				color: #cecece;
+				// color: #cecece;
+				color: $sub;
 				font-size: 22px;
 				font-style: normal;
 				transition: color 0.2s ease;
 			}
 		}
 		.modal-header {
-			border-bottom: 1px solid #e9eaec;
+			border-bottom: 1px solid $border;
 			padding: 14px 16px;
 			line-height: 1;
 			.modal-header-inner {
@@ -89,7 +96,7 @@
 		.modal-footer {
 			padding: 12px 18px;
 			text-align: right;
-			border-top: 1px solid #e9eaec;
+			border-top: 1px solid $border;
 			.btn {
 				padding: 6px 15px 7px;
 				font-size: 14px;
@@ -129,7 +136,7 @@
 			margin: 9px auto 0;
 			display: block;
 			@include circle(32px);
-			background-color: #2d8cf0;
+			background-color: $info;
 			animation: ani-spin-bounce 1s 0s ease-in-out infinite;
 		}
 	}

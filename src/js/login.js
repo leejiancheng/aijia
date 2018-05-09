@@ -53,6 +53,7 @@ let loginVM = new Vue({
 			}
 			this.inputFocus["nameInput"] = false;
 			this.showTip["showNameTip"] = false;
+			return true;
 		},
 		// 密码输入框
 		validatePwd (password) {
@@ -62,20 +63,27 @@ let loginVM = new Vue({
 				this.validateText["pwdTipText"] = "您还没有输入密码";
 				return false;
 			}
+			if (password.length <= 6) {
+				this.inputFocus["pwdInput"] = false;
+				this.showTip["showPwdTip"] = true;
+				this.validateText["pwdTipText"] = "密码太短，最少为6位";
+				return false;
+			}
 			this.inputFocus["pwdInput"] = false;
 			this.showTip["showPwdTip"] = false;
+			return true;
 		},
 		// 登录按钮点击事件
 		async login () {
 			let {username, password} = this.form;
 
 			if (["", undefined, null].includes(username)) {
-				this.validateName();
+				this.validateName(username);
 				return false;
 			}
 
 			if (["", undefined, null].includes(password)) {
-				this.validatePwd();
+				this.validatePwd(password);
 				return false;
 			}
 
@@ -84,7 +92,8 @@ let loginVM = new Vue({
 			// console.log(res);
 			let encode = Base64.encode(username);
 			setCookie("username", encode);
-			location.href = "./index.html";
+			console.log(123);
+			// location.href = "./index.html";
 		}
 	}
 });

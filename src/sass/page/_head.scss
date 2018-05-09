@@ -1,28 +1,29 @@
-$topBarLineHeight: 35px;					// 导航栏的高度
+$topBarLineHeight:					35px;					// 导航栏的高度
+$topBarColor:						#555;					// 导航文字颜色
 
 .topBar {
 	position: relative;
 	@include size(100%, $topBarLineHeight);
-	min-width: 1190px;
+	min-width: $minWidth;
 	line-height: $topBarLineHeight;
-	background-color: #fff;
-	border-bottom: 1px solid #ddd;
+	background-color: $background;
+	border-bottom: 1px solid $border;
 	font-size: 12px;
 	.topBarContainer {
-		@include size(1190px, $topBarLineHeight);
+		@include size($minWidth, $topBarLineHeight);
 		margin: 0 auto;
 	}
 	.barLeft {
 		padding-left: 10px;
 		overflow: hidden;
 		> h2 {
-			@include float(left);
+			float: left;
 			color: $base;
 		}
 		.homeLink {
-			@include float(left);
+			float: left;
 			padding-right: 10px;
-			color: #555;
+			color: $topBarColor;
 			font-weight: bold;
 			.icon {
 				float: left;
@@ -40,20 +41,20 @@ $topBarLineHeight: 35px;					// 导航栏的高度
 	}
 	.barRight {
 		.rightItem {
-			@include float(left);
+			float: left;
 			position: relative;
 			padding: 0 24px 0 14px;
 			border: 1px solid #fff;
 			border-top: none;
 			border-bottom: none;
 			.myText {
-				color: #555;
+				color: $topBarColor;
 				&:hover {
 					color: $base;
 				}
 			}
 			.userName {
-				color: #555;
+				color: $topBarColor;
 				margin-right: 4px;
 			}
 			.arrow {
@@ -85,7 +86,7 @@ $topBarLineHeight: 35px;					// 导航栏的高度
 				}
 			}
 			&:not(.topBarLogin):hover {
-				border-color: #eee;
+				border-color: $border;
 				cursor: pointer;
 				.arrow {
 					background: url("../img/spriter/arrow1hover.png?__spriter") no-repeat;

@@ -6,15 +6,16 @@ import {getCookie, clearCookie} from "@/js/util/tool";
 
 let template = `
 	<div class="topBar">
-        <div class="topBarContainer clearfix">
-            <div class="barLeft fl">
-                <h2>深圳</h2>
-                <a href="./index.html" class="homeLink">
-                    <i class="icon"></i>58首页</a>
-            </div>
-            <div class="barRight fr">
-                <div class="topBarLogin rightItem">
-                	<template v-if="showUsername">
+		<div class="topBarContainer clearfix">
+			<div class="barLeft fl">
+				<h2>深圳</h2>
+				<a href="./index.html" class="homeLink">
+					<i class="icon"></i>58首页
+				</a>
+			</div>
+			<div class="barRight fr">
+				<div class="topBarLogin rightItem">
+					<template v-if="showUsername">
 						<span class="userName">{{username}}</span>
 						<a href="javascript:void(0);" class="myText" @click="logout">退出</a>
 					</template>
@@ -23,33 +24,33 @@ let template = `
 						/
 						<a href="./register.html" class="myText">注册</a>
 					</template>
-                </div>
-                <div class="topBarMymenu rightItem">
-                    <a href="./person.html" class="myText">个人中心</a>
-                    <span class="arrow"></span>
-                    <div class="dropMenu">
-                        <a href="./person.html" class="dropMenuItem">账户设置</a>
-                    </div>
-                </div>
-                <div class="topBarVip rightItem">
-                    <a href="javascript:void(0);" class="myText">商家中心</a>
-                    <span class="arrow"></span>
-                </div>
-                <div class="topBarHelp rightItem">
-                    <a href="javascript:void(0);" class="myText">联系客服</a>
-                    <span class="arrow"></span>
-                </div>
-                <div class="topBarMyfeet rightItem">
-                    <a href="javascript:void(0);" class="myText">最近浏览</a>
-                    <span class="arrow"></span>
-                </div>
-                <div class="topBarSitemap rightItem">
-                    <a href="javascript:void(0);" class="myText">网站导航</a>
-                    <span class="arrow"></span>
-                </div>
-            </div>
-        </div>
-    </div>
+				</div>
+				<div class="topBarMymenu rightItem">
+					<a href="./person.html" class="myText">个人中心</a>
+					<span class="arrow"></span>
+					<div class="dropMenu">
+						<a href="./person.html" class="dropMenuItem">账户设置</a>
+					</div>
+				</div>
+				<div class="topBarVip rightItem">
+					<a href="javascript:void(0);" class="myText">商家中心</a>
+					<span class="arrow"></span>
+				</div>
+				<div class="topBarHelp rightItem">
+					<a href="javascript:void(0);" class="myText">联系客服</a>
+					<span class="arrow"></span>
+				</div>
+				<div class="topBarMyfeet rightItem">
+					<a href="javascript:void(0);" class="myText">最近浏览</a>
+					<span class="arrow"></span>
+				</div>
+				<div class="topBarSitemap rightItem">
+					<a href="javascript:void(0);" class="myText">网站导航</a>
+					<span class="arrow"></span>
+				</div>
+			</div>
+		</div>
+	</div>
 `;
 
 let topBarComponent = Vue.component("topbar", {

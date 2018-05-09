@@ -119,20 +119,32 @@ table {
 	border-spacing: 0;
 }
 
+[v-cloak] {
+	display: none;
+}
+
 .fl {
 	float: left;
 }
 
 .fr {
-	float: right !important;
+	float: right;
 }
 
 .show {
 	display: block;
 }
 
-.hidden {
+.hidden,
+.modal .modal-wrap.modal-hidden {
 	display: none;
+}
+
+.cut {
+	white-space: nowrap;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
 }
 
 .clearfix:before,
@@ -168,10 +180,6 @@ table {
 	outline: 0;
 }
 
-.modal .modal-wrap.modal-hidden {
-	display: none;
-}
-
 .modal .modal-dialog {
 	position: relative;
 	top: 100px;
@@ -181,9 +189,9 @@ table {
 
 .modal .modal-content {
 	position: relative;
-	background-color: #fff;
 	border: 0;
 	border-radius: 6px;
+	background-color: #fff;
 	background-clip: padding-box;
 }
 
@@ -200,7 +208,7 @@ table {
 	position: relative;
 	top: 1px;
 	display: inline-block;
-	color: #cecece;
+	color: #80848f;
 	font-size: 22px;
 	font-style: normal;
 	-webkit-transition: color 0.2s ease;
@@ -209,7 +217,7 @@ table {
 }
 
 .modal .modal-content .modal-header {
-	border-bottom: 1px solid #e9eaec;
+	border-bottom: 1px solid #dddee1;
 	padding: 14px 16px;
 	line-height: 1;
 }
@@ -237,7 +245,7 @@ table {
 .modal .modal-content .modal-footer {
 	padding: 12px 18px;
 	text-align: right;
-	border-top: 1px solid #e9eaec;
+	border-top: 1px solid #dddee1;
 }
 
 .modal .modal-content .modal-footer .btn {
@@ -497,7 +505,7 @@ table {
 	min-width: 1190px;
 	line-height: 35px;
 	background-color: #fff;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #dddee1;
 	font-size: 12px;
 }
 
@@ -600,7 +608,7 @@ table {
 }
 
 .topBar .barRight .rightItem:not(.topBarLogin):hover {
-	border-color: #eee;
+	border-color: #dddee1;
 	cursor: pointer;
 }
 
@@ -664,7 +672,7 @@ table {
 	padding-top: 48px;
 	margin: 0 auto;
 	background-color: #fff;
-	border-radius: 3px;
+	border-radius: 4px;
 }
 
 .signPage .signLogo {
@@ -1016,7 +1024,7 @@ table {
 .headerWrapContainer .hederBar .searchList {
 	top: 52px;
 	width: 519px;
-	border: 1px solid #dcdadc;
+	border: 1px solid #dddee1;
 	z-index: 10;
 }
 
@@ -1035,7 +1043,7 @@ table {
 
 .headerWrapContainer .hederBar .searchList li a span {
 	font-size: 12px;
-	color: #adadad;
+	color: #bbbec4;
 }
 
 .headerWrapContainer .hederBar .headerBarPostMsg {
@@ -1266,7 +1274,7 @@ table {
 }
 
 .indexMainContainer .mainNavigate .navigateItem .bottomText a {
-	color: #0e8ed8;
+	color: #2d8cf0;
 }
 
 .indexMainContainer .mainNavigate .navigateItem .bottomText a:hover {
@@ -1410,7 +1418,7 @@ table {
 	padding-bottom: 12px;
 	font-size: 18px;
 	font-weight: 700;
-	border-bottom: 1px solid #eaeaea;
+	border-bottom: 1px solid #dddee1;
 }
 
 .personContainer .leftMenuContentUl {
@@ -1436,7 +1444,7 @@ table {
 
 .personContainer .changeData .changeDataTitle {
 	height: 30px;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #dddee1;
 }
 
 .personContainer .changeData .changeDataTitle .changeDataTitleText {
@@ -1473,7 +1481,7 @@ table {
 	margin-right: 15px;
 	line-height: 36px;
 	background-color: #fff;
-	border: 1px solid #ddd;
+	border: 1px solid #dddee1;
 }
 
 .personContainer .changeData .changeDataUl .changeDataLi .changeInput:disabled {
@@ -1598,7 +1606,7 @@ table {
 	right: 282px;
 	width: 504px;
 	height: auto;
-	border: 1px solid #dcdadc;
+	border: 1px solid #dddee1;
 	z-index: 10;
 }
 
@@ -1617,7 +1625,7 @@ table {
 
 .listHeaderWrap .listHeaderContent .searchList li a span {
 	font-size: 12px;
-	color: #adadad;
+	color: #bbbec4;
 }
 
 .listHeaderWrap.fixedHeader {
@@ -1679,6 +1687,12 @@ table {
 	height: 32px;
 	border: 1px solid #fff;
 	line-height: 32px;
+}
+
+.listHeaderWrap.fixedHeader .listHeaderContent .searchList {
+	top: 42px;
+	right: 339px;
+	width: 517px;
 }
 
 .listMainWrap .breadcrumb {
@@ -2010,19 +2024,19 @@ table {
 }
 
 .listMainWrap .contentWrap .houseListUl > li .listInfo .icon.jinxuan {
-	background-color: #3aa731;
+	background-color: #19be6b;
 }
 
 .listMainWrap .contentWrap .houseListUl > li .listInfo .icon.mainfei {
-	background-color: #078ad2;
+	background-color: #2d8cf0;
 }
 
 .listMainWrap .contentWrap .houseListUl > li .listInfo .icon.anxuan {
-	color: #52b25a;
+	color: #54e99e;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	line-height: 16px;
-	border: 1px solid #52b25a;
+	border: 1px solid #54e99e;
 	font-weight: 700;
 	letter-spacing: 1px;
 }
@@ -2079,7 +2093,7 @@ table {
 	height: 36px;
 	line-height: 36px;
 	text-align: center;
-	border: 1px solid #eee;
+	border: 1px solid #dddee1;
 	cursor: pointer;
 	margin-right: -1px;
 	background-color: #fff;

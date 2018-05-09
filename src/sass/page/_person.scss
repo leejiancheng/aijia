@@ -8,13 +8,13 @@ $headerGuideHeight: 80px;				// 个人中心头部栏目高度
 		@include size(1036px, $headerGuideHeight);
 		margin: 0 auto;
 		.headerLogo {
-			@include float(left);
+			float: left;
 			display: block;
 			@include size(107px, 36px);
 			margin-top: 20px;
 		}
 		.headerUl {
-			@include float(left);
+			float: left;
 			height: 100%;
 			margin-left: 59px;
 			font-size: 16px;
@@ -106,7 +106,7 @@ $headerGuideHeight: 80px;				// 个人中心头部栏目高度
 			padding-bottom: 12px;
 			font-size: 18px;
 			font-weight: 700;
-			border-bottom: 1px solid #eaeaea;
+			border-bottom: 1px solid $border;
 		}
 	}
 	.leftMenuContentUl {
@@ -129,7 +129,7 @@ $headerGuideHeight: 80px;				// 个人中心头部栏目高度
 	.changeData {
 		.changeDataTitle {
 			height: 30px;
-			border-bottom: 1px solid #eee;
+			border-bottom: 1px solid $border;
 			.changeDataTitleText {
 				color: #666;
 				font-size: 16px
@@ -156,7 +156,7 @@ $headerGuideHeight: 80px;				// 个人中心头部栏目高度
 					margin-right: 15px;
 					line-height: 36px;
 					background-color: #fff;
-					border: 1px solid #ddd;
+					border: 1px solid $border;
 					&:disabled {
 						border: none;
 					}

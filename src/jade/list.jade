@@ -4,9 +4,9 @@ block head
 	link(rel="stylesheet", href="./static/css/index.css")
 		
 block content
-	.listPage#listPage
+	.listPage#listPage(v-cloak)
 		topbar
-		.listHeaderWrap
+		.listHeaderWrap(:class="{'fixedHeader': fixedHeader}")
 			.listHeaderContent.clearfix
 				a.logo(href="javascript:void(0);") 58同城·房产
 				a.publishBtn(href="javascript:void(0);") 免费发布
@@ -112,7 +112,7 @@ block content
 								span.icon-container
 									i.icon.jinxuan(title="精选房源") 精
 									//- i.icon.mainfei(title="免税房源") 免
-									//- i.icon.anxuan(title="安选房源") 安选房源
+									i.icon.anxuan(title="安选房源") 安选房源
 									//- i.icon.zhiding(title="置顶房源") 顶
 							p.baseInfo
 								span {{item.huxing}}

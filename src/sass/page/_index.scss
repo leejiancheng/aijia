@@ -2,14 +2,14 @@
 .indexHeaderWrap,
 .indexMainWrap {
 	width: 100%;
-	min-width: 1190px;
+	min-width: $minWidth;
 	margin-bottom: 8px;
 }
 
 .headerWrapContainer {
-	width: 1190px;
+	width: $minWidth;
 	margin: 0 auto;
-	background-color: #fff;
+	background-color: $background;
 	.hederBar {
 		position: relative;
 		@include size(100%, 84px);
@@ -95,12 +95,9 @@
 			@extend .headerBarSearch;
 			top: 52px;
 			width: 519px;
-			border: 1px solid #dcdadc;
+			border: 1px solid $border;
 			z-index: 10;
 			li {
-				// box-sizing: border-box;
-				// @include size(100%, 30px);
-				// line-height: 30px;
 				a {
 					box-sizing: border-box;
 					display: block;
@@ -109,10 +106,10 @@
 					line-height: 30px;
 					overflow: hidden;
 					font-size: 14px;
-					background-color: #fff;
+					background-color: $background;
 					span {
 						font-size: 12px;
-						color: #adadad;
+						color: $disabled;
 					}
 				}
 			}
@@ -144,7 +141,7 @@
 		}
 	}
 	.navBar {
-		@include size(1190px, 34px);
+		@include size($minWidth, 34px);
 		line-height: 34px;
 		margin-top: 5px;
 		border-bottom: 2px solid $base;
@@ -216,20 +213,20 @@
 
 
 .indexMainContainer {
-	width: 1190px;
+	width: $minWidth;
 	margin: 0 auto;
 	overflow: hidden;
 	.leftMain {
 		float: left;
 		// width: 844px;
-		width: 1190px;
+		width: $minWidth;
 		overflow: hidden;
 	}
 	.mainNavigate {
 		// @include size(848px, 122px);
 		@include size(1190px, 122px);
 		margin-bottom: 8px;
-		background-color: #fff;
+		background-color: $background;
 		overflow: hidden;
 		display: flex;
 		justify-content: space-around;
@@ -297,7 +294,7 @@
 				font-size: 12px;
 				color: #eee;
 				a {
-					color: #0e8ed8;
+					color: $info;
 					&:hover {
 						color: $base;
 						text-decoration: underline;

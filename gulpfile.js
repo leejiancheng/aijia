@@ -2,6 +2,8 @@ const gulp = require("gulp");
 const sass = require("gulp-sass");
 const autoprefixer = require("gulp-autoprefixer");
 const spriter = require("gulp-css-spriter");
+const cleanCSS = require("gulp-clean-css");
+// const rename = require("gulp-rename");
 const jade = require("gulp-jade");
 const htmlBeautify = require("gulp-html-beautify");
 const imagemin = require("gulp-imagemin");
@@ -10,8 +12,8 @@ const cache = require("gulp-cache");
 const gutil = require("gulp-util");
 const plumber = require("gulp-plumber");
 const del = require("del");
-const browserSync = require("browser-sync").create();
-const reload = browserSync.reload;
+// const browserSync = require("browser-sync").create();
+// const reload = browserSync.reload;
 
 
 const pathConfig = {
@@ -46,6 +48,19 @@ gulp.task("sass", function () {
 // CSS移动任务
 gulp.task("css", ["sass"], function () {
 	return gulp.src(`${pathConfig.css}/**/*.css`)
+				.pipe(gulp.dest(`${pathConfig.dist}/static/css`));
+});
+
+// CSS-MIN移动任务
+gulp.task("css-min", ["sass"], function () {
+	return gulp.src(`${pathConfig.css}/**/*.css`)
+				.pipe(cleanCSS({
+					compatibility: "ie8",
+					keepSpecialComments: "*"
+				}))
+				// .pipe(rename({
+				// 	suffix: ".min"
+				// }))
 				.pipe(gulp.dest(`${pathConfig.dist}/static/css`));
 });
 
@@ -119,36 +134,41 @@ gulp.task("watch", function () {
 
 
 // 服务运行任务
-gulp.task("server", function () {
-	browserSync.init({
-		files: ["**"],
-		server: {
-			baseDir: "dist",						// 设置服务器的根目录
-			index: "index.html"						// 指定默认打开的文件
-		},
-		port: 3000,									// 指定访问服务器的端口号
-		injectChanges: true							// 注入CSS改变
-	});
+// gulp.task("server", function () {
+// 	browserSync.init({
+// 		files: ["**"],
+// 		server: {
+// 			baseDir: "dist",						// 设置服务器的根目录
+// 			index: "index.html"						// 指定默认打开的文件
+// 		},
+// 		port: 3000,									// 指定访问服务器的端口号
+// 		injectChanges: true							// 注入CSS改变
+// 	});
 
-	// 监听文件变化，执行相应任务
-	gulp.watch(`${pathConfig.sass}/**/*.scss`, ["sass"]);
-	gulp.watch(`${pathConfig.css}/**/*.css`, ["css"]);
-	gulp.watch(`${pathConfig.img}/**/*.{png,jpg,gif,ico}`, ["img"]);
-	gulp.watch(`${pathConfig.fonts}/**/*`, ["fonts"]);
-	gulp.watch(`${pathConfig.jade}/**/*.jade`, ["jade"]);
-	gulp.watch(`${pathConfig.html}/*.html`, ["html"]).on("change", reload);
+// 	// 监听文件变化，执行相应任务
+// 	gulp.watch(`${pathConfig.sass}/**/*.scss`, ["sass"]);
+// 	gulp.watch(`${pathConfig.css}/**/*.css`, ["css"]);
+// 	gulp.watch(`${pathConfig.img}/**/*.{png,jpg,gif,ico}`, ["img"]);
+// 	gulp.watch(`${pathConfig.fonts}/**/*`, ["fonts"]);
+// 	gulp.watch(`${pathConfig.jade}/**/*.jade`, ["jade"]);
+// 	gulp.watch(`${pathConfig.html}/*.html`, ["html"]).on("change", reload);
 
-});
-
-
-
-gulp.task("gulp-server", ["clean"], function () {
-	gulp.start("css", "html", "img", "fonts", "server");
-});
+// });
+// gulp.task("gulp-server", ["clean"], function () {
+// 	gulp.start("css", "html", "img", "fonts", "server");
+// });
 
 
 
 
+// 测试环境任务
 gulp.task("gulp-dev", ["clean"], function () {
 	gulp.start("css", "jade", "img", "fonts", "watch");
+});
+
+
+
+// 生产环境任务
+gulp.task("gulp-build", ["clean"], function () {
+	gulp.start("css-min", "jade", "img", "fonts");
 });

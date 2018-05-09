@@ -19,7 +19,7 @@ let personVM = new Vue({
 		canEditMobile: false,				// 用于判断手机输入框是否可以编辑(true: 可以编辑; false: 禁止编辑)
 		firstClick: false,					// 用于昵称输入框
 		tipText: "昵称格式不正确",			// 提示弹框内的文字
-		visible: true						// 用于判断是否显示提示弹框(true: 显示; false: 隐藏)
+		visible: false						// 用于判断是否显示提示弹框(true: 显示; false: 隐藏)
 	},
 	computed: {
 		// 手机号码中间数字隐藏

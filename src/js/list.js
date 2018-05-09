@@ -4,6 +4,7 @@ import Vue from "vue";
 import _ from "lodash";
 import Topbar from "./components/topbar";
 import {showLoading, hideLoading} from "./util/tool";
+import {getScroll} from "./util/scroll";
 import {search, location, metroLine, sumPrice, sumAcreage, sumRoom, houseList} from "data/index";
 
 let listVM = new Vue({
@@ -12,6 +13,7 @@ let listVM = new Vue({
 		topbar: Topbar
 	},
 	data: {
+		fixedHeader: false,						// 用于判断搜索栏是否置顶(true: 置顶; false: 不置顶)
 		searchword: "",							// 搜索框内容
 		searchList: [],							// 用于保存搜索结果列表的数据
 		showSearch: false,						// 用于判定是否显示搜索结果(true: 显示; false: 不显示)
@@ -148,6 +150,11 @@ let listVM = new Vue({
 				break;
 			}
 			this.houseList = newArr;
+		},
+		// 搜索栏是否置顶
+		handleScroll () {
+			const scrollTop = getScroll(window, true);
+			this.fixedHeader = scrollTop > 170 ? !!true : !!false;
 		}
 	},
 	mounted () {
@@ -157,6 +164,7 @@ let listVM = new Vue({
 		this.sumAcreage = sumAcreage;
 		this.sumRoom = sumRoom;
 		this.houseList = houseList;
+		window.addEventListener("scroll", this.handleScroll, false);
 		hideLoading();
 	}
 });

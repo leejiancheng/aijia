@@ -1,6 +1,6 @@
 .listHeaderWrap,
 .listMainWrap {
-	width: 1190px;
+	width: $minWidth;
 	margin: 0 auto;
 }
 
@@ -67,7 +67,7 @@
 			top: 46px;
 			right: 282px;
 			@include size(504px, auto);
-			border: 1px solid #dcdadc;
+			border: 1px solid $border;
 			z-index: 10;
 			li {
 				a {
@@ -78,14 +78,13 @@
 					line-height: 30px;
 					overflow: hidden;
 					font-size: 14px;
-					background-color: #fff;
+					background-color: $background;
 					span {
 						font-size: 12px;
-						color: #adadad;
+						color: $disabled;
 					}
 				}
 			}
-			// background-color: #ccc;
 		}
 	}
 	&.fixedHeader {
@@ -97,7 +96,7 @@
 		margin-top: 0;
 		z-index: 10;
 		.listHeaderContent {
-			width: 1190px;
+			width: $minWidth;
 			margin: 0 auto;
 			font-size: 14px;
 			.logo {
@@ -108,14 +107,14 @@
 			.publishBtn {
 				@include size(140px, 32px);
 				line-height: 32px;
-				background-color: #fff;
+				background-color: $background;
 				color: $base;
 				margin-top: 9px;
 			}
 			.searchBar {
 				@include size(618px, 32px);
 				margin-top: 9px;
-				background-color: #fff;
+				background-color: $background;
 				border: none;
 				.icon {
 					top: 8px;
@@ -133,6 +132,11 @@
 					border: 1px solid #fff;
 					line-height: 32px;
 				}
+			}
+			.searchList {
+				top: 42px;
+				right: 339px;
+				width: 517px;
 			}
 		}
 	}
@@ -405,16 +409,19 @@
 						font-style: normal;
 						vertical-align: middle;
 						&.jinxuan {
-							background-color: #3aa731;
+							// background-color: #3aa731;
+							background-color: $success;
 						}
 						&.mainfei {
-							background-color: #078ad2;
+							background-color: $info;
 						}
 						&.anxuan {
-							color: #52b25a;
+							// color: #52b25a;
+							color: lighten($success, 20%);
 							box-sizing: border-box;
 							line-height: 16px;
-							border: 1px solid #52b25a;
+							// border: 1px solid #52b25a;
+							border: 1px solid lighten($success, 20%);
 							font-weight: 700;
 							letter-spacing: 1px;
 						}
@@ -462,10 +469,10 @@
 				@include size(36px, 36px);
 				line-height: 36px;
 				text-align: center;
-				border: 1px solid #eee;
+				border: 1px solid $border;
 				cursor: pointer;
 				margin-right: -1px;
-				background-color: #fff;
+				background-color: $background;
 				&.pre,
 				&.next {
 					width: 70px;

@@ -1,7 +1,25 @@
 
-$base: 					#ff552e;						// 主色调（橙色）
-// $primary: 				#337ab7;						// 主要（）
-// $success: 				#337ab7;						// 成功（）
-// $info: 					#337ab7;						// 信息（）
-// $warning: 				#337ab7;						// 警告（）
-$danger: 				#ff5252;						// 错误（红色）
+$base: 							#ff552e;							// 主色调
+
+$info:							#2d8cf0;							// 提示
+$success:						#19be6b;							// 成功
+$warning:						#ff9900;							// 警告
+$error:							#ed3f14;							// 失败
+$danger:						#ff5252;							// 错误
+
+
+$title:							#1c2438;							// 标题
+$content:						#495060;							// 正文
+$sub:							#80848f;							// 辅助/图标
+$disabled:						#bbbec4;							// 失效
+$border:						#dddee1;							// 边框
+$divider:						#e9eaec;							// 分割线
+$background:					#fff;								// 背景
+
+
+$border-radius-big:				6px;								// 大号圆角
+$border-radius:					4px;								// 基本圆角
+$border-radius-small:			2px;								// 小号圆角
+
+
+$minWidth:						1190px;								// 页面最小宽度
