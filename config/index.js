@@ -8,9 +8,9 @@ module.exports = {
 		assetsPublicPath: "/",
 		proxyTable: {
 			// "/api": {
-			// 	target: "http://testwx.fapiao.com",
+			// 	target: "http://toutiao-ali.juheapi.com",
 			// 	changeOrigin: true,
-			// 	secure: true,
+			// 	secure: false,
 			// 	pathRewrite: {
 			// 		"^/api": ""
 			// 	}

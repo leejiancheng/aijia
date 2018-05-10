@@ -16,8 +16,12 @@ const ajax = (url, method, data, jsonpCallback, options) => {
 			xhrFields: {
 				withCredentials: true
 			},
-			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			dataType: "json",
+			contentType: "application/json; charset=utf-8",
 			timeout: 60 * 1000
+			// beforeSend: function (xhr) {
+			// 	xhr.setRequestHeader("Authorization", "APPCODE 6b2a6481e0254e8c95caa99d298823ba");
+			// }
 		};
 
 		if (method.toLowerCase() !== "jsonp") {
@@ -38,22 +42,13 @@ const ajax = (url, method, data, jsonpCallback, options) => {
 				ajaxConfig[key] = val;
 			});
 		}
-
+		console.log(ajaxConfig);
 		$.ajax(ajaxConfig)
-			.done((data, textStatus, jqXHR) => {
-				resolve({
-					status: textStatus,
-					xhr: jqXHR,
-					text: jqXHR.responseText || jqXHR.responseJSON || data
-				});
+			.done((res) => {
+				resolve(res);
 			})
-			.fail((jqXHR, textStatus, errorThrown) => {
-				resolve({
-					error: errorThrown,
-					status: textStatus,
-					xhr: jqXHR,
-					text: jqXHR.responseText || jqXHR.responseJSON
-				});
+			.fail((err) => {
+				resolve(err);
 			});
 	});
 };

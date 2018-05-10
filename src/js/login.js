@@ -3,7 +3,7 @@
 import Vue from "vue";
 import {Base64} from "./3rd/base64";
 import {setCookie} from "./util/tool";
-// import {post} from "./util/ajax.js";
+// import {get} from "./util/ajax2.js";
 
 // --------------------------
 // 登录界面视图
@@ -87,8 +87,8 @@ let loginVM = new Vue({
 				return false;
 			}
 
-			// let url = "/api/fpt-wechat/smallBusinMKInvoice.do?method=getKPXM";
-			// let res = await post(url);
+			// let url = "/api/toutiao/index";
+			// let res = await get(url);
 			// console.log(res);
 			let encode = Base64.encode(username);
 			setCookie("username", encode);
