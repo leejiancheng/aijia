@@ -5,7 +5,8 @@ import _ from "lodash";
 import Topbar from "./components/topbar";
 import {showLoading, hideLoading} from "./util/tool";
 import {getScroll} from "./util/scroll";
-import {search, location, metroLine, sumPrice, sumAcreage, sumRoom, houseList} from "data/index";
+import {search} from "data/index";
+import {location, metroLine, sumPrice, sumAcreage, sumRoom, houseList} from "data/list";
 
 let listVM = new Vue({
 	el: "#listPage",

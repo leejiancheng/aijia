@@ -1,0 +1,691 @@
+.detailHeaderWrap,
+.detailMainWrap {
+	width: 1190px;
+	margin: 0 auto;
+}
+
+.detailHeaderWrap {
+	margin-top: 20px;
+	.logo {
+		display: block;
+		@include size(214px, 42px);
+		margin: 0 0 6px;
+		background: url("../img/logo4.png") no-repeat 0 0;
+	}
+	.searchBar {
+		position: relative;
+		float: right;
+		width: 403px;
+		margin-right: 150px;
+		z-index: 10;
+		.icon {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			display: block;
+			@include size(14px, 15px);
+			background: url("../img/spriter/search4.png?__spriter") no-repeat;
+		}
+		.searchInput {
+			float: left;
+			@include size(290px, 16px);
+			padding: 9px 0 9px 30px;
+			font-size: 12px;
+			border: 1px solid $border;
+			background-color: #fff;
+			color: #555;
+			@include placeholder(#ccc);
+		}
+		.searchBtn {
+			float: right;
+			@include size(81px, 36px);
+			cursor: pointer;
+			background-color: #f5f5f5;
+			font-size: 14px;
+			color: #555;
+			cursor: pointer;
+			border: 1px solid $border;
+			border-left: none;
+		}
+	}
+	.searchList {
+		position: absolute;
+		right: 258px;
+		top: 92px;
+		width: 401px;
+		border: 1px solid #dddee1;
+		z-index: 10;
+		li {
+			a {
+				box-sizing: border-box;
+				display: block;
+				@include size(100%, 30px);
+				padding: 0 12px;
+				line-height: 30px;
+				overflow: hidden;
+				font-size: 14px;
+				background-color: $background;
+				span {
+					font-size: 12px;
+					color: $disabled;
+				}
+			}
+		}
+	}
+}
+
+.detailMainWrap {
+	margin-top: 5px;
+	.houseTitle {
+		position: relative;
+		.titleText {
+			width: 940px;
+			color: #333;
+			line-height: 24px;
+			font-size: 20px;
+			font-weight: 700;
+		}
+		.updateMessage {
+			margin: 10px 0 20px;
+			overflow: hidden;
+			.messageTag {
+				display: inline-block;
+				height: 22px;
+				padding: 0 6px;
+				line-height: 22px;
+				letter-spacing: 1px;
+				font-size: 12px;
+				color: #999;
+				border: 1px solid #e3e3e3;
+				&.manwei,
+				&.xin {
+					color: #788294;
+					background-color: #ebf2f7;
+					border-color: #ebf2f7;
+				}
+				&.anxuan {
+					border-color: darken($success, 5%);
+					color: darken($success, 5%);
+				}
+			}
+		}
+	}
+	.houseBasicInfo {
+		margin-bottom: 40px;
+		overflow: hidden;
+		.basicInfoLeft {
+			position: relative;
+			width: 585px;
+			.topPic {
+				@include size(585px, 400px);
+				margin-bottom: 10px;
+				cursor: pointer;
+				overflow: hidden;
+				img {
+					display: block;
+					@include size(100%, 100%);
+				}
+			}
+			.bottomList {
+				position: relative;
+				@include size(100%, 75px);
+				overflow: hidden;
+				.bottomListBtn {
+					position: absolute;
+					top: 0;
+					display: block;
+					background-color: #000;
+					opacity: 0.75;
+					@include size(25px, 75px);
+					z-index: 1;
+					cursor: pointer;
+					.icon {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						@include size(8px, 13px);
+						margin-top: -6px;
+						margin-left: -4px;
+					}
+					&:hover {
+						opacity: 1;
+					}
+					&.leftBtn {
+						left: 0;
+						.icon {
+							background: url("../img/spriter/arrow8.png?__spriter") no-repeat;
+						}
+					}
+					&.rightBtn {
+						right: 0;
+						.icon {
+							background: url("../img/spriter/arrow7.png?__spriter") no-repeat;
+						}
+					}
+				}
+				.bottomListUl {
+					position: absolute;
+					padding-left: 35px;
+					transition: all 0.5s;
+					li {
+						position: relative;
+						float: left;
+						@include size(121px, 75px);
+						margin-right: 10px;
+						cursor: pointer;
+						img {
+							display: block;
+							@include size(100%, 100%);
+							opacity: 0.75;
+						}
+						&:hover,
+						&.hover {
+							img {
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
+		.basicInfoRight {
+			position: relative;
+			@include size(565px, 485px);
+			margin-left: 40px;
+			.priceItem {
+				padding-left: 20px;
+				margin: 26px 0 38px;
+				span {
+					display: inline-block;
+					font-size: 16px;
+					color: #666;
+					&.price {
+						color: $error;
+						font-size: 38px;
+						margin-right: 15px;
+					}
+				}
+				b {
+					font-size: 16px;
+				}
+			}
+			.detailItem {
+				@include size(100%, 66px);
+				padding-left: 20px;
+				overflow: hidden;
+				display: flex;
+				justify-content: space-between;
+				> p {
+					flex-grow: 1;
+				}
+				.main {
+					display: block;
+					font-size: 22px;
+					line-height: 1;
+					color: #000;
+
+				}
+				.sub {
+					display: block;
+					font-size: 14px;
+					line-height: 1;
+					color: #666;
+					margin: 12px 0 20px;
+				}
+			}
+			.locationItem {
+				padding: 12px 20px;
+				border-top: 1px solid #f3f3f3;
+				> li {
+					font-size: 14px;
+					line-height: 30px;
+					overflow: hidden;
+				}
+				.title {
+					display: inline-block;
+					color: #999;
+					font-weight: normal;
+				}
+				.content {
+					display: inline-block;
+					margin-right: 10px;
+					color: #000;
+				}
+				.goMap {
+					position: relative;
+					display: inline-block;
+					font-size: 12px;
+					text-decoration: underline;
+					line-height: 12px;
+					color: #555;
+					padding-left: 20px;
+					&::before {
+						content: "";
+						display: block;
+						position: absolute;
+						top: -1px;
+						left: 0;
+						@include size(14px, 15px);
+						background: url("../img/spriter/map.png?__spriter") no-repeat;
+					}
+				}
+			}
+			.agentItem {
+				border-top: 1px solid #f3f3f3;
+				padding: 30px 0 0 20px;
+				.agentAvatar {
+					float: left;
+					@include size(66px, 88px);
+					margin-right: 14px;
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: center;
+				}
+				.agentName {
+					// display: inline-block;
+					font-weight: 700;
+					color: #000;
+					padding: 24px 0 30px;
+					line-height: 1;
+					.agentNameText {
+						color: #000;
+						margin-right: 10px;
+					}
+					.agentLevel {
+						position: relative;
+						top: 2px;
+						display: inline-block;
+						line-height: 1;
+						color: #999;
+						text-align: left;
+						overflow: hidden;
+					}
+					.agentLevelStar {
+						float: left;
+						@include size(15px, 15px);
+						margin-right: 5px;
+						&.off {
+							background: url("../img/spriter/star1.png?__spriter") no-repeat;
+						}
+						&.on {
+							background: url("../img/spriter/star2.png?__spriter") no-repeat;
+						}
+						&.half {
+							background: url("../img/spriter/star3.png?__spriter") no-repeat;
+						}
+					}
+				}
+				.agentBelong {
+					font-size: 12px;
+					line-height: 1;
+					margin-bottom: 10px;
+					span {
+						color: #999;
+						padding-right: 5px;
+					}
+				}
+			}
+			.contactItem {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				display: block;
+				@include size(565px, 75px);
+				overflow: hidden;
+				.contactMobile {
+					float: left;
+					position: relative;
+					@include size(465px, 75px);
+					background-color: darken($base, 5%);
+					color: #fff;
+					cursor: pointer;
+					text-align: center;
+					font-size: 12px;
+					line-height: 1;
+					.mobileTip {
+						line-height: 75px;
+						font-size: 22px;
+					}
+					.mobileIcon {
+						position: absolute;
+						top: 0;
+						left: 0;
+						@include size(66px, 75px);
+						background-color: $base;
+						&::before {
+							position: absolute;
+							top: 15px;
+							left: 11px;
+							content: "";
+							display: block;
+							@include size(42px, 43px);
+							background: url("../img/spriter/icon9.png?__spriter") no-repeat;
+						}
+					}
+					.mobileText {
+						margin: 11px 0 2px;
+						font-size: 30px;
+						line-height: 36px;
+						text-shadow: 0 0 4px rgba(139, 62, 0, 0.3);
+					}
+					.mobileBelong {
+						opacity: 0.77;
+					}
+
+				}
+				.contactChat {
+					float: right;
+					position: relative;
+					display: block;
+					@include size(88px, 75px);
+					background-color: $info;
+					color: #fff;
+					text-align: center;
+					font-size: 12px;
+					.icon {
+						display: block;
+						@include size(30px, 30px);
+						margin: 12px auto 7px;
+						background: url("../img/spriter/icon8.png?__spriter") no-repeat;
+					}
+				}
+			}
+		}
+	}
+	.houseDetailInfo {
+		overflow: hidden;
+		font-size: 14px;		
+		.originNav {
+			padding: 21px 0 48px;
+			border-top: 1px solid $divider;
+			overflow: hidden;
+			li {
+				float: left;
+				font-size: 16px;
+				padding: 0 34px;
+				color: #999;
+				cursor: pointer;
+				&:hover,
+				&.on {
+					color: #000;
+				}
+			}
+		}
+		.generalItem {
+			overflow: hidden;
+			.generalItemTitle {
+				position: relative;
+				font-size: 22px;
+				padding-left: 18px;
+				line-height: 1;
+				color: #000;
+				&::before {
+					position: absolute;
+					left: 0;
+					top: 2px;
+					content: "";
+					display: block;
+					@include size(4px, 20px);
+					background-color: #ffddd5;
+				}
+			}
+			.generalItemContent {
+				margin-left: 18px;
+				overflow: hidden;
+			}
+			&.situationItem .generalItemContent,
+			&.descItem .generalItemContent,
+			&.expenseItem .generalItemContent {
+				margin-top: 20px;
+				margin-bottom: 49px;
+			}
+			&.typeItem .generalItemContent {
+				margin-top: 31px;
+				margin-bottom: 18px;
+			}
+			&.villageItem .generalItemContent {
+				margin-top: 41px;
+				margin-bottom: 57px;
+			}
+			&.mapItem .generalItemContent {
+				position: relative;
+				margin-top: 41px;
+				margin-bottom: 59px;
+			}
+			.generalItemRight,
+			.generalItemLeft {
+				float: left;
+				width: 50%;
+				> li {
+					height: 34px;
+					line-height: 34px;
+					overflow: hidden;
+					font-size: 14px;
+				}
+				.title {
+					font-weight: normal;
+					float: left;
+					margin-right: 25px;
+					color: #999;
+				}
+				.content {
+					float: left;
+					color: #000;
+				}
+			}
+			.generalItemLeft {
+				width: 40%;
+			}
+			.generalDescList {
+				margin-bottom: 33px;
+				overflow: hidden;
+				.descTitle {
+					position: relative;
+					float: left;
+					margin: 5px 26px 0 0;
+					padding: 6px 16px 6px 5px;
+					color: #fff;
+					line-height: 1;
+					background-color: $base;
+					border-radius: 1px;
+					&::after {
+						content: "";
+						position: absolute;
+						right: 5px;
+						top: 11px;
+						display: block;
+						@include size(6px, 4px);
+						background: url("../img/spriter/triangle1.png?__spriter") no-repeat;
+					}
+				}
+				.descText {
+					float: left;
+					width: 820px;
+					line-height: 28px;
+				}
+			}
+			.generalPicList {
+				overflow: hidden;
+				> li {
+					float: left;
+					@include size(454px, 341px);
+					margin: 0 0 13px 24px;
+					cursor: pointer;
+					img {
+						display: block;
+						@include size(100%, 100%);
+					}
+					&:nth-child(odd) {
+						margin-left: 0;
+					}
+					&:hover {
+						opacity: 0.8;
+					}
+				}
+			}
+			.villagePic {
+				float: left;
+				@include size(454px, 348px);
+				img {
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.villageInfo {
+				position: relative;
+				float: left;
+				margin-left: 40px;
+				@include size(436px, 348px);
+				.villageName a {
+					font-size: 22px;
+					color: #999;
+				}
+				.villageDetail {
+					margin: 21px 0 35px;
+					overflow: hidden;
+					> li {
+						height: 32px;
+						overflow: hidden;
+						line-height: 32px;
+					}
+					.title {
+						float: left;
+						min-width: 56px;
+						margin-right: 25px;
+						font-weight: normal;
+						color: #999;
+					}
+					.content {
+						@extend .title;
+						margin-right: 20px;
+						color: #333;
+					}
+				}
+				.villageBtn {
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					display: block;
+					@include size(434px, 46px);
+					line-height: 46px;
+					text-align: center;
+					color: #555;
+					background-color: #f5f5f5;
+					border: 1px solid $border;
+					.icon {
+						display: inline-block;
+						@include size(6px, 8px);
+						margin-left: 10px;
+						background: url("../img/spriter/triangle2.png?__spriter") no-repeat;
+					}
+					&:hover {
+						background-color: #e0e0e0;
+						color: #333;
+					}
+				}
+			}
+		}
+	}
+}
+
+.detailBar {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	margin-left: -595px;
+	background-color: #000;
+	@include size(1190px, 60px);
+	line-height: 60px;
+	overflow: hidden;
+	cursor: pointer;
+	z-index: 10;
+	.mobileBtn {
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: block;
+		@include size(196px, 60px);
+		line-height: 60px;
+		font-size: 18px;
+		color: #fff;
+		background-color: $base;
+		text-align: center;
+	}
+	.navList {
+		position: absolute;
+		left: 0;
+		top: 0;
+		font-size: 16px;
+		color: #999;
+		.navListItem {
+			float: left;
+			padding: 0 41px;
+			&.on {
+				color: #fff;
+			}
+		}
+	}
+}
+.picLayer {
+	position: fixed;
+	left: 0;
+	top: 0;
+	@include size(100%, 100%);
+	background-color: rgba(0, 0, 0, 0.85);
+	z-index: 9999;
+	.layerImg {
+		// margin: 50px 0 30px;
+		// height: 75%;
+		// overflow: hidden;
+
+		height: 75%;
+		overflow: hidden;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+
+		img {
+			display: block;
+			@include size(auto, auto);
+			max-height: 100%;
+			margin: 0 auto;
+		}
+	}
+	.layerBtn {
+		position: absolute;
+		top: 0;
+		display: block;
+		@include size(10%, 100%);
+		.icon {
+			position: absolute;
+			left: 50px;
+			top: 50%;
+			display: block;
+			@include size(28px, 50px);
+			background-color: green;
+			margin-top: -25px;
+		}
+		&.leftBtn {
+			left: 0;
+			.icon {
+				background: url("../img/spriter/arrow10.png?__spriter") no-repeat;
+			}
+		}
+		&.rightBtn {
+			right: 0;
+			.icon {
+				background: url("../img/spriter/arrow9.png?__spriter") no-repeat;
+			}
+		}
+	}
+	.layerClose {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: block;
+		@include size(80px, 80px);
+		background: url("../img/spriter/close1.png?__spriter") no-repeat;
+		z-index: 10000;
+	}
+}

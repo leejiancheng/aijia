@@ -1,0 +1,232 @@
+extends ./layout/layout1
+
+block head
+	link(rel="stylesheet", href="./static/css/index.css")
+
+block content
+	.detailPage#detailPage(v-cloak)
+		topbar
+		.detailHeaderWrap.clearfix
+			a.logo.fl
+			.searchBar.clearfix
+				i.icon
+				input.searchInput(type="text", placeholder="请输入房源相关信息", v-model="searchword", @input="inputSearch", @blur="hideSearch($event);")
+				button.searchBtn(type="button", @click="onSearch") 搜房源
+			ul.searchList(v-show="showSearch && searchList.length > 0")
+				li(v-for="(item, index) in searchList")
+					a(href="javascript:void(0);", @click="goToList(item)")
+						p.fl {{item.k}}
+						span.fr 约{{item.n}}条
+		.detailMainWrap
+			ul.breadcrumb
+				li
+					a(href="javascript:void(0);") 深圳58同城
+				li
+					a(href="javascript:void(0);") 坪山新区二手房
+				li
+					a(href="javascript:void(0);") 坪山二手房
+			.houseTitle
+				h2.titleText 东海国际公寓，比市场价低于300万，错过就没有了
+				p.updateMessage
+					span.messageTag.anxuan 安选房源
+					span.messageTag.manwei 满二唯一
+					span.messageTag.xin 新上房源
+					span.messageTag.time 4小时前
+					span.messageTag.read 9人已浏览
+				.rightMessage
+			.houseBasicInfo
+				.basicInfoLeft.fl
+					.topPic(@click="showLayer")
+						img(:src="picList[nowBanNumber]")
+					.bottomList
+						a.bottomListBtn.leftBtn(href="javascript:void(0);", @click="prePic")
+							i.icon
+						a.bottomListBtn.rightBtn(href="javascript:void(0);", @click="nextPic")
+							i.icon
+						ul.bottomListUl(:style="{width: picListWidth + 'px', left: picListLeft + 'px'}", :data-index="nowBanNumber")
+							li(v-for="(item, index) in picList", :class="{'hover': index === nowBanNumber}", :data-index="index", @click="selectNowBanner1(index)")
+								img(:src="item")
+				.basicInfoRight.fr
+					.priceItem
+						span.price
+							| 1760
+							b 万
+						span.unit 86635元/平
+					.detailItem
+						p.room
+							span.main 3室2厅2卫
+							span.sub 低层/共88层
+						p.area
+							span.main 203.15平
+							span.sub 豪华装修
+						p.toward
+							span.main 北
+							span.sub 2013年建
+					ul.locationItem
+						li
+							strong.title 小区：
+							p.content 东海国际公寓 - 香蜜湖
+						li
+							strong.title 位置：
+							p.content 福田 - 深南大道7888号
+							a.goMap(href="javascript:void(0)")
+								| 地图
+					.agentItem
+						a.agentAvatar(href="javascript:void(0)", style="background-image:url(http://pic1.ajkimg.com/display/anjuke/78c00ae70339ebf43b1bf54b966c0b02/532x706x0x47/100x133.jpg)")
+						.agentName
+							a.agentNameText(href="javascript:void(0);") 沈文君
+							.agentLevel
+								span.agentLevelStar.on
+								span.agentLevelStar.on
+								span.agentLevelStar.on
+								span.agentLevelStar.half
+								span.agentLevelStar.off
+						.agentBelong
+							span 所属公司：
+							| 中原地产
+					.contactItem
+						a.contactMobile(href="javascript:void(0);", @click="showMobile = true;")
+							.contactMobileBox(v-show="!showMobile")
+								p.mobileTip 电话联系TA
+							.contactMobileBox(v-show="showMobile")
+								.mobileIcon
+								p.mobileText 123456789
+								p.mobileBelong 电话归属地：深圳
+						a.contactChat(href="javascript:void(0);")
+							i.icon
+							| 微聊	
+			.houseDetailInfo
+				ul.originNav
+					li.originNavLi.on 概况
+					li.originNavLi 描述
+					li.originNavLi 费用
+					li.originNavLi 户型
+					li.originNavLi 小区
+					li.originNavLi 位置
+				.generalItem.situationItem
+					h3.generalItemTitle 概况
+					.generalItemContent
+						ul.generalItemLeft
+							li
+								strong.title 房屋总价
+								p.content 1760万（单价 86635元/㎡）
+							li
+								strong.title 房屋户型
+								p.content 3室2厅2卫
+							li
+								strong.title 房本面积
+								p.content 203.15㎡
+							li
+								strong.title 房屋朝向
+								p.content 北
+						ul.generalItemRight
+							li
+								strong.title 所在楼层
+								p.content 低层/共88层
+							li
+								strong.title 装修情况
+								p.content 精装修
+							li
+								strong.title 产权年限
+								p.content 50年
+							li
+								strong.title 建筑年代
+								p.content 2013年
+				.generalItem.descItem
+					h3.generalItemTitle 描述
+					.generalItemContent
+						.generalDescList
+							span.descTitle 核心卖点
+							.descText.
+								大多相同 且真假难辨！此房源真实有效！<br />
+								房子的具体情况：<br />
+								1.户型结构：朝南，本人实地验过房，，，，房东诚心卖的，买到就是到！<br /><br />
+								2.该房屋位置好，环境优雅，生活方便。小区周边配套设施齐全，公交线路很多，。<br /><br />
+								3.房东诚心卖，看房比较方便，提前预约即可。<br />
+								公交：招商银行大厦站：26路区间快车空调; 204路; 223路; 310-315线内环空调; 324路空调; 326路空调; 328路空调; 338路; 372路空调; 383路; m362路空调; m372路; m391路; m392路; n4路夜班空调; n5路空调; 机场9线。名人俱乐部站：46路; 73路; 107路;
+						.generalDescList
+							span.descTitle 业主心态
+							.descText 业主很实在，只要觉得适合就马上到你手里，一个季度十一万的租约，自住都是很的
+						.generalDescList
+							span.descTitle 小区配套
+							.descText 幼儿园：培翠幼儿园中：深圳外国语东海附属、深圳大学：广东工业大学建筑设计研究院深圳分院：东海购物广场，东海购物广场，燕福堂医院：香蜜湖医院，福田人民医院香蜜湖分院，福田人民医院香蜜湖分院-急诊，广东医学院附属深圳第四人民医院，香蜜湖医院邮局：中国邮政银行：招行，东莞银行，，浙商银行，银行，友利银行，建行其他：肯德基，韩味庄，麦当劳(东海购物店)，尚楼，鹤港，招商银行大厦咖啡厅小区内部配套：内部有健身房、恒温游泳池、宴会厅、会议会及各项特色餐厅等
+						.generalDescList
+							span.descTitle 服务介绍
+							.descText 收取服务费：最高352000元(≤2.0%)<br />本人从事房地产多年，公司有大量好房源，欢迎进入我的店铺查看，欢迎随时电话咨询，相信我的专业，为您置业安家保驾护航。
+				.generalItem.expenseItem
+					h3.generalItemTitle 费用
+					.generalItemContent
+						ul.generalItemLeft
+							li
+								strong.title 房屋总价
+								p.content 1760万（单价86635元/㎡）
+							li
+								strong.title 房屋类型
+								p.content 公寓
+							li
+								strong.title 交易权属
+								p.content 商品房
+						ul.generalItemRight
+							li
+								strong.title 参考首付
+								p.content 528万（月供50513元/月）
+				.generalItem.typeItem
+					h3.generalItemTitle 户型
+					.generalItemContent
+						ul.generalPicList
+							li(v-for="(item, index) in picList", :data-index="index", @click="selectNowBanner2(index)")
+								img(:src="item")
+				.generalItem.villageItem
+					h3.generalItemTitle 小区周边及环境
+					.generalItemContent
+						.villagePic
+							a(href="javascript:void(0);")
+								img(src="http://img.58cdn.com.cn/ui8/house/detail/images/newdefaultPic@2x.png")
+						.villageInfo
+							h3.villageName
+								a(href="javascript:void(0)") 东海国际公寓
+							ul.villageDetail
+								li
+									strong.title 小区均价
+									p.content 119289.0元/㎡
+								li
+									strong.title 所在商圈
+									p.content 福田 - 香蜜湖
+								li
+									strong.title 物业费
+									p.content 9.00元/平米·月
+								li
+									strong.title 容积率
+									p.content 5.00
+								li
+									strong.title 绿化率
+									p.content 18.00
+								li
+									strong.title 车位信息
+									p.content 450
+							a.villageBtn(href="javascript:void(0);")
+								| 查看小区详情
+								i.icon
+				.generalItem.mapItem
+					h3.generalItemTitle 位置
+					.generalItemContent
+
+		.detailBar(v-show="showFixedNav")
+			a.mobileBtn(href="javascript:void(0);", @click="showMobile = true;")
+				| {{showMobile === true ? '123456789' : '电话联系TA'}}
+			ul.navList
+				li.navListItem.on 概况
+				li.navListItem 描述
+				li.navListItem 费用
+				li.navListItem 户型
+				li.navListItem 小区
+				li.navListItem 位置
+		transition(name="fade")
+			.picLayer(v-show="visible")
+				.layerImg
+					img(:src="picList[nowBanNumber]")
+				a.layerClose(href="javascript:void(0);", @click="visible = false;")
+				a.layerBtn.leftBtn(href="javascript:void(0);", @click="prePic")
+					i.icon
+				a.layerBtn.rightBtn(href="javascript:void(0);", @click="nextPic")
+					i.icon

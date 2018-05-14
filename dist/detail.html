@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+    <div id="detailPage" v-cloak class="detailPage">
+        <topbar></topbar>
+        <div class="detailHeaderWrap clearfix">
+            <a class="logo fl"></a>
+            <div class="searchBar clearfix">
+                <i class="icon"></i>
+                <input type="text" placeholder="请输入房源相关信息" v-model="searchword" @input="inputSearch" @blur="hideSearch($event);" class="searchInput">
+                <button type="button" @click="onSearch" class="searchBtn">搜房源</button>
+            </div>
+            <ul v-show="showSearch &amp;&amp; searchList.length &gt; 0" class="searchList">
+                <li v-for="(item, index) in searchList">
+                    <a href="javascript:void(0);" @click="goToList(item)">
+                        <p class="fl">{{item.k}}</p>
+                        <span class="fr">约{{item.n}}条</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="detailMainWrap">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="javascript:void(0);">深圳58同城</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">坪山新区二手房</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">坪山二手房</a>
+                </li>
+            </ul>
+            <div class="houseTitle">
+                <h2 class="titleText">东海国际公寓，比市场价低于300万，错过就没有了</h2>
+                <p class="updateMessage">
+                    <span class="messageTag anxuan">安选房源</span>
+                    <span class="messageTag manwei">满二唯一</span>
+                    <span class="messageTag xin">新上房源</span>
+                    <span class="messageTag time">4小时前</span>
+                    <span class="messageTag read">9人已浏览</span>
+                </p>
+                <div class="rightMessage"></div>
+            </div>
+            <div class="houseBasicInfo">
+                <div class="basicInfoLeft fl">
+                    <div @click="showLayer" class="topPic">
+                        <img :src="picList[nowBanNumber]">
+                    </div>
+                    <div class="bottomList">
+                        <a href="javascript:void(0);" @click="prePic" class="bottomListBtn leftBtn">
+                            <i class="icon"></i>
+                        </a>
+                        <a href="javascript:void(0);" @click="nextPic" class="bottomListBtn rightBtn">
+                            <i class="icon"></i>
+                        </a>
+                        <ul :style="{width: picListWidth + 'px', left: picListLeft + 'px'}" :data-index="nowBanNumber" class="bottomListUl">
+                            <li v-for="(item, index) in picList" :class="{'hover': index === nowBanNumber}" :data-index="index" @click="selectNowBanner1(index)">
+                                <img :src="item">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="basicInfoRight fr">
+                    <div class="priceItem">
+                        <span class="price">1760
+                            <b>万</b>
+                        </span>
+                        <span class="unit">86635元/平</span>
+                    </div>
+                    <div class="detailItem">
+                        <p class="room">
+                            <span class="main">3室2厅2卫</span>
+                            <span class="sub">低层/共88层</span>
+                        </p>
+                        <p class="area">
+                            <span class="main">203.15平</span>
+                            <span class="sub">豪华装修</span>
+                        </p>
+                        <p class="toward">
+                            <span class="main">北</span>
+                            <span class="sub">2013年建</span>
+                        </p>
+                    </div>
+                    <ul class="locationItem">
+                        <li>
+                            <strong class="title">小区：</strong>
+                            <p class="content">东海国际公寓 - 香蜜湖</p>
+                        </li>
+                        <li>
+                            <strong class="title">位置：</strong>
+                            <p class="content">福田 - 深南大道7888号</p>
+                            <a href="javascript:void(0)" class="goMap">地图</a>
+                        </li>
+                    </ul>
+                    <div class="agentItem">
+                        <a href="javascript:void(0)" style="background-image:url(http://pic1.ajkimg.com/display/anjuke/78c00ae70339ebf43b1bf54b966c0b02/532x706x0x47/100x133.jpg)" class="agentAvatar"></a>
+                        <div class="agentName">
+                            <a href="javascript:void(0);" class="agentNameText">沈文君</a>
+                            <div class="agentLevel">
+                                <span class="agentLevelStar on"></span>
+                                <span class="agentLevelStar on"></span>
+                                <span class="agentLevelStar on"></span>
+                                <span class="agentLevelStar half"></span>
+                                <span class="agentLevelStar off"></span>
+                            </div>
+                        </div>
+                        <div class="agentBelong">
+                            <span>所属公司：</span>中原地产</div>
+                    </div>
+                    <div class="contactItem">
+                        <a href="javascript:void(0);" @click="showMobile = true;" class="contactMobile">
+                            <div v-show="!showMobile" class="contactMobileBox">
+                                <p class="mobileTip">电话联系TA</p>
+                            </div>
+                            <div v-show="showMobile" class="contactMobileBox">
+                                <div class="mobileIcon"></div>
+                                <p class="mobileText">123456789</p>
+                                <p class="mobileBelong">电话归属地：深圳</p>
+                            </div>
+                        </a>
+                        <a href="javascript:void(0);" class="contactChat">
+                            <i class="icon"></i>微聊 </a>
+                    </div>
+                </div>
+            </div>
+            <div class="houseDetailInfo">
+                <ul class="originNav">
+                    <li class="originNavLi on">概况</li>
+                    <li class="originNavLi">描述</li>
+                    <li class="originNavLi">费用</li>
+                    <li class="originNavLi">户型</li>
+                    <li class="originNavLi">小区</li>
+                    <li class="originNavLi">位置</li>
+                </ul>
+                <div class="generalItem situationItem">
+                    <h3 class="generalItemTitle">概况</h3>
+                    <div class="generalItemContent">
+                        <ul class="generalItemLeft">
+                            <li>
+                                <strong class="title">房屋总价</strong>
+                                <p class="content">1760万（单价 86635元/㎡）</p>
+                            </li>
+                            <li>
+                                <strong class="title">房屋户型</strong>
+                                <p class="content">3室2厅2卫</p>
+                            </li>
+                            <li>
+                                <strong class="title">房本面积</strong>
+                                <p class="content">203.15㎡</p>
+                            </li>
+                            <li>
+                                <strong class="title">房屋朝向</strong>
+                                <p class="content">北</p>
+                            </li>
+                        </ul>
+                        <ul class="generalItemRight">
+                            <li>
+                                <strong class="title">所在楼层</strong>
+                                <p class="content">低层/共88层</p>
+                            </li>
+                            <li>
+                                <strong class="title">装修情况</strong>
+                                <p class="content">精装修</p>
+                            </li>
+                            <li>
+                                <strong class="title">产权年限</strong>
+                                <p class="content">50年</p>
+                            </li>
+                            <li>
+                                <strong class="title">建筑年代</strong>
+                                <p class="content">2013年</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="generalItem descItem">
+                    <h3 class="generalItemTitle">描述</h3>
+                    <div class="generalItemContent">
+                        <div class="generalDescList">
+                            <span class="descTitle">核心卖点</span>
+                            <div class="descText">
+                                大多相同 且真假难辨！此房源真实有效！
+                                <br /> 房子的具体情况：
+                                <br /> 1.户型结构：朝南，本人实地验过房，，，，房东诚心卖的，买到就是到！
+                                <br />
+                                <br /> 2.该房屋位置好，环境优雅，生活方便。小区周边配套设施齐全，公交线路很多，。
+                                <br />
+                                <br /> 3.房东诚心卖，看房比较方便，提前预约即可。
+                                <br /> 公交：招商银行大厦站：26路区间快车空调; 204路; 223路; 310-315线内环空调; 324路空调; 326路空调; 328路空调; 338路; 372路空调; 383路; m362路空调; m372路; m391路; m392路; n4路夜班空调; n5路空调; 机场9线。名人俱乐部站：46路; 73路; 107路;
+                            </div>
+                        </div>
+                        <div class="generalDescList">
+                            <span class="descTitle">业主心态</span>
+                            <div class="descText">业主很实在，只要觉得适合就马上到你手里，一个季度十一万的租约，自住都是很的</div>
+                        </div>
+                        <div class="generalDescList">
+                            <span class="descTitle">小区配套</span>
+                            <div class="descText">幼儿园：培翠幼儿园中：深圳外国语东海附属、深圳大学：广东工业大学建筑设计研究院深圳分院：东海购物广场，东海购物广场，燕福堂医院：香蜜湖医院，福田人民医院香蜜湖分院，福田人民医院香蜜湖分院-急诊，广东医学院附属深圳第四人民医院，香蜜湖医院邮局：中国邮政银行：招行，东莞银行，，浙商银行，银行，友利银行，建行其他：肯德基，韩味庄，麦当劳(东海购物店)，尚楼，鹤港，招商银行大厦咖啡厅小区内部配套：内部有健身房、恒温游泳池、宴会厅、会议会及各项特色餐厅等</div>
+                        </div>
+                        <div class="generalDescList">
+                            <span class="descTitle">服务介绍</span>
+                            <div class="descText">收取服务费：最高352000元(≤2.0%)
+                                <br />本人从事房地产多年，公司有大量好房源，欢迎进入我的店铺查看，欢迎随时电话咨询，相信我的专业，为您置业安家保驾护航。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="generalItem expenseItem">
+                    <h3 class="generalItemTitle">费用</h3>
+                    <div class="generalItemContent">
+                        <ul class="generalItemLeft">
+                            <li>
+                                <strong class="title">房屋总价</strong>
+                                <p class="content">1760万（单价86635元/㎡）</p>
+                            </li>
+                            <li>
+                                <strong class="title">房屋类型</strong>
+                                <p class="content">公寓</p>
+                            </li>
+                            <li>
+                                <strong class="title">交易权属</strong>
+                                <p class="content">商品房</p>
+                            </li>
+                        </ul>
+                        <ul class="generalItemRight">
+                            <li>
+                                <strong class="title">参考首付</strong>
+                                <p class="content">528万（月供50513元/月）</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="generalItem typeItem">
+                    <h3 class="generalItemTitle">户型</h3>
+                    <div class="generalItemContent">
+                        <ul class="generalPicList">
+                            <li v-for="(item, index) in picList" :data-index="index" @click="selectNowBanner2(index)">
+                                <img :src="item">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="generalItem villageItem">
+                    <h3 class="generalItemTitle">小区周边及环境</h3>
+                    <div class="generalItemContent">
+                        <div class="villagePic">
+                            <a href="javascript:void(0);">
+                                <img src="http://img.58cdn.com.cn/ui8/house/detail/images/newdefaultPic@2x.png">
+                            </a>
+                        </div>
+                        <div class="villageInfo">
+                            <h3 class="villageName">
+                                <a href="javascript:void(0)">东海国际公寓</a>
+                            </h3>
+                            <ul class="villageDetail">
+                                <li>
+                                    <strong class="title">小区均价</strong>
+                                    <p class="content">119289.0元/㎡</p>
+                                </li>
+                                <li>
+                                    <strong class="title">所在商圈</strong>
+                                    <p class="content">福田 - 香蜜湖</p>
+                                </li>
+                                <li>
+                                    <strong class="title">物业费</strong>
+                                    <p class="content">9.00元/平米·月</p>
+                                </li>
+                                <li>
+                                    <strong class="title">容积率</strong>
+                                    <p class="content">5.00</p>
+                                </li>
+                                <li>
+                                    <strong class="title">绿化率</strong>
+                                    <p class="content">18.00</p>
+                                </li>
+                                <li>
+                                    <strong class="title">车位信息</strong>
+                                    <p class="content">450</p>
+                                </li>
+                            </ul>
+                            <a href="javascript:void(0);" class="villageBtn">查看小区详情
+                                <i class="icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="generalItem mapItem">
+                    <h3 class="generalItemTitle">位置</h3>
+                    <div class="generalItemContent"></div>
+                </div>
+            </div>
+        </div>
+        <div v-show="showFixedNav" class="detailBar">
+            <a href="javascript:void(0);" @click="showMobile = true;" class="mobileBtn">{{showMobile === true ? '123456789' : '电话联系TA'}}</a>
+            <ul class="navList">
+                <li class="navListItem on">概况</li>
+                <li class="navListItem">描述</li>
+                <li class="navListItem">费用</li>
+                <li class="navListItem">户型</li>
+                <li class="navListItem">小区</li>
+                <li class="navListItem">位置</li>
+            </ul>
+        </div>
+        <transition name="fade">
+            <div v-show="visible" class="picLayer">
+                <div class="layerImg">
+                    <img :src="picList[nowBanNumber]">
+                </div>
+                <a href="javascript:void(0);" @click="visible = false;" class="layerClose"></a>
+                <a href="javascript:void(0);" @click="prePic" class="layerBtn leftBtn">
+                    <i class="icon"></i>
+                </a>
+                <a href="javascript:void(0);" @click="nextPic" class="layerBtn rightBtn">
+                    <i class="icon"></i>
+                </a>
+            </div>
+        </transition>
+    </div>
+</body>
+</html>

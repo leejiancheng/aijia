@@ -146,25 +146,6 @@
 
 
 .listMainWrap {
-	.breadcrumb {
-		width: 100%;
-		line-height: 42px;
-		font-size: 12px;
-		> li {
-			display: inline-block;
-			a {
-				color: #888;
-				&:hover {
-					color: $base;
-				}
-			}
-		}
-		li + li:before {
-			padding: 0 5px;
-			color: #ccc;
-			content: "/\00a0";
-		}
-	}
 	.houseNavTab {
 		overflow: hidden;
 		margin-bottom: 17px;
@@ -410,18 +391,18 @@
 						vertical-align: middle;
 						&.jinxuan {
 							// background-color: #3aa731;
-							background-color: $success;
+							background-color: darken($success, 5%);
 						}
 						&.mainfei {
 							background-color: $info;
 						}
 						&.anxuan {
 							// color: #52b25a;
-							color: lighten($success, 20%);
+							color: darken($success, 5%);
 							box-sizing: border-box;
 							line-height: 16px;
 							// border: 1px solid #52b25a;
-							border: 1px solid lighten($success, 20%);
+							border: 1px solid darken($success, 5%);
 							font-weight: 700;
 							letter-spacing: 1px;
 						}

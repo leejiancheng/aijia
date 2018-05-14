@@ -29,6 +29,7 @@ module.exports = {
         list: "./src/js/list",
         login: "./src/js/login",
         register: "./src/js/register",
+        detail: "./src/js/detail",
         person: "./src/js/person"
     },
     output: {

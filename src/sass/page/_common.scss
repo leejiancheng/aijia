@@ -20,6 +20,26 @@
 	@include clearfix();
 }
 
+.breadcrumb {
+	width: 100%;
+	line-height: 42px;
+	font-size: 12px;
+	> li {
+		display: inline-block;
+		a {
+			color: #888;
+			&:hover {
+				color: $base;
+			}
+		}
+	}
+	li + li:before {
+		padding: 0 5px;
+		color: #ccc;
+		content: "/\00a0";
+	}
+}
+
 .modal {
 	.modal-mask {
 		position: fixed;
