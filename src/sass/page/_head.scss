@@ -62,7 +62,7 @@ $topBarColor:						#555;					// 导航文字颜色
 				top: 16px;
 				right: 10px;
 				display: block;
-				@include size(7px, 4px);
+				@include size(7px, 5px);
 				background: url("../img/spriter/arrow1.png?__spriter") no-repeat;
 			}
 			&.topBarLogin {
@@ -76,7 +76,7 @@ $topBarColor:						#555;					// 导航文字颜色
 				width: 86px;
 				background-color: #fff;
 				border: 1px solid #eee;
-				z-index: 2;
+				z-index: 20;
 				.dropMenuItem {
 					display: block;
 					@include size(100%, 30px);

@@ -8,8 +8,8 @@ block content
 		topbar
 		.listHeaderWrap(:class="{'fixedHeader': fixedHeader}")
 			.listHeaderContent.clearfix
-				a.logo(href="javascript:void(0);") 58同城·房产
-				a.publishBtn(href="javascript:void(0);") 免费发布
+				a.logo(href="javascript:void(0);") 家乐同城·房产
+				//- a.publishBtn(href="javascript:void(0);") 免费发布
 				.searchBar.clearfix
 					i.icon
 					input.searchInput(type="text", placeholder="请输入房源相关信息", v-model.lazy="searchword", @input="inputSearch")
@@ -22,7 +22,7 @@ block content
 		.listMainWrap
 			ul.breadcrumb
 				li
-					a(href="javascript:void(0);") 深圳58同城
+					a(href="javascript:void(0);") 深圳家乐同城
 				li
 					a(href="javascript:void(0);") 深圳房产信息
 				li
@@ -66,13 +66,13 @@ block content
 						a(href="javascript:void(0)", v-for="(item, index) in sumRoom", :class="{'selected': item.selected}", @click="selectEvent($event, index)") {{item.name}}
 				
 			.contentNavTab
-				a.selected(href="javascript:void(0)") 广州二手房出售
-				a(href="javascript:void(0)") 免税房源
-				a(href="javascript:void(0)") 个人房源
-				a(href="javascript:void(0)") 安选房源
-				a(href="javascript:void(0)") 视频看房
-				a(href="javascript:void(0)") 商铺出售
-				a(href="javascript:void(0)") 写字楼出售
+				a.selected(href="javascript:void(0)") 二手房出售
+				a(href="javascript:void(0)") 新楼盘房源
+				//- a(href="javascript:void(0)") 个人房源
+				//- a(href="javascript:void(0)") 安选房源
+				//- a(href="javascript:void(0)") 视频看房
+				//- a(href="javascript:void(0)") 商铺出售
+				//- a(href="javascript:void(0)") 写字楼出售
 			.contentWrap
 				.checkList
 					//- a.checkboxItem.selected(href="javascript:void(0);") 满五唯一
@@ -101,18 +101,18 @@ block content
 							| 面积
 					.clearfix
 				ul.houseListUl
-					li.houseListLi(v-for="(item, index) in houseList")
+					li.houseListLi(v-for="(item, index) in houseList", @click="goToDetail")
 						.pic
-							a(href="javascript:void(0);")
+							a(href="javascript:void(0);", @click="goToDetail")
 								img(:src="item.picUrl")
 							span.picNum 7图
 						.listInfo
 							h3.title
-								a(href="javascript:void(0);") {{item.title}}
+								a(href="javascript:void(0);", @click="goToDetail") {{item.title}}
 								span.icon-container
 									i.icon.jinxuan(title="精选房源") 精
 									//- i.icon.mainfei(title="免税房源") 免
-									i.icon.anxuan(title="安选房源") 安选房源
+									//- i.icon.anxuan(title="安选房源") 安选房源
 									//- i.icon.zhiding(title="置顶房源") 顶
 							p.baseInfo
 								span {{item.huxing}}
@@ -134,6 +134,6 @@ block content
 					a.paginationItem.active(href="javascript:void(0);") 1
 					a.paginationItem(href="javascript:void(0);") 2
 					a.paginationItem(href="javascript:void(0);") 3
-					a.paginationItem.disabled() ...
+					a.paginationItem.disabled ...
 					a.paginationItem(href="javascript:void(0);") 10
 					a.next(href="javascript:void(0);") 上一页

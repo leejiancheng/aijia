@@ -156,6 +156,9 @@ let listVM = new Vue({
 		handleScroll () {
 			const scrollTop = getScroll(window, true);
 			this.fixedHeader = scrollTop > 170 ? !!true : !!false;
+		},
+		goToDetail () {
+			window.location.href = "./detail.html";
 		}
 	},
 	mounted () {

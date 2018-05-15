@@ -9,8 +9,7 @@
         <topbar></topbar>
         <div :class="{'fixedHeader': fixedHeader}" class="listHeaderWrap">
             <div class="listHeaderContent clearfix">
-                <a href="javascript:void(0);" class="logo">58同城·房产</a>
-                <a href="javascript:void(0);" class="publishBtn">免费发布</a>
+                <a href="javascript:void(0);" class="logo">家乐同城·房产</a>
                 <div class="searchBar clearfix">
                     <i class="icon"></i>
                     <input type="text" placeholder="请输入房源相关信息" v-model.lazy="searchword" @input="inputSearch" class="searchInput">
@@ -29,7 +28,7 @@
         <div class="listMainWrap">
             <ul class="breadcrumb">
                 <li>
-                    <a href="javascript:void(0);">深圳58同城</a>
+                    <a href="javascript:void(0);">深圳家乐同城</a>
                 </li>
                 <li>
                     <a href="javascript:void(0);">深圳房产信息</a>
@@ -94,13 +93,8 @@
                 </dl>
             </div>
             <div class="contentNavTab">
-                <a href="javascript:void(0)" class="selected">广州二手房出售</a>
-                <a href="javascript:void(0)">免税房源</a>
-                <a href="javascript:void(0)">个人房源</a>
-                <a href="javascript:void(0)">安选房源</a>
-                <a href="javascript:void(0)">视频看房</a>
-                <a href="javascript:void(0)">商铺出售</a>
-                <a href="javascript:void(0)">写字楼出售</a>
+                <a href="javascript:void(0)" class="selected">二手房出售</a>
+                <a href="javascript:void(0)">新楼盘房源</a>
             </div>
             <div class="contentWrap">
                 <div class="checkList">
@@ -122,19 +116,18 @@
                     <div class="clearfix"></div>
                 </div>
                 <ul class="houseListUl">
-                    <li v-for="(item, index) in houseList" class="houseListLi">
+                    <li v-for="(item, index) in houseList" @click="goToDetail" class="houseListLi">
                         <div class="pic">
-                            <a href="javascript:void(0);">
+                            <a href="javascript:void(0);" @click="goToDetail">
                                 <img :src="item.picUrl">
                             </a>
                             <span class="picNum">7图</span>
                         </div>
                         <div class="listInfo">
                             <h3 class="title">
-                                <a href="javascript:void(0);">{{item.title}}</a>
+                                <a href="javascript:void(0);" @click="goToDetail">{{item.title}}</a>
                                 <span class="icon-container">
                                     <i title="精选房源" class="icon jinxuan">精</i>
-                                    <i title="安选房源" class="icon anxuan">安选房源</i>
                                 </span>
                             </h3>
                             <p class="baseInfo">
@@ -170,5 +163,5 @@
             </div>
         </div>
     </div>
-</body>
+<script type="text/javascript" src="/static/js/manifest.js"></script><script type="text/javascript" src="/static/js/vendor.js"></script><script type="text/javascript" src="/static/js/list.js"></script></body>
 </html>

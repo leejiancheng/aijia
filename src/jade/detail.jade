@@ -2,6 +2,7 @@ extends ./layout/layout1
 
 block head
 	link(rel="stylesheet", href="./static/css/index.css")
+	//- script(type="text/javascript", src="http://api.map.baidu.com/api?v=2.0&ak=qUEDVTptHjxQBA9Tn1Yd8t034HtZal8I")
 
 block content
 	.detailPage#detailPage(v-cloak)
@@ -20,7 +21,7 @@ block content
 		.detailMainWrap
 			ul.breadcrumb
 				li
-					a(href="javascript:void(0);") 深圳58同城
+					a(href="javascript:void(0);") 深圳家乐同城
 				li
 					a(href="javascript:void(0);") 坪山新区二手房
 				li
@@ -36,7 +37,7 @@ block content
 				.rightMessage
 			.houseBasicInfo
 				.basicInfoLeft.fl
-					.topPic(@click="showLayer")
+					.topPic(@click="visible = true;")
 						img(:src="picList[nowBanNumber]")
 					.bottomList
 						a.bottomListBtn.leftBtn(href="javascript:void(0);", @click="prePic")
@@ -44,7 +45,7 @@ block content
 						a.bottomListBtn.rightBtn(href="javascript:void(0);", @click="nextPic")
 							i.icon
 						ul.bottomListUl(:style="{width: picListWidth + 'px', left: picListLeft + 'px'}", :data-index="nowBanNumber")
-							li(v-for="(item, index) in picList", :class="{'hover': index === nowBanNumber}", :data-index="index", @click="selectNowBanner1(index)")
+							li(v-for="(item, index) in picList", :class="{'hover': index === nowBanNumber}", :data-index="index", @click="selectNowBanner(index, false)")
 								img(:src="item")
 				.basicInfoRight.fr
 					.priceItem
@@ -69,7 +70,7 @@ block content
 						li
 							strong.title 位置：
 							p.content 福田 - 深南大道7888号
-							a.goMap(href="javascript:void(0)")
+							a.goMap(href="javascript:void(0)", @click="jumpAnchor(5)")
 								| 地图
 					.agentItem
 						a.agentAvatar(href="javascript:void(0)", style="background-image:url(http://pic1.ajkimg.com/display/anjuke/78c00ae70339ebf43b1bf54b966c0b02/532x706x0x47/100x133.jpg)")
@@ -97,14 +98,9 @@ block content
 							| 微聊	
 			.houseDetailInfo
 				ul.originNav
-					li.originNavLi.on 概况
-					li.originNavLi 描述
-					li.originNavLi 费用
-					li.originNavLi 户型
-					li.originNavLi 小区
-					li.originNavLi 位置
+					li(v-for="(item, index) in navList", :class="nowNavIndex === index ? 'originNavLi on' : 'originNavLi'", @click="jumpAnchor(index)") {{item}}
 				.generalItem.situationItem
-					h3.generalItemTitle 概况
+					h3.generalItemTitle#navAnchor0 概况
 					.generalItemContent
 						ul.generalItemLeft
 							li
@@ -133,7 +129,7 @@ block content
 								strong.title 建筑年代
 								p.content 2013年
 				.generalItem.descItem
-					h3.generalItemTitle 描述
+					h3.generalItemTitle#navAnchor1 描述
 					.generalItemContent
 						.generalDescList
 							span.descTitle 核心卖点
@@ -154,7 +150,7 @@ block content
 							span.descTitle 服务介绍
 							.descText 收取服务费：最高352000元(≤2.0%)<br />本人从事房地产多年，公司有大量好房源，欢迎进入我的店铺查看，欢迎随时电话咨询，相信我的专业，为您置业安家保驾护航。
 				.generalItem.expenseItem
-					h3.generalItemTitle 费用
+					h3.generalItemTitle#navAnchor2 费用
 					.generalItemContent
 						ul.generalItemLeft
 							li
@@ -171,13 +167,13 @@ block content
 								strong.title 参考首付
 								p.content 528万（月供50513元/月）
 				.generalItem.typeItem
-					h3.generalItemTitle 户型
+					h3.generalItemTitle#navAnchor3 户型
 					.generalItemContent
 						ul.generalPicList
-							li(v-for="(item, index) in picList", :data-index="index", @click="selectNowBanner2(index)")
+							li(v-for="(item, index) in picList", :data-index="index", @click="selectNowBanner(index, true)")
 								img(:src="item")
 				.generalItem.villageItem
-					h3.generalItemTitle 小区周边及环境
+					h3.generalItemTitle#navAnchor4 小区周边及环境
 					.generalItemContent
 						.villagePic
 							a(href="javascript:void(0);")
@@ -208,19 +204,15 @@ block content
 								| 查看小区详情
 								i.icon
 				.generalItem.mapItem
-					h3.generalItemTitle 位置
+					h3.generalItemTitle#navAnchor5 位置
 					.generalItemContent
+						.mapContainer#mapContainer
 
 		.detailBar(v-show="showFixedNav")
 			a.mobileBtn(href="javascript:void(0);", @click="showMobile = true;")
 				| {{showMobile === true ? '123456789' : '电话联系TA'}}
 			ul.navList
-				li.navListItem.on 概况
-				li.navListItem 描述
-				li.navListItem 费用
-				li.navListItem 户型
-				li.navListItem 小区
-				li.navListItem 位置
+				li(v-for="(item, index) in navList", :class="nowNavIndex === index ? 'navListItem on' : 'navListItem'", @click="jumpAnchor(index)") {{item}}
 		transition(name="fade")
 			.picLayer(v-show="visible")
 				.layerImg

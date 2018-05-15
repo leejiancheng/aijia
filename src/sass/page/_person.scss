@@ -10,8 +10,10 @@ $headerGuideHeight: 80px;				// 个人中心头部栏目高度
 		.headerLogo {
 			float: left;
 			display: block;
-			@include size(107px, 36px);
-			margin-top: 20px;
+			// @include size(107px, 36px);
+			// margin-top: 20px;
+			@include size(100px, 80px);
+			// margin-top: 20px;
 		}
 		.headerUl {
 			float: left;
@@ -37,51 +39,51 @@ $headerGuideHeight: 80px;				// 个人中心头部栏目高度
 				}
 			}
 		}
-		.headerSearch {
-			position: absolute;
-			top: 26px;
-			left: 670px;
-			@include size(353px, 30px);
-			.headerSearchInput {
-				float: left;
-				overflow: hidden;
-				font-size: 14px;
-				> input {
-					float: left;
-					@include size(165px, 30px);
-					line-height: 30px;
-					padding-left: 10px;
-					border: none;
-					@include border-left-radius(3px);
-				}
-				> button {
-					float: left;
-					@include size(50px, 30px);
-					padding-left: 18px;
-					color: #fff;
-					background-color: $base;
-					border: 1px solid #fff;
-					@include border-right-radius(3px);
-					cursor: pointer;
-				}
-				.icon {
-					display: block;
-					@include size(11px, 11px);
-					background: url("../img/spriter/search1.png?__spriter") no-repeat;
-				}
-			}
-			.headerSearchBtn {
-				float: right;
-				@include size(90px, 22px);
-				padding: 3px 5px;
-				border-radius: 2px;
-				border: 1px solid #fff;
-				text-align: center;
-				font-size: 14px;
-				line-height: 22px;
-				color: #fff;
-			}
-		}
+		// .headerSearch {
+		// 	position: absolute;
+		// 	top: 26px;
+		// 	left: 670px;
+		// 	@include size(353px, 30px);
+		// 	.headerSearchInput {
+		// 		float: left;
+		// 		overflow: hidden;
+		// 		font-size: 14px;
+		// 		> input {
+		// 			float: left;
+		// 			@include size(165px, 30px);
+		// 			line-height: 30px;
+		// 			padding-left: 10px;
+		// 			border: none;
+		// 			@include border-left-radius(3px);
+		// 		}
+		// 		> button {
+		// 			float: left;
+		// 			@include size(50px, 30px);
+		// 			padding-left: 18px;
+		// 			color: #fff;
+		// 			background-color: $base;
+		// 			border: 1px solid #fff;
+		// 			@include border-right-radius(3px);
+		// 			cursor: pointer;
+		// 		}
+		// 		.icon {
+		// 			display: block;
+		// 			@include size(11px, 11px);
+		// 			background: url("../img/spriter/search1.png?__spriter") no-repeat;
+		// 		}
+		// 	}
+		// 	.headerSearchBtn {
+		// 		float: right;
+		// 		@include size(90px, 22px);
+		// 		padding: 3px 5px;
+		// 		border-radius: 2px;
+		// 		border: 1px solid #fff;
+		// 		text-align: center;
+		// 		font-size: 14px;
+		// 		line-height: 22px;
+		// 		color: #fff;
+		// 	}
+		// }
 	}
 }
 

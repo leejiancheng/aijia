@@ -100,6 +100,13 @@ const webpackConfig = merge(baseWebpackConfig, {
             inject: true,
             chunks: ["list", "app", "vendor", "manifest"]
         }),
+        new HtmlWebpackPlugin({
+            title: "房源详情",
+            filename: "detail.html",
+            template: "./src/html/detail.html",
+            inject: true,
+            chunks: ["detail", "app", "vendor", "manifest"]
+        }),
 
 
         new webpack.HashedModuleIdsPlugin(),

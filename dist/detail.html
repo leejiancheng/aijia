@@ -26,7 +26,7 @@
         <div class="detailMainWrap">
             <ul class="breadcrumb">
                 <li>
-                    <a href="javascript:void(0);">深圳58同城</a>
+                    <a href="javascript:void(0);">深圳家乐同城</a>
                 </li>
                 <li>
                     <a href="javascript:void(0);">坪山新区二手房</a>
@@ -48,7 +48,7 @@
             </div>
             <div class="houseBasicInfo">
                 <div class="basicInfoLeft fl">
-                    <div @click="showLayer" class="topPic">
+                    <div @click="visible = true;" class="topPic">
                         <img :src="picList[nowBanNumber]">
                     </div>
                     <div class="bottomList">
@@ -59,7 +59,7 @@
                             <i class="icon"></i>
                         </a>
                         <ul :style="{width: picListWidth + 'px', left: picListLeft + 'px'}" :data-index="nowBanNumber" class="bottomListUl">
-                            <li v-for="(item, index) in picList" :class="{'hover': index === nowBanNumber}" :data-index="index" @click="selectNowBanner1(index)">
+                            <li v-for="(item, index) in picList" :class="{'hover': index === nowBanNumber}" :data-index="index" @click="selectNowBanner(index, false)">
                                 <img :src="item">
                             </li>
                         </ul>
@@ -94,7 +94,7 @@
                         <li>
                             <strong class="title">位置：</strong>
                             <p class="content">福田 - 深南大道7888号</p>
-                            <a href="javascript:void(0)" class="goMap">地图</a>
+                            <a href="javascript:void(0)" @click="jumpAnchor(5)" class="goMap">地图</a>
                         </li>
                     </ul>
                     <div class="agentItem">
@@ -130,15 +130,10 @@
             </div>
             <div class="houseDetailInfo">
                 <ul class="originNav">
-                    <li class="originNavLi on">概况</li>
-                    <li class="originNavLi">描述</li>
-                    <li class="originNavLi">费用</li>
-                    <li class="originNavLi">户型</li>
-                    <li class="originNavLi">小区</li>
-                    <li class="originNavLi">位置</li>
+                    <li v-for="(item, index) in navList" :class="nowNavIndex === index ? 'originNavLi on' : 'originNavLi'" @click="jumpAnchor(index)">{{item}}</li>
                 </ul>
                 <div class="generalItem situationItem">
-                    <h3 class="generalItemTitle">概况</h3>
+                    <h3 id="navAnchor0" class="generalItemTitle">概况</h3>
                     <div class="generalItemContent">
                         <ul class="generalItemLeft">
                             <li>
@@ -179,7 +174,7 @@
                     </div>
                 </div>
                 <div class="generalItem descItem">
-                    <h3 class="generalItemTitle">描述</h3>
+                    <h3 id="navAnchor1" class="generalItemTitle">描述</h3>
                     <div class="generalItemContent">
                         <div class="generalDescList">
                             <span class="descTitle">核心卖点</span>
@@ -210,7 +205,7 @@
                     </div>
                 </div>
                 <div class="generalItem expenseItem">
-                    <h3 class="generalItemTitle">费用</h3>
+                    <h3 id="navAnchor2" class="generalItemTitle">费用</h3>
                     <div class="generalItemContent">
                         <ul class="generalItemLeft">
                             <li>
@@ -235,17 +230,17 @@
                     </div>
                 </div>
                 <div class="generalItem typeItem">
-                    <h3 class="generalItemTitle">户型</h3>
+                    <h3 id="navAnchor3" class="generalItemTitle">户型</h3>
                     <div class="generalItemContent">
                         <ul class="generalPicList">
-                            <li v-for="(item, index) in picList" :data-index="index" @click="selectNowBanner2(index)">
+                            <li v-for="(item, index) in picList" :data-index="index" @click="selectNowBanner(index, true)">
                                 <img :src="item">
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="generalItem villageItem">
-                    <h3 class="generalItemTitle">小区周边及环境</h3>
+                    <h3 id="navAnchor4" class="generalItemTitle">小区周边及环境</h3>
                     <div class="generalItemContent">
                         <div class="villagePic">
                             <a href="javascript:void(0);">
@@ -289,20 +284,17 @@
                     </div>
                 </div>
                 <div class="generalItem mapItem">
-                    <h3 class="generalItemTitle">位置</h3>
-                    <div class="generalItemContent"></div>
+                    <h3 id="navAnchor5" class="generalItemTitle">位置</h3>
+                    <div class="generalItemContent">
+                        <div id="mapContainer" class="mapContainer"></div>
+                    </div>
                 </div>
             </div>
         </div>
         <div v-show="showFixedNav" class="detailBar">
             <a href="javascript:void(0);" @click="showMobile = true;" class="mobileBtn">{{showMobile === true ? '123456789' : '电话联系TA'}}</a>
             <ul class="navList">
-                <li class="navListItem on">概况</li>
-                <li class="navListItem">描述</li>
-                <li class="navListItem">费用</li>
-                <li class="navListItem">户型</li>
-                <li class="navListItem">小区</li>
-                <li class="navListItem">位置</li>
+                <li v-for="(item, index) in navList" :class="nowNavIndex === index ? 'navListItem on' : 'navListItem'" @click="jumpAnchor(index)">{{item}}</li>
             </ul>
         </div>
         <transition name="fade">
@@ -320,5 +312,5 @@
             </div>
         </transition>
     </div>
-</body>
+<script type="text/javascript" src="/static/js/manifest.js"></script><script type="text/javascript" src="/static/js/vendor.js"></script><script type="text/javascript" src="/static/js/detail.js"></script></body>
 </html>

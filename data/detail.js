@@ -221,7 +221,10 @@ const picList = [
 	"http://pic2.58cdn.com.cn/anjuke_58/5da78960e32cfaedac66e8dc12e9f8a9"
 ];
 
+const navList = ["概况", "描述", "费用", "户型", "小区", "位置"];
+
 module.exports = {
 	detail,
-	picList
+	picList,
+	navList
 };

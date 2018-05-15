@@ -3,6 +3,7 @@
 import Vue from "vue";
 import Topbar from "./components/topbar";
 import {search} from "data/index";
+import {toast} from "./util/tool";
 
 // --------------------------
 // 首页视图
@@ -31,16 +32,20 @@ let indexVM = new Vue({
 		// 搜索结果列表点击事件
 		goToList (item) {
 			console.log(item);
-			location.href = "./list.html";
+			window.location.href = "./list.html";
 			this.showSearch = false;
 		},
 		// 搜索按钮点击事件
 		onSearch () {
-			location.href = "./list.html";
+			window.location.href = "./list.html";
 			this.showSearch = false;
 		},
 		// 搜索输入框blur事件
-		hideSearch (event) {}
+		hideSearch (event) {},
+		expectToast () {
+			toast("该服务暂未开通，敬请期待");
+			return false;
+		}
 	}
 });
 

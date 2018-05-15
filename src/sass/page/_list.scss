@@ -13,22 +13,22 @@
 			float: left;
 			@include size(214px, 42px);
 			margin-bottom: 6px;
-			background: url("../img/logo4.png") no-repeat;
+			background: url("../img/logo3.png") no-repeat;
 			background-size: cover;
 			overflow: hidden;
 			text-indent: -999em;
 		}
-		.publishBtn {
-			float: right;
-			@include size(100px, 46px);
-			color: $base;
-			text-align: center;
-			background-color: #ffefe7;
-			line-height: 46px;
-			&:hover {
-				background-color: #ffe9de;
-			}
-		}
+		// .publishBtn {
+		// 	float: right;
+		// 	@include size(100px, 46px);
+		// 	color: $base;
+		// 	text-align: center;
+		// 	background-color: #ffefe7;
+		// 	line-height: 46px;
+		// 	&:hover {
+		// 		background-color: #ffe9de;
+		// 	}
+		// }
 		.searchBar {
 			position: relative;
 			float: right;
@@ -41,7 +41,7 @@
 				top: 13px;
 				left: 10px;
 				@include size(14px, 15px);
-				background: url("../img/spriter/search3.png?__spriter") no-repeat;
+				background: url("../img/spriter/search2.png?__spriter") no-repeat;
 			}
 			.searchInput {
 				float: left;
@@ -65,7 +65,7 @@
 		.searchList {
 			position: absolute;
 			top: 46px;
-			right: 282px;
+			right: 182px;
 			@include size(504px, auto);
 			border: 1px solid $border;
 			z-index: 10;
@@ -102,15 +102,15 @@
 			.logo {
 				@include size(137px, 27px);
 				margin: 9px 0 6px;
-				background: url("../img/logo5.png") no-repeat;
+				background: url("../img/logo4.png") no-repeat;
 			}
-			.publishBtn {
-				@include size(140px, 32px);
-				line-height: 32px;
-				background-color: $background;
-				color: $base;
-				margin-top: 9px;
-			}
+			// .publishBtn {
+			// 	@include size(140px, 32px);
+			// 	line-height: 32px;
+			// 	background-color: $background;
+			// 	color: $base;
+			// 	margin-top: 9px;
+			// }
 			.searchBar {
 				@include size(618px, 32px);
 				margin-top: 9px;
@@ -135,7 +135,7 @@
 			}
 			.searchList {
 				top: 42px;
-				right: 339px;
+				right: 199px;
 				width: 517px;
 			}
 		}
@@ -264,7 +264,7 @@
 			padding: 0 25px;
 			color: #333;
 			&:hover:not(.selected) {
-				background-color: #ffeeeb;
+				background-color: lighten($base, 30%);
 				@include border-top-radius(2px);
 			}
 			&:first-child {

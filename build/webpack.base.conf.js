@@ -44,7 +44,8 @@ module.exports = {
         alias: {
             "vue$": "vue/dist/vue.esm.js",
             "@": resolve("src"),
-            "data": resolve("data")
+            "data": resolve("data"),
+            "BMap": "BMap"
         }
     },
     module: {

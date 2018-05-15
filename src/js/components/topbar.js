@@ -8,9 +8,8 @@ let template = `
 	<div class="topBar">
 		<div class="topBarContainer clearfix">
 			<div class="barLeft fl">
-				<h2>深圳</h2>
 				<a href="./index.html" class="homeLink">
-					<i class="icon"></i>58首页
+					<i class="icon"></i>家乐首页
 				</a>
 			</div>
 			<div class="barRight fr">
@@ -32,20 +31,8 @@ let template = `
 						<a href="./person.html" class="dropMenuItem">账户设置</a>
 					</div>
 				</div>
-				<div class="topBarVip rightItem">
-					<a href="javascript:void(0);" class="myText">商家中心</a>
-					<span class="arrow"></span>
-				</div>
 				<div class="topBarHelp rightItem">
 					<a href="javascript:void(0);" class="myText">联系客服</a>
-					<span class="arrow"></span>
-				</div>
-				<div class="topBarMyfeet rightItem">
-					<a href="javascript:void(0);" class="myText">最近浏览</a>
-					<span class="arrow"></span>
-				</div>
-				<div class="topBarSitemap rightItem">
-					<a href="javascript:void(0);" class="myText">网站导航</a>
 					<span class="arrow"></span>
 				</div>
 			</div>

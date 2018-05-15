@@ -10,7 +10,7 @@
 		display: block;
 		@include size(214px, 42px);
 		margin: 0 0 6px;
-		background: url("../img/logo4.png") no-repeat 0 0;
+		background: url("../img/logo3.png") no-repeat 0 0;
 	}
 	.searchBar {
 		position: relative;
@@ -24,7 +24,7 @@
 			left: 10px;
 			display: block;
 			@include size(14px, 15px);
-			background: url("../img/spriter/search4.png?__spriter") no-repeat;
+			background: url("../img/spriter/search2.png?__spriter") no-repeat;
 		}
 		.searchInput {
 			float: left;
@@ -426,7 +426,8 @@
 					content: "";
 					display: block;
 					@include size(4px, 20px);
-					background-color: #ffddd5;
+					background-color: lighten($base, 25%);
+					// background-color: #ffddd5;
 				}
 			}
 			.generalItemContent {
@@ -482,7 +483,7 @@
 				.descTitle {
 					position: relative;
 					float: left;
-					margin: 5px 26px 0 0;
+					margin: 1px 26px 0 0;
 					padding: 6px 16px 6px 5px;
 					color: #fff;
 					line-height: 1;
@@ -585,6 +586,10 @@
 					}
 				}
 			}
+			.mapContainer {
+				@include size(927px, 387px);
+				background: #ccc;
+			}
 		}
 	}
 }
@@ -621,6 +626,7 @@
 		.navListItem {
 			float: left;
 			padding: 0 41px;
+			&:hover,
 			&.on {
 				color: #fff;
 			}

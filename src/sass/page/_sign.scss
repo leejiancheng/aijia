@@ -10,7 +10,7 @@
 		position: relative;
 		@include size(520px, 20px);
 		line-height: 20px;
-		color: #fff;
+		color: #333;
 		margin: 12px auto 10px;
 		font-size: 14px;
 		.backToIndex,
@@ -18,7 +18,7 @@
 		.goReg {
 			position: absolute;
 			a {
-				color: #fff;
+				color: $base;
 			}
 		}
 		.backToIndex {
@@ -32,14 +32,16 @@
 	.signWrap {
 		position: relative;
 		width: 520px;
-		padding-top: 48px;
+		padding-top: 20px;
 		margin: 0 auto;
 		background-color: $background;
 		border-radius: 4px;
 	}
 	.signLogo {
-		@include size(136px, 46px);
-		margin: 0 auto 48px;
+		// @include size(136px, 46px);
+		// margin: 0 auto 48px;
+		@include size(160px, 127px);
+		margin: 0 auto 15px;
 		.logoHref {
 			display: block;
 			@include size(100%, 100%);
@@ -170,7 +172,7 @@
 			}
 			> img {
 				position: absolute;
-				top: 1px;
+				top: 2px;
 				right: 1px;
 				height: 50px;
 				cursor: pointer;

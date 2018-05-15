@@ -15,22 +15,24 @@
 		@include size(100%, 84px);
 		.headerBarLogo {
 			float: left;
-			@include size(126px, 42px);
-			margin: 8px 0 0 38px;
+			@include size(100px, 80px);
+			// @include size(126px, 42px);
+			// margin: 8px 0 0 38px;
+			margin: 1px 0 0 100px;
 			img {
 				display: block;
 				@include size(100%, 100%);
 			}
 		}
-		.headerBarBanner {
-			float: left;
-			@include size(150px, 50px);
-			margin: 8px 0 0 20px;
-			img {
-				display: block;
-				@include size(100%, 100%);
-			}
-		}
+		// .headerBarBanner {
+		// 	float: left;
+		// 	@include size(150px, 50px);
+		// 	margin: 8px 0 0 20px;
+		// 	img {
+		// 		display: block;
+		// 		@include size(100%, 100%);
+		// 	}
+		// }
 		.headerBarSearch {
 			position: absolute;
 			left: 366px;
@@ -114,100 +116,100 @@
 				}
 			}
 		}
-		.headerBarPostMsg {
-			position: absolute;
-			top: 10px;
-			right: 32px;
-			display: block;
-			@include size(140px, 42px);
-			line-height: 42px;
-			text-align: center;
-			color: #fff;
-			background-color: $base;
-		}
-		.headerBarDelInfo {
-			position: absolute;
-			top: 58px;
-			right: 60px;
-			height: 16px;
-			line-height: 16px;
-			font-size: 12px;
-			text-align: center;
-			color: #aaa;
-			&:hover {
-				color: $base;
-				text-decoration: underline;
-			}
-		}
+		// .headerBarPostMsg {
+		// 	position: absolute;
+		// 	top: 10px;
+		// 	right: 32px;
+		// 	display: block;
+		// 	@include size(140px, 42px);
+		// 	line-height: 42px;
+		// 	text-align: center;
+		// 	color: #fff;
+		// 	background-color: $base;
+		// }
+		// .headerBarDelInfo {
+		// 	position: absolute;
+		// 	top: 58px;
+		// 	right: 60px;
+		// 	height: 16px;
+		// 	line-height: 16px;
+		// 	font-size: 12px;
+		// 	text-align: center;
+		// 	color: #aaa;
+		// 	&:hover {
+		// 		color: $base;
+		// 		text-decoration: underline;
+		// 	}
+		// }
 	}
-	.navBar {
-		@include size($minWidth, 34px);
-		line-height: 34px;
-		margin-top: 5px;
-		border-bottom: 2px solid $base;
-		.navBarLi {
-			position: relative;
-			float: left;
-			margin: 0 10px;
-			&:first-child {
-				margin: 0;
-				.navBarLiText{
-					color: #fff;
-					@include border-top-radius(2px);
-					padding: 0 36px;
-					border-color: $base;
-					background-color: $base;
-				}
-			}
-			.navBarLiText{
-				display: block;
-				padding: 0 15px;
-				color: #888;
-				font-weight: 700;
-				&:hover {
-					color: #fff;
-					@include border-top-radius(2px);
-					background-color: $base;
-				}
-			}
-			.iconMobile {
-				position: absolute;
-				left: 0px;
-				top: 2px;
-				@include size(30px, 30px);
-			}
-			.arrow {
-				position: absolute;
-				top: 14px;
-				right: 5px;
-				display: block;
-				@include size(10px, 6px);
-				background: url("../img/spriter/arrow2.png?__spriter") no-repeat;
-			}
-			.navBarLiTG img {
-				margin-top: 7px;
-			}
-			&:hover {
-				.arrow {
-					background: url("../img/spriter/arrow2hover.png?__spriter") no-repeat;
-				}
-			}
-			&.hasChild {
-				margin-left: 15px;
-				margin-right: 0;
-				.navBarLiText{
-					padding: 0 25px 0 20px;
-					// border: 1px solid transparent;
-					color: $base;
-					&:hover {
-						color: $base;
-						// border-color: $base;
-						background-color: #fff;
-					}
-				}
-			}
-		}
-	}
+	// .navBar {
+	// 	@include size($minWidth, 34px);
+	// 	line-height: 34px;
+	// 	margin-top: 5px;
+	// 	border-bottom: 2px solid $base;
+	// 	.navBarLi {
+	// 		position: relative;
+	// 		float: left;
+	// 		margin: 0 10px;
+	// 		&:first-child {
+	// 			margin: 0;
+	// 			.navBarLiText{
+	// 				color: #fff;
+	// 				@include border-top-radius(2px);
+	// 				padding: 0 36px;
+	// 				border-color: $base;
+	// 				background-color: $base;
+	// 			}
+	// 		}
+	// 		.navBarLiText{
+	// 			display: block;
+	// 			padding: 0 15px;
+	// 			color: #888;
+	// 			font-weight: 700;
+	// 			&:hover {
+	// 				color: #fff;
+	// 				@include border-top-radius(2px);
+	// 				background-color: $base;
+	// 			}
+	// 		}
+	// 		.iconMobile {
+	// 			position: absolute;
+	// 			left: 0px;
+	// 			top: 2px;
+	// 			@include size(30px, 30px);
+	// 		}
+	// 		.arrow {
+	// 			position: absolute;
+	// 			top: 14px;
+	// 			right: 5px;
+	// 			display: block;
+	// 			@include size(10px, 6px);
+	// 			background: url("../img/spriter/arrow2.png?__spriter") no-repeat;
+	// 		}
+	// 		.navBarLiTG img {
+	// 			margin-top: 7px;
+	// 		}
+	// 		&:hover {
+	// 			.arrow {
+	// 				background: url("../img/spriter/arrow2hover.png?__spriter") no-repeat;
+	// 			}
+	// 		}
+	// 		&.hasChild {
+	// 			margin-left: 15px;
+	// 			margin-right: 0;
+	// 			.navBarLiText{
+	// 				padding: 0 25px 0 20px;
+	// 				// border: 1px solid transparent;
+	// 				color: $base;
+	// 				&:hover {
+	// 					color: $base;
+	// 					// border-color: $base;
+	// 					background-color: #fff;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 }
 
 
@@ -274,7 +276,7 @@
 				&.escIcon {
 					background: url("../img/spriter/icon3.png?__spriter") no-repeat;
 				}
-				&.esscIcon {
+				&.jzfwIcon {
 					background: url("../img/spriter/icon4.png?__spriter") no-repeat;
 				}
 				&.cwIcon {
